@@ -1371,27 +1371,24 @@ will-change:transform;
 .dropdown-menu button{
 
     width:100%;
-
-    background:none;
-
-    border:none;
-
-    color:white;
-
-    padding:15px 18px;
-
     display:flex;
-
     align-items:center;
-
     gap:12px;
 
-    cursor:pointer;
+    padding:14px 18px;
+
+    background:transparent;
+    border:none;
+    border-radius:0;
+
+    color:white;
+    font-size:15px;
+    font-weight:500;
 
     text-align:left;
 
-    font-size:15px;
-
+    box-shadow:none;
+    transform:none;
 }
 
 .dropdown-menu a:hover,
