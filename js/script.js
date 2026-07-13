@@ -95,3 +95,24 @@ submitButtons.forEach(button => {
     });
 
 });
+
+const userBtn = document.getElementById("userBtn");
+const dropdownMenu = document.getElementById("dropdownMenu");
+
+if(userBtn){
+
+    userBtn.addEventListener("click", function(e){
+
+        e.stopPropagation();
+
+        dropdownMenu.classList.toggle("show");
+
+    });
+
+    document.addEventListener("click", function(){
+
+        dropdownMenu.classList.remove("show");
+
+    });
+
+}
