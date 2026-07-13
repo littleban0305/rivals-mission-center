@@ -1,0 +1,1 @@
+console.log('Rivals Mission Center loaded');
