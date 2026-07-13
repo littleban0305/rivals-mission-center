@@ -623,6 +623,8 @@ main{
 
     margin-bottom:60px;
 
+    align-items:stretch;
+
 }
 
 /* ===========================================
@@ -648,6 +650,12 @@ main{
     overflow:hidden;
 
     position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
 
 }
 
