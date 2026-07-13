@@ -1,25 +1,27 @@
 // ==========================
 // Rivals Mission Center
-// Main Script Beta 3
+// Main Script
 // ==========================
 
-// 取得玩家資料
+// ---------- 玩家登入 ----------
+
 const player = JSON.parse(localStorage.getItem("player"));
 
-// 沒登入就跳到登入頁
 if (!player) {
 
-    window.location.href = "login.html";
+    if (!window.location.pathname.includes("login.html")) {
+
+        window.location.href = "login.html";
+
+    }
 
 }
 
-// ==========================
-// Navbar
-// ==========================
+// ---------- Navbar ----------
 
 const loginBtn = document.querySelector(".login-btn");
 
-if (loginBtn) {
+if (loginBtn && player) {
 
     loginBtn.innerHTML = `
         <i class="bi bi-person-circle"></i>
@@ -28,56 +30,27 @@ if (loginBtn) {
 
 }
 
-// ==========================
-// 玩家資訊
-// ==========================
+// ---------- 首頁資料 ----------
 
-// 玩家名稱
 const playerName = document.querySelector(".card p");
 
-if (playerName) {
+if (playerName && player) {
 
     playerName.textContent = `Roblox：${player.username}`;
 
 }
 
-// 等級
-const playerLevel = document.querySelectorAll(".card p")[1];
-
-if (playerLevel) {
-
-    playerLevel.textContent = `等級：Lv.${player.level}`;
-
-}
-
-// EXP
-const playerExp = document.querySelectorAll(".card p")[2];
-
-if (playerExp) {
-
-    playerExp.textContent = `EXP：${player.exp} / 100`;
-
-}
-
-// ==========================
-// Gold
-// ==========================
-
 const goldText = document.querySelector(".dashboard .card:nth-child(2) h1");
 
-if (goldText) {
+if (goldText && player) {
 
     goldText.textContent = player.gold;
 
 }
 
-// ==========================
-// Battle Pass
-// ==========================
-
 const bpText = document.querySelector(".dashboard .card:nth-child(3) p");
 
-if (bpText) {
+if (bpText && player) {
 
     bpText.textContent = `Lv.${player.battlePass}`;
 
@@ -85,15 +58,13 @@ if (bpText) {
 
 const progressBar = document.querySelector(".progress-bar");
 
-if (progressBar) {
+if (progressBar && player) {
 
     progressBar.style.width = `${player.exp}%`;
 
 }
 
-// ==========================
-// 開始挑戰
-// ==========================
+// ---------- Hero Button ----------
 
 const startBtn = document.getElementById("startBtn");
 
@@ -107,4 +78,20 @@ if (startBtn) {
 
 }
 
-console.log(player);
+// ==========================
+// 任務提交
+// ==========================
+
+const submitButtons = document.querySelectorAll(".submit-btn");
+
+submitButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const id = button.dataset.id;
+
+        window.location.href = `submit.html?id=${id}`;
+
+    });
+
+});
