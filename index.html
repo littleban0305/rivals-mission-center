@@ -1,1 +1,355 @@
-<!doctype html><html lang='zh-TW'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>RMC V2 Alpha</title><link rel='stylesheet' href='css/style.css'></head><body><nav class='nav'><h2>Rivals Mission Center</h2></nav><header class='hero'><span class='badge'>Season 1</span><h1>Battle Pass</h1><p>Prototype Alpha</p><button>開始挑戰</button></header><main><div class='grid'><div class='card'><h3>玩家</h3><p>Guest</p><p>Gold:0</p><p>Lv1</p></div><div class='card'><h3>今日任務</h3><ul><li>登入</li><li>完成3場</li><li>贏5場</li></ul></div><div class='card'><h3>商店</h3><p>Skin Case 249R / 996 Gold</p><p>椰子鐮刀 799R / 3196 Gold</p></div></div></main><script src='js/script.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rivals Mission Center</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar">
+
+    <a class="logo" href="index.html">
+
+        <i class="bi bi-controller"></i>
+
+        <div>
+
+            <h2>RIVALS</h2>
+
+            <span>Mission Center</span>
+
+        </div>
+
+    </a>
+
+    <ul class="nav-links">
+
+        <li><a href="index.html">首頁</a></li>
+
+        <li><a href="missions.html">任務</a></li>
+
+        <li><a href="shop.html">商店</a></li>
+
+        <li><a href="player.html">玩家</a></li>
+
+        <li><a href="#">公告</a></li>
+
+    </ul>
+
+    <button class="login-btn">
+
+        <i class="bi bi-person-circle"></i>
+
+        登入
+
+    </button>
+
+</nav>
+
+<!-- Hero -->
+
+<header class="hero">
+
+    <div class="hero-left">
+
+        <span class="season-badge">
+
+            SEASON 1
+
+        </span>
+
+        <h1>
+
+            RIVALS<br>
+
+            MISSION CENTER
+
+        </h1>
+
+        <p>
+
+            完成每日任務、提升 Battle Pass、
+            累積 Gold，兌換豐富獎勵。
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <button id="startBtn">
+
+                開始挑戰
+
+            </button>
+
+            <button class="outline-btn">
+
+                查看任務
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img src="images/items/skincase.png" alt="Skin Case">
+
+    </div>
+
+</header>
+
+<main>
+
+<!-- Dashboard -->
+
+<section class="dashboard">
+
+<div class="card">
+
+<h2>
+
+<i class="bi bi-person-fill"></i>
+
+玩家資訊
+
+</h2>
+
+<p>Roblox：Guest</p>
+
+<p>等級：Lv.1</p>
+
+<p>EXP：0 / 100</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+<i class="bi bi-coin"></i>
+
+Gold
+
+</h2>
+
+<h1>
+
+0
+
+</h1>
+
+<p>目前 Gold</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+<i class="bi bi-stars"></i>
+
+Battle Pass
+
+</h2>
+
+<div class="progress">
+
+<div class="progress-bar" style="width:10%"></div>
+
+</div>
+
+<p>
+
+Lv.1
+
+</p>
+
+</div>
+
+</section>
+
+<!-- Daily -->
+
+<section class="mission-section">
+
+<h2>
+
+📅 今日任務
+
+</h2>
+
+<div class="mission-list">
+
+<div class="mission">
+
+<div>
+
+<h3>每日登入</h3>
+
+<p>獎勵：Gold ?　EXP ?</p>
+
+</div>
+
+<button>查看</button>
+
+</div>
+
+<div class="mission">
+
+<div>
+
+<h3>完成 3 場對戰</h3>
+
+<p>獎勵：Gold ?　EXP ?</p>
+
+</div>
+
+<button>查看</button>
+
+</div>
+
+<div class="mission">
+
+<div>
+
+<h3>贏得 5 場對戰</h3>
+
+<p>獎勵：Gold ?　EXP ?</p>
+
+</div>
+
+<button>查看</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Weekly -->
+
+<section class="mission-section">
+
+<h2>
+
+📆 每週任務
+
+</h2>
+
+<div class="mission-list">
+
+<div class="mission">
+
+<div>
+
+<h3>本週任務（施工中）</h3>
+
+<p>Beta 版即將加入</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Permanent -->
+
+<section class="mission-section">
+
+<h2>
+
+⭐ 永久任務
+
+</h2>
+
+<div class="mission-list">
+
+<div class="mission">
+
+<div>
+
+<h3>升到 300 等</h3>
+
+<p>完成可獲得獎勵</p>
+
+</div>
+
+</div>
+
+<div class="mission">
+
+<div>
+
+<h3>500 次雙殺</h3>
+
+<p>完成可獲得獎勵</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Announcement -->
+
+<section class="mission-section">
+
+<h2>
+
+📢 最新公告
+
+</h2>
+
+<div class="card">
+
+<p>
+
+歡迎來到 Rivals Mission Center！
+
+目前網站仍在 Beta 開發中。
+
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© 2026 Rivals Mission Center
+
+</p>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
