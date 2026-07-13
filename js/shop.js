@@ -91,7 +91,7 @@ shopButtons.forEach(button => {
         const itemId = button.dataset.item;
 
         window.location.href =
-            `shop-submit.html?id=${itemId}`;
+        `submit.html?type=shop&id=${itemId}`;
 
     });
 
@@ -134,8 +134,10 @@ if (exchangeBtn) {
 
         }
 
-        alert(
-            `將兌換 ${gold / 5} R 幣。\n\n此功能將於 Google Form 串接後正式開放。`
+        const rcoin = gold / 5;
+
+        window.location.href =
+        `submit.html?type=exchange&id=EX001&gold=${gold}&rcoin=${rcoin}`;
         );
 
     });
