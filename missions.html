@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>任務 - Rivals Mission Center</title>
+    <title>任務中心 - Rivals Mission Center</title>
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -23,7 +23,7 @@
 
 <nav class="navbar">
 
-    <a class="logo" href="index.html">
+    <a href="index.html" class="logo">
 
         <i class="bi bi-controller"></i>
 
@@ -59,208 +59,171 @@
 
 </nav>
 
+<header class="hero">
+
+    <div class="hero-left">
+
+        <span class="season-badge">
+
+            每日任務
+
+        </span>
+
+        <h1>
+
+            DAILY MISSIONS
+
+        </h1>
+
+        <p>
+
+            每天 00:00 將隨機刷新三個每日任務，
+            完成後可獲得 Gold 與 Battle Pass EXP。
+
+        </p>
+
+    </div>
+
+</header>
+
 <main>
 
-<h1>📋 任務中心</h1>
-
-<p>完成任務即可獲得 Gold 與 Battle Pass EXP。</p>
-
-<!-- 每日任務 -->
-
 <section class="mission-section">
 
-<h2>📅 每日任務</h2>
+<h2>
 
-<div class="mission-list">
+📅 今日任務
 
-<div class="mission">
-
-<div>
-
-<h3>每日登入</h3>
-
-<p>登入網站一次。</p>
-
-<small>獎勵：20 Gold ・10 EXP</small>
-
-</div>
-
-<button>完成</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>完成 3 場 Rivals</h3>
-
-<p>完成三場對戰。</p>
-
-<small>獎勵：40 Gold ・20 EXP</small>
-
-</div>
-
-<button>完成</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>贏得 5 場 Rivals</h3>
-
-<p>獲勝五場。</p>
-
-<small>獎勵：60 Gold ・30 EXP</small>
-
-</div>
-
-<button>完成</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- 每週任務 -->
-
-<section class="mission-section">
-
-<h2>📆 每週任務</h2>
-
-<div class="mission-list">
-
-<div class="mission">
-
-<div>
-
-<h3>完成 30 場對戰</h3>
-
-<p>一週內完成。</p>
-
-<small>獎勵：250 Gold ・100 EXP</small>
-
-</div>
-
-<button>完成</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- 永久任務 -->
-
-<section class="mission-section">
-
-<h2>⭐ 永久任務</h2>
-
-<div class="mission-list">
-
-<div class="mission">
-
-<div>
-
-<h3>升到 300 等</h3>
-
-<small>獎勵：20 R 幣</small>
-
-</div>
-
-<button>查看</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>升到 400 等</h3>
-
-<small>獎勵：50 R 幣</small>
-
-</div>
-
-<button>查看</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>升到 500 等</h3>
-
-<small>獎勵：100 R 幣</small>
-
-</div>
-
-<button>查看</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>安裝 Medal</h3>
-
-<small>獎勵：10 R 幣</small>
-
-</div>
-
-<button>查看</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>安裝指定手機遊戲</h3>
-
-<small>獎勵：10 R 幣</small>
-
-</div>
-
-<button>查看</button>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="mission-section">
-
-<h2>📤 提交任務</h2>
-
-<div class="card">
+</h2>
 
 <p>
 
-完成任務後，請提交截圖或 Medal 錄影進行審核。
+下次刷新：
+
+<span id="daily-reset">
+
+00:00:00
+
+</span>
 
 </p>
 
+<div class="mission-list">
+
+<div class="mission">
+
+<div>
+
+<h3>
+
+🟢 每日登入
+
+</h3>
+
+<p>
+
+登入網站一次
+
+</p>
+
+<small>
+
+🪙 +20 Gold　⭐ +10 EXP
+
+</small>
+
+</div>
+
+<div>
+
+<p>🟢 普通</p>
+
 <button>
 
-提交申請
+提交證明
 
 </button>
 
 </div>
 
+</div>
+
+<div class="mission">
+
+<div>
+
+<h3>
+
+🟢 完成 3 場 Rivals
+
+</h3>
+
+<p>
+
+完成任意三場對戰
+
+</p>
+
+<small>
+
+🪙 +40 Gold　⭐ +20 EXP
+
+</small>
+
+</div>
+
+<div>
+
+<p>🟢 普通</p>
+
+<button>
+
+提交證明
+
+</button>
+
+</div>
+
+</div>
+
+<div class="mission">
+
+<div>
+
+<h3>
+
+🟡 贏得 5 場 Rivals
+
+</h3>
+
+<p>
+
+獲勝五場對戰
+
+</p>
+
+<small>
+
+🪙 +60 Gold　⭐ +30 EXP
+
+</small>
+
+</div>
+
+<div>
+
+<p>🟡 稀有</p>
+
+<button>
+
+提交證明
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
-
-</main>
-
-<script src="js/script.js"></script>
-
-</body>
-
-</html>
