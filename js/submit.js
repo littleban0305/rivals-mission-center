@@ -129,25 +129,97 @@ const missions = {
 
 const params = new URLSearchParams(window.location.search);
 
+const type = params.get("type");
+
 const id = params.get("id");
 
-// 找任務
-const mission = missions[id];
+// ==========================
+// 任務
+// ==========================
 
-// 找不到任務
-if (!mission) {
+if (type === "mission") {
 
-    document.getElementById("missionName").textContent = "找不到任務";
+    const mission = missions[id];
 
-} else {
+    if (!mission) {
 
-    document.getElementById("missionName").textContent = mission.name;
+        document.getElementById("missionName").textContent = "找不到任務";
+
+    } else {
+
+        document.getElementById("missionName").textContent = mission.name;
+
+        document.getElementById("missionCode").textContent = id;
+
+        document.getElementById("missionReward").textContent = mission.reward;
+
+        document.getElementById("missionProof").textContent = mission.proof;
+
+    }
+
+}
+
+// ==========================
+// 商品
+// ==========================
+
+else if (type === "shop") {
+
+    const shop = {
+
+        SC001: {
+
+            name:"Skin Case",
+
+            reward:"Skin Case",
+
+            proof:"Roblox 名稱"
+
+        },
+
+        SC002:{
+
+            name:"椰子鐮刀",
+
+            reward:"Palm Scythe",
+
+            proof:"Roblox 名稱"
+
+        }
+
+    };
+
+    const item = shop[id];
+
+    document.getElementById("missionName").textContent = item.name;
 
     document.getElementById("missionCode").textContent = id;
 
-    document.getElementById("missionReward").textContent = mission.reward;
+    document.getElementById("missionReward").textContent = item.reward;
 
-    document.getElementById("missionProof").textContent = mission.proof;
+    document.getElementById("missionProof").textContent = item.proof;
+
+}
+
+// ==========================
+// Gold → R 幣
+// ==========================
+
+else if (type === "exchange") {
+
+    const gold = params.get("gold");
+
+    const rcoin = params.get("rcoin");
+
+    document.getElementById("missionName").textContent = "Gold 兌換 R 幣";
+
+    document.getElementById("missionCode").textContent = id;
+
+    document.getElementById("missionReward").textContent =
+        `${gold} Gold → ${rcoin} R`;
+
+    document.getElementById("missionProof").textContent =
+        "Roblox 名稱";
 
 }
 
