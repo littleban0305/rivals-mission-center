@@ -4,9 +4,11 @@
 // ==========================
 
 // 已登入就直接回首頁
-if (localStorage.getItem("player")) {
+const player = localStorage.getItem("player");
 
-    window.location.href = "index.html";
+if (player) {
+
+    location.replace("index.html");
 
 }
 
@@ -32,6 +34,15 @@ function login() {
 
     const username = usernameInput.value.trim();
 
+    if (username.length > 20) {
+
+    alert("Roblox 名稱最多 20 個字元。");
+
+    return;
+
+}
+
+
     if (username === "") {
 
         alert("請輸入 Roblox 名稱！");
@@ -40,23 +51,45 @@ function login() {
     }
 
     // 建立玩家資料
-    const player = {
+const player = {
 
-        username: username,
+    playerId: crypto.randomUUID
+        ? crypto.randomUUID()
+        : Date.now().toString(),
 
-        gold: 0,
+    username: username,
 
-        rcoin: 0,
+    version: "Beta 0.1",
 
-        exp: 0,
+    gold: 0,
 
-        level: 1,
+    rcoin: 0,
 
-        battlePass: 1,
+    level: 1,
 
-        joinDate: new Date().toLocaleDateString()
+    battlePass: 1,
 
-    };
+    exp: 0,
+
+    maxExp: 100,
+
+    skinCase: 0,
+
+    coconutScythe: 0,
+
+    dailyCompleted: 0,
+
+    weeklyCompleted: 0,
+
+    permanentCompleted: 0,
+
+    joinDate: new Date().toLocaleDateString(),
+
+    createTime: Date.now(),
+
+    lastLogin: Date.now()
+
+};
 
     // 儲存
     localStorage.setItem(
