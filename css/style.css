@@ -1326,3 +1326,87 @@ will-change:transform;
 /* ===========================================
    END
 =========================================== */
+
+/* ==========================
+   User Dropdown
+========================== */
+
+.user-menu{
+    position:relative;
+}
+
+.dropdown-menu{
+
+    position:absolute;
+
+    top:110%;
+    right:0;
+
+    width:220px;
+
+    background:rgba(20,20,35,.96);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    display:none;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+    z-index:1000;
+
+}
+
+.dropdown-menu.show{
+    display:block;
+    animation:fadeUp .25s;
+}
+
+.dropdown-menu a,
+.dropdown-menu button{
+
+    width:100%;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    padding:15px 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    font-size:15px;
+
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover{
+
+    background:rgba(141,76,255,.18);
+
+}
+
+.dropdown-menu hr{
+
+    border:none;
+
+    height:1px;
+
+    background:rgba(255,255,255,.08);
+
+}
