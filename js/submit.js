@@ -156,7 +156,10 @@ const submitBtn = document.getElementById("submitGoogle");
 
 submitBtn.addEventListener("click", () => {
 
-    alert("Google Form 尚未設定。");
+    window.open(
+    "https://forms.gle/kvrLmooCyYbGAsKP9",
+    "_blank"
+);
 
     // 之後改成：
     // window.open("你的GoogleForm網址");
