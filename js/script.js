@@ -6,8 +6,9 @@
 // ---------- 玩家登入 ----------
 
 const player = JSON.parse(localStorage.getItem("player"));
+const isLogin = localStorage.getItem("isLogin");
 
-if (!player) {
+if (!player || isLogin !== "true") {
 
     if (!window.location.pathname.includes("login.html")) {
 
