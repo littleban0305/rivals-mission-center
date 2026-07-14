@@ -905,7 +905,7 @@ main{
    Button
 =========================================== */
 
-button{
+.btn{
 
     border:none;
 
@@ -935,7 +935,7 @@ button{
 
 }
 
-button:hover{
+.btn:hover{
 
     transform:translateY(-3px);
 
@@ -943,7 +943,7 @@ button:hover{
 
 }
 
-button:active{
+.btn:active{
 
     transform:scale(.96);
 
