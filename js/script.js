@@ -27,6 +27,14 @@ if (username && player) {
 
 }
 
+const dropdownUsername = document.getElementById("dropdownUsername");
+
+if (dropdownUsername && player) {
+
+    dropdownUsername.textContent = player.username;
+
+}
+
 // ---------- 首頁資料 ----------
 
 const isHome =
@@ -59,19 +67,19 @@ if (isHome) {
 
     }
 
-// ---------- Hero Button ----------
+    // ---------- Hero Button ----------
 
-const startBtn = document.getElementById("startBtn");
+    const startBtn = document.getElementById("startBtn");
 
-if (startBtn) {
+    if (startBtn) {
 
-    startBtn.addEventListener("click", () => {
+        startBtn.addEventListener("click", () => {
 
-        window.location.href = "missions.html";
+            window.location.href = "missions.html";
 
-    });
+        });
 
-}
+    }
 
 }
 
@@ -93,18 +101,27 @@ submitButtons.forEach(button => {
 
 });
 
+// ==========================
+// User Dropdown
+// ==========================
+
 const userBtn = document.getElementById("userBtn");
 const dropdownMenu = document.getElementById("dropdownMenu");
 const dropdownArrow = document.getElementById("dropdownArrow");
 
-if (userBtn && dropdownMenu && dropdownArrow) {
+if (userBtn && dropdownMenu) {
 
     userBtn.addEventListener("click", function (e) {
 
         e.stopPropagation();
 
         dropdownMenu.classList.toggle("show");
-        dropdownArrow.classList.toggle("rotate");
+
+        if (dropdownArrow) {
+
+            dropdownArrow.classList.toggle("rotate");
+
+        }
 
     });
 
@@ -117,7 +134,12 @@ if (userBtn && dropdownMenu && dropdownArrow) {
     document.addEventListener("click", function () {
 
         dropdownMenu.classList.remove("show");
-        dropdownArrow.classList.remove("rotate");
+
+        if (dropdownArrow) {
+
+            dropdownArrow.classList.remove("rotate");
+
+        }
 
     });
 
@@ -129,29 +151,28 @@ if (userBtn && dropdownMenu && dropdownArrow) {
 
 const editProfileBtn = document.getElementById("editProfileBtn");
 const editModal = document.getElementById("editModal");
-
 const cancelEdit = document.getElementById("cancelEdit");
 
 if (editProfileBtn && editModal) {
 
     editProfileBtn.addEventListener("click", function () {
 
-    document.getElementById("editUsername").value =
-        player.username || "";
+        document.getElementById("editUsername").value =
+            player.username || "";
 
-    document.getElementById("editRoblox").value =
-        player.roblox || "";
+        document.getElementById("editRoblox").value =
+            player.roblox || "";
 
-    document.getElementById("editDiscord").value =
-        player.discord || "";
+        document.getElementById("editDiscord").value =
+            player.discord || "";
 
-    editModal.classList.add("show");
+        editModal.classList.add("show");
 
-});
+    });
 
 }
 
-if (cancelEdit) {
+if (cancelEdit && editModal) {
 
     cancelEdit.addEventListener("click", function () {
 
@@ -161,15 +182,15 @@ if (cancelEdit) {
 
 }
 
+// ==========================
+// Save Profile
+// ==========================
+
 const saveProfile = document.getElementById("saveProfile");
 
 if (saveProfile) {
 
-    console.log("SaveProfile 已綁定");
-
     saveProfile.addEventListener("click", function () {
-
-        console.log("按下儲存");
 
         player.username =
             document.getElementById("editUsername").value;
@@ -180,12 +201,17 @@ if (saveProfile) {
         player.discord =
             document.getElementById("editDiscord").value;
 
-        localStorage.setItem("player", JSON.stringify(player));
+        localStorage.setItem(
+            "player",
+            JSON.stringify(player)
+        );
 
-        document.getElementById("username").textContent = player.username;
+        // 更新 Navbar
+        if (username) {
 
-        const dropdownUsername =
-            document.getElementById("dropdownUsername");
+            username.textContent = player.username;
+
+        }
 
         if (dropdownUsername) {
 
