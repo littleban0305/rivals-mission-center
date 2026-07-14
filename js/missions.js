@@ -4,19 +4,6 @@
 // ==========================
 
 // ==========================
-// 玩家資料
-// ==========================
-
-const players =
-    JSON.parse(localStorage.getItem("players")) || {};
-
-const currentPlayer =
-    localStorage.getItem("currentPlayer");
-
-const player =
-    players[currentPlayer];
-
-// ==========================
 // 任務分類容器
 // ==========================
 
