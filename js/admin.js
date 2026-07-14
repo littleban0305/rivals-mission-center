@@ -4,14 +4,58 @@
 // ==========================
 
 // ==========================
-// 讀取玩家資料
+// 玩家資料
 // ==========================
+
+const params = new URLSearchParams(location.search);
+
+const selectedPlayer =
+    params.get("player") ||
+    localStorage.getItem("currentPlayer");
+
+const playerSelect =
+    document.getElementById("playerSelect");
+
+let player =
+    players[selectedPlayer];
 
 if (!player) {
 
     alert("找不到玩家資料！");
 
     window.location.href = "login.html";
+
+}
+
+// 建立玩家下拉選單
+
+if (playerSelect) {
+
+    for (const username in players) {
+
+        const option =
+            document.createElement("option");
+
+        option.value = username;
+
+        option.textContent = username;
+
+        if (username === selectedPlayer) {
+
+            option.selected = true;
+
+        }
+
+        playerSelect.appendChild(option);
+
+    }
+
+    playerSelect.addEventListener("change", () => {
+
+        location.href =
+            `admin.html?player=${playerSelect.value}`;
+
+    });
 
 }
 
@@ -84,7 +128,7 @@ saveBtn.addEventListener("click", () => {
     player.coconutScythe =
         Number(document.getElementById("adminScythe").value);
 
-players[currentPlayer] = player;
+players[selectedPlayer] = player;
 
 localStorage.setItem(
     "players",
@@ -172,8 +216,7 @@ if (approveBtn) {
         }
 
         // 存回玩家資料
-        players[currentPlayer] =
-            player;
+        players[selectedPlayer] = player;
 
         localStorage.setItem(
             "players",
