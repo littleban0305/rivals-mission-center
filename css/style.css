@@ -901,9 +901,9 @@ main{
 
 }
 
-/* ===========================================
-   Button
-=========================================== */
+/* ===========================
+   Primary Button
+=========================== */
 
 .btn{
 
@@ -919,16 +919,10 @@ main{
 
     border-radius:14px;
 
-    background:
-
-    linear-gradient(
-
-    90deg,
-
-    #7d48ff,
-
-    #c45fff
-
+    background:linear-gradient(
+        90deg,
+        #7d48ff,
+        #c45fff
     );
 
     transition:.25s;
