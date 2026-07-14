@@ -4,7 +4,20 @@
 // ==========================
 
 // 玩家資料
-const player = JSON.parse(localStorage.getItem("player"));
+const players =
+    JSON.parse(localStorage.getItem("players")) || {};
+
+const currentPlayer =
+    localStorage.getItem("currentPlayer");
+
+const player =
+    players[currentPlayer];
+
+if (!player) {
+
+    window.location.href = "login.html";
+
+}
 
 if (!player) {
 
@@ -138,7 +151,6 @@ if (exchangeBtn) {
 
         window.location.href =
         `submit.html?type=exchange&id=EX001&gold=${gold}&rcoin=${rcoin}`;
-        );
 
     });
 
