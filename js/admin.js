@@ -103,3 +103,31 @@ localStorage.setItem(
     alert("✅ 玩家資料已儲存！");
 
 });
+
+// ==========================
+// 任務審核
+// ==========================
+
+const missionSelect =
+    document.getElementById("missionSelect");
+
+if (missionSelect && player.missions) {
+
+    for (const id in player.missions) {
+
+        if (player.missions[id] === "pending") {
+
+            const option =
+                document.createElement("option");
+
+            option.value = id;
+
+            option.textContent = `${id}（審核中）`;
+
+            missionSelect.appendChild(option);
+
+        }
+
+    }
+
+}
