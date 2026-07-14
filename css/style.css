@@ -1433,6 +1433,8 @@ img{
 
 #dropdownArrow{
 
+    display:inline-block;
+
     transition:transform .25s ease;
 
 }
