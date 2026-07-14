@@ -116,7 +116,8 @@ if(userBtn){
     document.addEventListener("click", function(){
 
         dropdownMenu.classList.remove("show");
+        dropdownArrow.classList.remove("rotate");
 
-    });
+});
 
 }
