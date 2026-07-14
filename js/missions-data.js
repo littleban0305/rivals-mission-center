@@ -175,7 +175,7 @@ const missions = {
         icon: "🔥",
         category: "permanent",
         status: "active",
-        name: "2v2 達成 25 次雙殺",
+        name: "2v2 達成 20 次雙殺",
         desc: "累積完成 25 次雙殺。",
         reward: "150 Gold",
         proof: "Medal 影片"
@@ -221,7 +221,7 @@ const missions = {
         status: "active",
         name: "與 ELO 單挑獲勝 1 場",
         desc: "在 CS2 單挑中擊敗 ELO。",
-        reward: "150 Gold",
+        reward: "200 Gold",
         proof: "比賽截圖"
     },
 
@@ -231,7 +231,7 @@ const missions = {
         status: "active",
         name: "與 ELO 組隊贏得 1 場",
         desc: "與 ELO 一起完成一場競技或優先勝利。",
-        reward: "50 Gold",
+        reward: "250 Gold",
         proof: "比賽截圖"
     },
 
