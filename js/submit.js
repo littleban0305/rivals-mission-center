@@ -155,8 +155,6 @@ else if (type === "exchange") {
 
 const submitBtn = document.getElementById("submitGoogle");
 
-const submitBtn = document.getElementById("submitGoogle");
-
 if (submitBtn) {
 
     submitBtn.addEventListener("click", () => {
