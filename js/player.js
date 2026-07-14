@@ -7,7 +7,7 @@
 const playerData = JSON.parse(localStorage.getItem("player"));
 
 // 沒登入就跳回登入頁
-if (!player) {
+if (!playerData) {
 
     window.location.href = "login.html";
 
@@ -17,51 +17,51 @@ if (!player) {
 // 基本資料
 // ==========================
 
-document.getElementById("playerName").textContent = player.username;
+document.getElementById("playerName").textContent = playerData.username;
 
 document.getElementById("playerRoblox").textContent =
-player.roblox || "未設定";
+playerData.roblox || "未設定";
 
 document.getElementById("playerDiscord").textContent =
-player.discord || "未設定";
+playerData.discord || "未設定";
 
-document.getElementById("gold").textContent = player.gold;
+document.getElementById("gold").textContent = playerData.gold;
 
-document.getElementById("rcoin").textContent = player.rcoin;
+document.getElementById("rcoin").textContent = playerData.rcoin;
 
 document.getElementById("playerLevel").textContent =
-`Lv.${player.level}`;
+`Lv.${playerData.level}`;
 
 document.getElementById("joinDate").textContent =
-`加入日期：${player.joinDate}`;
+`加入日期：${playerData.joinDate}`;
 
 document.getElementById("settingUsername").textContent =
-player.roblox || "未設定";
+playerData.roblox || "未設定";
 
 document.getElementById("settingJoinDate").textContent =
-player.joinDate;
+playerData.joinDate;
 
 // ==========================
 // Battle Pass
 // ==========================
 
 document.getElementById("battlePassLevel").textContent =
-`Lv.${player.battlePass}`;
+`Lv.${playerData.battlePass}`;
 
 document.getElementById("currentBP").textContent =
-`Lv.${player.battlePass}`;
+`Lv.${playerData.battlePass}`;
 
 document.getElementById("battlePassExp").textContent =
-`${player.exp} / 100 EXP`;
+`${playerData.exp} / 100 EXP`;
 
 document.getElementById("nextLevelExp").textContent =
-`${100-player.exp} EXP`;
+`${100-playerData.exp} EXP`;
 
 document.getElementById("battlePassProgress").style.width =
-`${player.exp}%`;
+`${playerData.exp}%`;
 
 document.getElementById("expProgress").style.width =
-`${player.exp}%`;
+`${playerData.exp}%`;
 
 // ==========================
 // 玩家稱號
@@ -69,19 +69,19 @@ document.getElementById("expProgress").style.width =
 
 let rank = "Rookie";
 
-if(player.level >= 10){
+if(playerData.level >= 10){
 
     rank = "Elite";
 
 }
 
-if(player.level >= 30){
+if(playerData.level >= 30){
 
     rank = "Master";
 
 }
 
-if(player.level >= 60){
+if(playerData.level >= 60){
 
     rank = "Legend";
 
@@ -110,23 +110,23 @@ document.getElementById("totalMissionCount").textContent = 0;
 
 // 之後商店會更新這些數值
 
-if(player.skinCase === undefined){
+if(playerData.skinCase === undefined){
 
-    player.skinCase = 0;
+    playerData.skinCase = 0;
 
 }
 
-if(player.coconutScythe === undefined){
+if(playerData.coconutScythe === undefined){
 
-    player.coconutScythe = 0;
+    playerData.coconutScythe = 0;
 
 }
 
 document.getElementById("inventorySkinCase").textContent =
-player.skinCase;
+playerData.skinCase;
 
 document.getElementById("inventoryScythe").textContent =
-player.coconutScythe;
+playerData.coconutScythe;
 
 // ==========================
 // 登出
@@ -152,5 +152,5 @@ logoutBtn.addEventListener("click",()=>{
 
 localStorage.setItem(
     "player",
-    JSON.stringify(player)
+    JSON.stringify(playerData)
 );
