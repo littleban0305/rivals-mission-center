@@ -403,35 +403,7 @@ main{
 
 .login-btn{
 
-    border:none;
-
-    cursor:pointer;
-
-    color:white;
-
     padding:13px 24px;
-
-    border-radius:15px;
-
-    font-weight:700;
-
-    background:linear-gradient(90deg,#7d48ff,#c45fff);
-
-    transition:.25s;
-
-}
-
-.login-btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:0 10px 25px rgba(141,76,255,.45);
-
-}
-
-.login-btn:active{
-
-    transform:scale(.96);
 
 }
 
