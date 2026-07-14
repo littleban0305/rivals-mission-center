@@ -3,6 +3,12 @@
 // Admin Panel
 // ==========================
 
+const selectedPlayer =
+    currentPlayer;
+
+const playerSelect =
+    document.getElementById("playerSelect");
+
 // 建立玩家下拉選單
 
 if (playerSelect) {
