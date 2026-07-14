@@ -132,17 +132,20 @@ playerData.coconutScythe;
 // 登出
 // ==========================
 
-const logoutBtn = document.getElementById("logoutBtn");
+const logoutBtns = document.querySelectorAll("#logoutBtn, #logoutBtnPage");
 
-logoutBtn.addEventListener("click",()=>{
+logoutBtns.forEach(btn => {
 
-    if(confirm("確定要登出嗎？")){
+    btn.addEventListener("click", () => {
 
-        localStorage.removeItem("player");
+        if (confirm("確定要登出嗎？")) {
 
-        window.location.href="login.html";
+            localStorage.removeItem("player");
+            window.location.href = "login.html";
 
-    }
+        }
+
+    });
 
 });
 
