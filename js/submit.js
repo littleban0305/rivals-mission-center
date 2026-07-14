@@ -1,6 +1,6 @@
 // ==========================
 // Rivals Mission Center
-// Submit System Beta 1
+// Submit System Beta 1.1
 // ==========================
 
 // 所有任務資料
@@ -124,13 +124,11 @@ const missions = {
 
 // ==========================
 // 讀取網址參數
-// submit.html?id=D001
 // ==========================
 
 const params = new URLSearchParams(window.location.search);
 
 const type = params.get("type");
-
 const id = params.get("id");
 
 // ==========================
@@ -144,16 +142,55 @@ if (type === "mission") {
     if (!mission) {
 
         document.getElementById("missionName").textContent = "找不到任務";
+        document.getElementById("missionType").textContent = "--";
+        document.getElementById("missionCode").textContent = "--";
+        document.getElementById("missionReward").textContent = "--";
+        document.getElementById("missionProof").textContent = "--";
 
     } else {
 
         document.getElementById("missionName").textContent = mission.name;
-
         document.getElementById("missionCode").textContent = id;
-
         document.getElementById("missionReward").textContent = mission.reward;
-
         document.getElementById("missionProof").textContent = mission.proof;
+
+        // 任務類型
+
+        if (id.startsWith("D")) {
+
+            document.getElementById("missionType").textContent = "📅 每日任務";
+
+        }
+
+        else if (id.startsWith("W")) {
+
+            document.getElementById("missionType").textContent = "📆 每週任務";
+
+        }
+
+        else if (id.startsWith("P")) {
+
+            document.getElementById("missionType").textContent = "⭐ 永久任務";
+
+        }
+
+        else if (id.startsWith("L")) {
+
+            document.getElementById("missionType").textContent = "📈 升級任務";
+
+        }
+
+        else if (id.startsWith("H")) {
+
+            document.getElementById("missionType").textContent = "🤝 幫助任務";
+
+        }
+
+        else if (id.startsWith("A")) {
+
+            document.getElementById("missionType").textContent = "🏆 成就任務";
+
+        }
 
     }
 
@@ -169,21 +206,17 @@ else if (type === "shop") {
 
         SC001: {
 
-            name:"Skin Case",
-
-            reward:"Skin Case",
-
-            proof:"Roblox 名稱"
+            name: "Skin Case",
+            reward: "Skin Case",
+            proof: "Roblox 名稱"
 
         },
 
-        SC002:{
+        SC002: {
 
-            name:"椰子鐮刀",
-
-            reward:"Palm Scythe",
-
-            proof:"Roblox 名稱"
+            name: "椰子鐮刀",
+            reward: "Palm Scythe",
+            proof: "Roblox 名稱"
 
         }
 
@@ -191,13 +224,15 @@ else if (type === "shop") {
 
     const item = shop[id];
 
-    document.getElementById("missionName").textContent = item.name;
+    if (item) {
 
-    document.getElementById("missionCode").textContent = id;
+        document.getElementById("missionType").textContent = "🛒 商品兌換";
+        document.getElementById("missionName").textContent = item.name;
+        document.getElementById("missionCode").textContent = id;
+        document.getElementById("missionReward").textContent = item.reward;
+        document.getElementById("missionProof").textContent = item.proof;
 
-    document.getElementById("missionReward").textContent = item.reward;
-
-    document.getElementById("missionProof").textContent = item.proof;
+    }
 
 }
 
@@ -208,10 +243,12 @@ else if (type === "shop") {
 else if (type === "exchange") {
 
     const gold = params.get("gold");
-
     const rcoin = params.get("rcoin");
 
-    document.getElementById("missionName").textContent = "Gold 兌換 R 幣";
+    document.getElementById("missionType").textContent = "💰 Gold 兌換";
+
+    document.getElementById("missionName").textContent =
+        "Gold 兌換 R 幣";
 
     document.getElementById("missionCode").textContent = id;
 
@@ -223,17 +260,21 @@ else if (type === "exchange") {
 
 }
 
+// ==========================
 // Google Form
+// ==========================
+
 const submitBtn = document.getElementById("submitGoogle");
 
-submitBtn.addEventListener("click", () => {
+if (submitBtn) {
 
-    window.open(
-    "https://forms.gle/kvrLmooCyYbGAsKP9",
-    "_blank"
-);
+    submitBtn.addEventListener("click", () => {
 
-    // 之後改成：
-    // window.open("你的GoogleForm網址");
+        window.open(
+            "https://forms.gle/kvrLmooCyYbGAsKP9",
+            "_blank"
+        );
 
-});
+    });
+
+}
