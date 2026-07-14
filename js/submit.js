@@ -139,7 +139,8 @@ else if (type === "exchange") {
     document.getElementById("missionName").textContent =
         "Gold 兌換 R 幣";
 
-    document.getElementById("missionCode").textContent = id;
+    document.getElementById("missionCode").textContent =
+        `${id}（${gold} Gold → ${rcoin} R）`;
 
     document.getElementById("missionReward").textContent =
         `${gold} Gold → ${rcoin} R`;
