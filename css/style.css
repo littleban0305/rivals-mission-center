@@ -1367,3 +1367,38 @@ will-change:transform;
     display:flex;
     flex-direction:column;
 }
+
+/* 玩家資訊 */
+
+.dropdown-header{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    padding:18px;
+
+}
+
+.dropdown-header i{
+
+    font-size:42px;
+
+    color:var(--primary);
+
+}
+
+.dropdown-header h4{
+
+    margin:0;
+    font-size:17px;
+    font-weight:700;
+
+}
+
+.dropdown-header span{
+
+    font-size:13px;
+    color:#b8b8d0;
+
+}
