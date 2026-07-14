@@ -3,15 +3,13 @@
 // Player Center
 // ==========================
 
+// ==========================
 // 讀取玩家資料
+// ==========================
+
 const playerData = JSON.parse(localStorage.getItem("player"));
 
 if (!playerData || localStorage.getItem("isLogin") !== "true") {
-
-    window.location.href = "login.html";
-
-}
-if (!playerData || loginStatus !== "true") {
 
     window.location.href = "login.html";
 
