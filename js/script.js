@@ -100,7 +100,7 @@ const userBtn = document.getElementById("userBtn");
 const dropdownMenu = document.getElementById("dropdownMenu");
 const dropdownArrow = document.getElementById("dropdownArrow");
 
-if(userBtn){
+if (userBtn && dropdownMenu && dropdownArrow) {
 
     userBtn.addEventListener("click", function (e) {
 
@@ -109,13 +109,19 @@ if(userBtn){
         dropdownMenu.classList.toggle("show");
         dropdownArrow.classList.toggle("rotate");
 
-});
+    });
 
-    document.addEventListener("click", function(){
+    dropdownMenu.addEventListener("click", function (e) {
+
+        e.stopPropagation();
+
+    });
+
+    document.addEventListener("click", function () {
 
         dropdownMenu.classList.remove("show");
         dropdownArrow.classList.remove("rotate");
 
-});
+    });
 
 }
