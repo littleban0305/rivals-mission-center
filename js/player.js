@@ -5,9 +5,9 @@
 
 // 讀取玩家資料
 const playerData = JSON.parse(localStorage.getItem("player"));
-const isLogin = localStorage.getItem("isLogin");
+const loginStatus = localStorage.getItem("isLogin");
 
-if (!playerData || isLogin !== "true") {
+if (!playerData || loginStatus !== "true") {
 
     window.location.href = "login.html";
 
