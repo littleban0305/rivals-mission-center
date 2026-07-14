@@ -30,7 +30,7 @@ document.getElementById("joinDate").textContent =
 `加入日期：${player.joinDate}`;
 
 document.getElementById("settingUsername").textContent =
-player.username;
+player.roblox || "未設定";
 
 document.getElementById("settingJoinDate").textContent =
 player.joinDate;
