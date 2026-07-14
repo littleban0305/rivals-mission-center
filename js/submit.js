@@ -63,17 +63,17 @@ if (type === "mission") {
 
         }
 
-        else if (id.startsWith("H")) {
-
-            document.getElementById("missionType").textContent = "🤝 幫助任務";
-
+        else if (id.startsWith("C")) {
+        
+            document.getElementById("missionType").textContent = "🎯 CS2 永久任務";
+        
         }
+        
+        else if (id.startsWith("O")) {
+        
+            document.getElementById("missionType").textContent = "📱 其他任務";
 
-        else if (id.startsWith("A")) {
-
-            document.getElementById("missionType").textContent = "🏆 成就任務";
-
-        }
+}
 
     }
 
