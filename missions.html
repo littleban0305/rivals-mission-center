@@ -122,137 +122,20 @@
 
 <main>
 
+<!-- =======================
+每日任務
+======================= -->
+
 <section class="mission-section">
 
-<h2>
+    <h2>📅 今日任務</h2>
 
-📅 今日任務
+    <p>
+        下次刷新：
+        <span id="daily-reset">00:00:00</span>
+    </p>
 
-</h2>
-
-<p>
-
-下次刷新：
-
-<span id="daily-reset">
-
-00:00:00
-
-</span>
-
-</p>
-
-<div class="mission-list">
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-🟢 每日登入
-
-</h3>
-
-<p>
-
-登入網站一次
-
-</p>
-
-<small>
-
-🪙 +20 Gold　⭐ +10 EXP
-
-</small>
-
-</div>
-
-<div>
-
-<button class="btn submit-btn" data-id="D001">
-
-提交證明
-
-</button>
-
-</div>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-🟢 完成 3 場 Rivals
-
-</h3>
-
-<p>
-
-完成任意三場對戰
-
-</p>
-
-<small>
-
-🪙 +40 Gold　⭐ +20 EXP
-
-</small>
-
-</div>
-
-<div>
-
-<button class="btn submit-btn" data-id="D002">
-
-提交證明
-
-</button>
-
-</div>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-🟡 贏得 5 場 Rivals
-
-</h3>
-
-<p>
-
-獲勝五場對戰
-
-</p>
-
-<small>
-
-🪙 +60 Gold　⭐ +30 EXP
-
-</small>
-
-</div>
-
-<div>
-
-<button class="btn submit-btn" data-id="D003">
-
-提交證明
-
-</button>
-
-</div>
-
-</div>
-
-</div>
+    <div class="mission-list" id="dailyMissionList"></div>
 
 </section>
 
@@ -262,575 +145,57 @@
 
 <section class="mission-section">
 
-<h2>
+    <h2>📆 每週任務</h2>
 
-📆 每週任務
-
-</h2>
-
-<div class="mission-list">
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-🟢 完成 30 場 Rivals
-
-</h3>
-
-<p>
-
-一週內完成 30 場對戰。
-
-</p>
-
-<small>
-
-🪙 +250 Gold　⭐ +100 EXP
-
-</small>
-
-</div>
-
-<div>
-
-<button class="btn submit-btn" data-id="W001">
-
-提交證明
-
-</button>
-
-</div>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-🟡 贏得 15 場 Rivals
-
-</h3>
-
-<p>
-
-一週內贏得 15 場。
-
-</p>
-
-<small>
-
-🪙 +350 Gold　⭐ +150 EXP
-
-</small>
-
-</div>
-
-<div>
-
-<button class="btn submit-btn" data-id="W002">
-
-提交證明
-
-</button>
-
-</div>
-
-</div>
-
-</div>
+    <div class="mission-list" id="weeklyMissionList"></div>
 
 </section>
 
 <!-- =======================
-升級任務
+一次性任務
 ======================= -->
 
 <section class="mission-section">
 
-<h2>
+    <h2>⭐ 一次性任務</h2>
 
-📈 升級任務
-
-</h2>
-
-<div class="mission-list">
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-Lv.300
-
-</h3>
-
-<p>
-
-Rivals 帳號到達 300 等。
-
-</p>
-
-<small>
-
-💎 +20 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="L001">
-
-提交證明
-
-</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-Lv.400
-
-</h3>
-
-<p>
-
-Rivals 帳號到達 400 等。
-
-</p>
-
-<small>
-
-💎 +50 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="L002">
-
-提交證明
-
-</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-Lv.500
-
-</h3>
-
-<p>
-
-Rivals 帳號到達 500 等。
-
-</p>
-
-<small>
-
-💎 +100 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="L003">
-
-提交證明
-
-</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-安裝 Medal
-
-</h3>
-
-<p>
-
-成功安裝 Medal。
-
-</p>
-
-<small>
-
-💎 +10 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="L004">
-
-提交證明
-
-</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-安裝指定手機遊戲
-
-</h3>
-
-<p>
-
-完成安裝即可。
-
-</p>
-
-<small>
-
-💎 +10 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="L005">
-
-提交證明
-
-</button>
-
-</div>
-
-</div>
+    <div class="mission-list" id="levelMissionList"></div>
 
 </section>
 
 <!-- =======================
-幫助任務
+永久任務（Rivals）
 ======================= -->
 
 <section class="mission-section">
 
-<h2>
+    <h2>♾️ Rivals 永久任務</h2>
 
-🤝 幫助任務
-
-</h2>
-
-<div class="mission-list">
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-哥哥帳號升到 100 等
-
-</h3>
-
-<p>
-
-協助哥哥的 Rivals 帳號升至 100 等。
-
-</p>
-
-<small>
-
-💎 +20 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="H001">
-
-提交證明
-
-</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-登入哥哥 Medal 帳號
-
-</h3>
-
-<p>
-
-成功登入即可。
-
-</p>
-
-<small>
-
-💎 +20 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="H002">
-
-提交證明
-
-</button>
-
-</div>
-
-</div>
+    <div class="mission-list" id="permanentMissionList"></div>
 
 </section>
 
 <!-- =======================
-成就任務
+永久任務（CS2）
 ======================= -->
 
 <section class="mission-section">
 
-<h2>
+    <h2>🎯 CS2 永久任務</h2>
 
-🏆 成就任務
-
-</h2>
-
-<div class="mission-list">
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-SkinApe 累積 30,000 Coins
-
-</h3>
-
-<p>
-
-累積達到 30,000 Coins。
-
-</p>
-
-<small>
-
-💎 +10 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="A001">
-
-提交證明
-
-</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-SkinApe 累積 40,000 Coins
-
-</h3>
-
-<p>
-
-累積達到 40,000 Coins。
-
-</p>
-
-<small>
-
-💎 +20 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="A002">
-
-提交證明
-
-</button>
-
-</div>
-
-</div>
+    <div class="mission-list" id="csMissionList"></div>
 
 </section>
 
 <!-- =======================
-永久挑戰
+其他任務
 ======================= -->
 
 <section class="mission-section">
 
-<h2>
+    <h2>📱 其他任務</h2>
 
-♾ 永久挑戰
-
-</h2>
-
-<div class="mission-list">
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-完成 500 次雙殺
-
-</h3>
-
-<p>
-
-Rivals 2v2 完成 500 次雙殺。
-
-</p>
-
-<small>
-
-💎 +50 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="P001">
-
-提交證明
-
-</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-魔王模式獲勝
-
-</h3>
-
-<p>
-
-成為魔王並贏得整場。
-
-</p>
-
-<small>
-
-💎 +50 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="P002">
-
-提交證明
-
-</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-開到紅色武器
-
-</h3>
-
-<p>
-
-Skin Case 開出超稀有武器。
-
-</p>
-
-<small>
-
-💎 +10 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="P003">
-
-提交證明
-
-</button>
-
-</div>
-
-<div class="mission">
-
-<div>
-
-<h3>
-
-完成一個手機任務
-
-</h3>
-
-<p>
-
-完成任一指定手機任務。
-
-</p>
-
-<small>
-
-💎 +20 R 幣
-
-</small>
-
-</div>
-
-<button class="btn submit-btn" data-id="P004">
-
-提交證明
-
-</button>
-
-</div>
-
-</div>
+    <div class="mission-list" id="otherMissionList"></div>
 
 </section>
 
