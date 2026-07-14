@@ -155,9 +155,33 @@ else if (type === "exchange") {
 
 const submitBtn = document.getElementById("submitGoogle");
 
+const submitBtn = document.getElementById("submitGoogle");
+
 if (submitBtn) {
 
     submitBtn.addEventListener("click", () => {
+
+        // 任務提交
+        if (type === "mission") {
+
+            const players =
+                JSON.parse(localStorage.getItem("players")) || {};
+
+            const currentPlayer =
+                localStorage.getItem("currentPlayer");
+
+            if (players[currentPlayer]) {
+
+                players[currentPlayer].missions[id] = "pending";
+
+                localStorage.setItem(
+                    "players",
+                    JSON.stringify(players)
+                );
+
+            }
+
+        }
 
         window.open(
             "https://forms.gle/kvrLmooCyYbGAsKP9",
