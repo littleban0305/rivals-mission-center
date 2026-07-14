@@ -9,7 +9,7 @@
 
 const playerData = player;
 
-if (!playerData || localStorage.getItem("isLogin") !== "true") {
+if (!playerData || !isLogin || isLogin !== "true") {
 
     window.location.href = "login.html";
 
