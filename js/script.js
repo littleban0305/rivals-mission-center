@@ -95,7 +95,7 @@ submitButtons.forEach(button => {
 
         const id = button.dataset.id;
 
-        window.location.href = `submit.html?id=${id}`;
+        window.location.href = `submit.html?type=mission&id=${id}`;
 
     });
 
