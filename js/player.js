@@ -7,14 +7,7 @@
 // 讀取玩家資料
 // ==========================
 
-const players =
-    JSON.parse(localStorage.getItem("players")) || {};
-
-const currentPlayer =
-    localStorage.getItem("currentPlayer");
-
-const playerData =
-    players[currentPlayer];
+const playerData = player;
 
 if (!playerData || localStorage.getItem("isLogin") !== "true") {
 
