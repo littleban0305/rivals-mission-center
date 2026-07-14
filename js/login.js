@@ -4,9 +4,9 @@
 // ==========================
 
 // 已登入就直接回首頁
-const player = localStorage.getItem("player");
+const isLogin = localStorage.getItem("isLogin");
 
-if (player) {
+if (isLogin === "true") {
 
     location.replace("index.html");
 
