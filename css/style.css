@@ -1454,3 +1454,19 @@ will-change:transform;
     color:#b8b8d0;
 
 }
+
+/* ===========================
+   Dropdown Arrow
+=========================== */
+
+#dropdownArrow{
+
+    transition:transform .25s ease;
+
+}
+
+#dropdownArrow.rotate{
+
+    transform:rotate(180deg);
+
+}
