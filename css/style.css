@@ -1407,3 +1407,18 @@ will-change:transform;
     background:rgba(255,255,255,.08);
 
 }
+
+.dropdown-menu button:hover,
+.dropdown-menu a:hover{
+
+    background:rgba(141,76,255,.18);
+    transform:none;
+    box-shadow:none;
+
+}
+
+.dropdown-menu button:active{
+
+    transform:none;
+
+}
