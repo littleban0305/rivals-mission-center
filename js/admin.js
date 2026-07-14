@@ -3,30 +3,6 @@
 // Admin Panel
 // ==========================
 
-// ==========================
-// 玩家資料
-// ==========================
-
-const params = new URLSearchParams(location.search);
-
-const selectedPlayer =
-    params.get("player") ||
-    localStorage.getItem("currentPlayer");
-
-const playerSelect =
-    document.getElementById("playerSelect");
-
-let player =
-    players[selectedPlayer];
-
-if (!player) {
-
-    alert("找不到玩家資料！");
-
-    window.location.href = "login.html";
-
-}
-
 // 建立玩家下拉選單
 
 if (playerSelect) {
