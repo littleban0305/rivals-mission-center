@@ -19,14 +19,11 @@ if (!player) {
 
 // ---------- Navbar ----------
 
-const loginBtn = document.querySelector(".login-btn");
+const username = document.getElementById("username");
 
-if (loginBtn && player) {
+if (username && player) {
 
-    loginBtn.innerHTML = `
-        <i class="bi bi-person-circle"></i>
-        ${player.username}
-    `;
+    username.textContent = player.username;
 
 }
 
