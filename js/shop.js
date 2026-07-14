@@ -148,6 +148,6 @@ if (exchangeBtn) {
 
     });
 
-});
+}
 
 console.log(player);
