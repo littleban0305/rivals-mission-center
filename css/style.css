@@ -1368,6 +1368,64 @@ will-change:transform;
     flex-direction:column;
 }
 
+.dropdown-menu a,
+.dropdown-menu button{
+
+    width:100%;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:16px 22px;
+
+    background:transparent !important;
+
+    border:none;
+
+    border-radius:0;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    box-shadow:none !important;
+
+    transform:none !important;
+
+    transition:.25s;
+
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover{
+
+    background:rgba(141,76,255,.15);
+
+}
+
+.dropdown-menu button:active{
+
+    transform:none !important;
+
+}
+
+.dropdown-menu hr{
+
+    margin:8px 18px;
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
 /* 玩家資訊 */
 
 .dropdown-header{
