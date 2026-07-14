@@ -66,9 +66,6 @@ const saveBtn = document.getElementById("saveAdmin");
 
 saveBtn.addEventListener("click", () => {
 
-    player.username =
-        document.getElementById("adminUsername").value;
-
     player.roblox =
         document.getElementById("adminRoblox").value;
 
