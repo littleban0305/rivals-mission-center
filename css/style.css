@@ -1261,9 +1261,9 @@ padding:20px;
 
 }
 
-button{
+.btn{
 
-width:100%;
+    width:100%;
 
 }
 
@@ -1281,11 +1281,11 @@ padding:10px 18px;
 
 .card,
 .mission,
-button,
+.btn,
 input,
 img{
 
-will-change:transform;
+    will-change:transform;
 
 }
 
