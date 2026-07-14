@@ -4,7 +4,6 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>提交任務 - Rivals Mission Center</title>
@@ -21,6 +20,8 @@
 
 <body>
 
+<!-- Navbar -->
+
 <nav class="navbar">
 
     <a class="logo" href="index.html">
@@ -30,7 +31,6 @@
         <div>
 
             <h2>RIVALS</h2>
-
             <span>Mission Center</span>
 
         </div>
@@ -40,154 +40,207 @@
     <ul class="nav-links">
 
         <li><a href="index.html">首頁</a></li>
-
         <li><a href="missions.html">任務</a></li>
-
         <li><a href="shop.html">商店</a></li>
 
     </ul>
 
-<div class="user-menu">
+    <div class="user-menu">
 
-    <button class="btn"  id="userBtn">
-        <i class="bi bi-person-circle"></i>
-        <span id="username">elo哥</span>
-        <i class="bi bi-chevron-down" id="dropdownArrow"></i>
-    </button>
-
-    <div class="dropdown-menu" id="dropdownMenu">
-
-        <div class="dropdown-header">
+        <button class="btn" id="userBtn">
 
             <i class="bi bi-person-circle"></i>
 
-            <div>
-                <h4 id="dropdownUsername">elo哥</h4>
-                <span>Closed Beta</span>
+            <span id="username">elo哥</span>
+
+            <i class="bi bi-chevron-down" id="dropdownArrow"></i>
+
+        </button>
+
+        <div class="dropdown-menu" id="dropdownMenu">
+
+            <div class="dropdown-header">
+
+                <i class="bi bi-person-circle"></i>
+
+                <div>
+
+                    <h4 id="dropdownUsername">elo哥</h4>
+
+                    <span>Closed Beta</span>
+
+                </div>
+
             </div>
+
+            <hr>
+
+            <a href="player.html">
+
+                <i class="bi bi-person"></i>
+
+                玩家中心
+
+            </a>
+
+            <button id="editProfileBtn">
+
+                <i class="bi bi-pencil"></i>
+
+                編輯資料
+
+            </button>
+
+            <hr>
+
+            <button id="logoutBtn">
+
+                <i class="bi bi-box-arrow-right"></i>
+
+                登出
+
+            </button>
 
         </div>
 
+    </div>
+
+</nav>
+
+<!-- Hero -->
+
+<header class="hero">
+
+    <div class="hero-left">
+
+        <span class="season-badge">
+
+            提交任務
+
+        </span>
+
+        <h1>
+
+            MISSION DETAILS
+
+        </h1>
+
+        <p>
+
+            確認任務資訊後，
+            點擊下方按鈕前往 Google Form 提交證明。
+
+        </p>
+
+    </div>
+
+</header>
+
+<main>
+
+<section class="mission-section">
+
+    <div class="card">
+
+        <!-- 之後可加入任務圖片 -->
+        <!--
+        <img id="missionImage"
+            src="images/default.png"
+            alt="Mission">
+        -->
+
+        <h2 id="missionName">
+
+            載入中...
+
+        </h2>
+
         <hr>
 
-        <a href="player.html">
-            <i class="bi bi-person"></i>
-            玩家中心
-        </a>
+        <p>
 
-        <button id="editProfileBtn">
-            <i class="bi bi-pencil"></i>
-            編輯資料
+            <strong>任務類型：</strong>
+
+            <span id="missionType">
+
+                --
+
+            </span>
+
+        </p>
+
+        <p>
+
+            <strong>任務代碼：</strong>
+
+            <span id="missionCode">
+
+                --
+
+            </span>
+
+        </p>
+
+        <p>
+
+            <strong>獎勵：</strong>
+
+            <span id="missionReward">
+
+                --
+
+            </span>
+
+        </p>
+
+        <p>
+
+            <strong>需要證明：</strong>
+
+            <span id="missionProof">
+
+                --
+
+            </span>
+
+        </p>
+
+        <hr>
+
+        <p class="submit-note">
+
+            完成任務後，
+            點擊下方按鈕前往 Google Form 提交證明。
+
+        </p>
+
+        <br>
+
+        <button class="btn" id="submitGoogle">
+
+            <i class="bi bi-box-arrow-up-right"></i>
+
+            前往 Google Form
+
         </button>
 
-        <hr>
+        <br><br>
 
-        <button id="logoutBtn">
-            <i class="bi bi-box-arrow-right"></i>
-            登出
+        <button
+            class="outline-btn"
+            onclick="history.back()">
+
+            ← 返回上一頁
+
         </button>
 
     </div>
 
-</div>
-
-</nav>
-
-<main>
-
-<section class="hero">
-
-<div class="hero-left">
-
-<span class="season-badge">
-
-提交任務
-
-</span>
-
-<h1>
-
-MISSION SUBMIT
-
-</h1>
-
-<p>
-
-確認任務資訊後，再前往 Google Form 提交證明。
-
-</p>
-
-</div>
-
-</section>
-
-<section class="mission-section">
-
-<div class="card">
-
-<h2 id="missionName">
-
-載入中...
-
-</h2>
-
-<p>
-
-<strong>任務代碼：</strong>
-
-<span id="missionCode">
-
---
-
-</span>
-
-</p>
-
-<p>
-
-<strong>獎勵：</strong>
-
-<span id="missionReward">
-
---
-
-</span>
-
-</p>
-
-<p>
-
-<strong>需要證明：</strong>
-
-<span id="missionProof">
-
---
-
-</span>
-
-</p>
-
-<br>
-
-<button class="btn" id="submitGoogle">
-
-前往提交
-
-</button>
-
-<br><br>
-
-<a href="missions.html">
-
-← 返回任務列表
-
-</a>
-
-</div>
-
 </section>
 
 </main>
+
+<script src="js/script.js"></script>
 
 <script src="js/submit.js"></script>
 
