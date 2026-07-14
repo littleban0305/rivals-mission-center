@@ -140,7 +140,7 @@ logoutBtns.forEach(btn => {
 
         if (confirm("確定要登出嗎？")) {
 
-            localStorage.removeItem("player");
+            localStorage.setItem("isLogin", "false");
             window.location.href = "login.html";
 
         }
