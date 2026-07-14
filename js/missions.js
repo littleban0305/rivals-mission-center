@@ -4,6 +4,19 @@
 // ==========================
 
 // ==========================
+// 玩家資料
+// ==========================
+
+const players =
+    JSON.parse(localStorage.getItem("players")) || {};
+
+const currentPlayer =
+    localStorage.getItem("currentPlayer");
+
+const player =
+    players[currentPlayer];
+
+// ==========================
 // 任務分類容器
 // ==========================
 
@@ -30,6 +43,25 @@ for (const id in missions) {
 
     if (!container) continue;
 
+    let buttonText = "提交證明";
+let disabled = "";
+
+const status = player?.missions?.[id];
+
+if (status === "pending") {
+
+    buttonText = "🟡 審核中";
+    disabled = "disabled";
+
+}
+
+else if (status === "completed") {
+
+    buttonText = "✅ 已完成";
+    disabled = "disabled";
+
+}
+    
     const card = document.createElement("div");
 
     card.className = "mission";
@@ -53,9 +85,10 @@ for (const id in missions) {
 
             <button
                 class="btn submit-btn"
-                data-id="${id}">
+                data-id="${id}"
+                ${disabled}>
 
-                📤 提交證明
+                ${buttonText}
 
             </button>
 
