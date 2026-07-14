@@ -1,6 +1,6 @@
 // ==========================
 // Rivals Mission Center
-// Login System Beta 1.1
+// Login System Beta 2
 // ==========================
 
 // 已登入就直接回首頁
@@ -51,10 +51,14 @@ function login() {
     }
 
     // ==========================
-    // 讀取舊資料
+    // 讀取所有玩家
     // ==========================
 
-    let player = JSON.parse(localStorage.getItem("player"));
+    let players =
+        JSON.parse(localStorage.getItem("players")) || {};
+
+    // 取得目前玩家
+    let player = players[username];
 
     // ==========================
     // 第一次登入
@@ -74,7 +78,7 @@ function login() {
 
             discord: "",
 
-            version: "Beta 0.1",
+            version: "Beta 0.2",
 
             gold: 0,
 
@@ -109,18 +113,12 @@ function login() {
     }
 
     // ==========================
-    // 已存在玩家
+    // 舊玩家登入
     // ==========================
 
     else {
 
-        player.username = username;
-
-        player.roblox = username;
-
         player.lastLogin = Date.now();
-
-        // 補齊新版本欄位（避免 undefined）
 
         if (player.discord === undefined)
             player.discord = "";
@@ -156,21 +154,31 @@ function login() {
             player.permanentCompleted = 0;
 
         if (player.version === undefined)
-            player.version = "Beta 0.1";
+            player.version = "Beta 0.2";
 
     }
 
     // ==========================
-    // 儲存
+    // 儲存玩家
     // ==========================
 
+    players[username] = player;
+
     localStorage.setItem(
-        "player",
-        JSON.stringify(player)
+        "players",
+        JSON.stringify(players)
     );
 
-    localStorage.setItem("isLogin", "true");
-    
+    localStorage.setItem(
+        "currentPlayer",
+        username
+    );
+
+    localStorage.setItem(
+        "isLogin",
+        "true"
+    );
+
     alert("登入成功！");
 
     window.location.href = "index.html";
