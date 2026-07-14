@@ -1,9 +1,12 @@
 // ==========================
 // Rivals Mission Center
-// Mission Generator
+// Mission Generator Beta 0.2
 // ==========================
 
-// 分類容器
+// ==========================
+// 任務分類容器
+// ==========================
+
 const containers = {
     D: document.getElementById("dailyMissionList"),
     W: document.getElementById("weeklyMissionList"),
@@ -14,7 +17,7 @@ const containers = {
 };
 
 // ==========================
-// 建立任務
+// 建立所有任務
 // ==========================
 
 for (const id in missions) {
@@ -31,10 +34,14 @@ for (const id in missions) {
 
     card.className = "mission";
 
+    card.style.opacity = "0";
+    card.style.transform = "translateY(20px)";
+
     card.innerHTML = `
+
         <div>
 
-            <h3>${mission.name}</h3>
+            <h3>${mission.icon} ${mission.name}</h3>
 
             <p>${mission.desc}</p>
 
@@ -48,19 +55,54 @@ for (const id in missions) {
                 class="btn submit-btn"
                 data-id="${id}">
 
-                提交證明
+                📤 提交證明
 
             </button>
 
         </div>
+
     `;
 
     container.appendChild(card);
 
+    requestAnimationFrame(() => {
+
+        card.style.transition = "0.25s";
+
+        card.style.opacity = "1";
+
+        card.style.transform = "translateY(0)";
+
+    });
+
 }
 
 // ==========================
-// 綁定提交按鈕
+// 空分類提示
+// ==========================
+
+Object.values(containers).forEach(container => {
+
+    if (!container) return;
+
+    if (container.children.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="card">
+
+                <p>目前沒有任務。</p>
+
+            </div>
+
+        `;
+
+    }
+
+});
+
+// ==========================
+// 提交按鈕
 // ==========================
 
 document.querySelectorAll(".submit-btn").forEach(btn => {
@@ -75,3 +117,40 @@ document.querySelectorAll(".submit-btn").forEach(btn => {
     });
 
 });
+
+// ==========================
+// 每日刷新倒數
+// ==========================
+
+const resetText = document.getElementById("daily-reset");
+
+if (resetText) {
+
+    function updateCountdown() {
+
+        const now = new Date();
+
+        const tomorrow = new Date();
+
+        tomorrow.setDate(now.getDate() + 1);
+
+        tomorrow.setHours(0, 0, 0, 0);
+
+        const diff = tomorrow - now;
+
+        const h = Math.floor(diff / 1000 / 60 / 60);
+
+        const m = Math.floor(diff / 1000 / 60) % 60;
+
+        const s = Math.floor(diff / 1000) % 60;
+
+        resetText.textContent =
+            `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+
+    }
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+}
