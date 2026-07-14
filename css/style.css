@@ -1400,11 +1400,9 @@ will-change:transform;
 
 .dropdown-menu hr{
 
+    margin:6px 15px;
     border:none;
-
-    height:1px;
-
-    background:rgba(255,255,255,.08);
+    border-top:1px solid rgba(255,255,255,.08);
 
 }
 
