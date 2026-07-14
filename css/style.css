@@ -1433,7 +1433,11 @@ img{
 
 #dropdownArrow{
 
-    display:inline-block;
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     transition:transform .25s ease;
 
