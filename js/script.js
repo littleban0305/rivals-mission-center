@@ -98,6 +98,7 @@ submitButtons.forEach(button => {
 
 const userBtn = document.getElementById("userBtn");
 const dropdownMenu = document.getElementById("dropdownMenu");
+const dropdownArrow = document.getElementById("dropdownArrow");
 
 if(userBtn){
 
