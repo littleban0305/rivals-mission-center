@@ -37,8 +37,39 @@ const status = player?.missions?.[id];
 
 if (status === "pending") {
 
-    buttonText = "🟡 審核中";
-    disabled = "disabled";
+    card.innerHTML = `
+
+        <div>
+
+            <h3>${mission.icon} ${mission.name}</h3>
+
+            <p>${mission.desc}</p>
+
+            <small>${mission.reward}</small>
+
+        </div>
+
+        <div>
+
+            <button
+                class="btn"
+                disabled>
+
+                🟡 審核中
+
+            </button>
+
+            <button
+                class="btn cancel-btn"
+                data-id="${id}">
+
+                🔴 取消申請
+
+            </button>
+
+        </div>
+
+    `;
 
 }
 
@@ -174,3 +205,33 @@ if (resetText) {
     setInterval(updateCountdown, 1000);
 
 }
+
+document.querySelectorAll(".cancel-btn")
+.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        const id =
+            btn.dataset.id;
+
+        if (
+            confirm("確定取消申請？")
+        ) {
+
+            delete player.missions[id];
+
+            players[currentPlayer] =
+                player;
+
+            localStorage.setItem(
+                "players",
+                JSON.stringify(players)
+            );
+
+            location.reload();
+
+        }
+
+    });
+
+});
