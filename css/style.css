@@ -1327,96 +1327,38 @@ will-change:transform;
    END
 =========================================== */
 
-/* ==========================
-   User Dropdown
-========================== */
+/* ===========================
+   Player Dropdown
+=========================== */
 
 .user-menu{
-    position:relative;
+    position: relative;
 }
 
 .dropdown-menu{
 
-    position:absolute;
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
 
-    top:110%;
-    right:0;
+    width: 260px;
 
-    width:220px;
+    background: rgba(18,12,30,.96);
+    backdrop-filter: blur(20px);
 
-    background:rgba(20,20,35,.96);
+    border: 1px solid rgba(141,76,255,.35);
+    border-radius: 20px;
 
-    border:1px solid rgba(255,255,255,.08);
+    overflow: hidden;
 
-    backdrop-filter:blur(18px);
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35),
+        0 0 25px rgba(141,76,255,.15);
 
-    border-radius:18px;
+    display: none;
 
-    overflow:hidden;
+    animation: fadeUp .25s ease;
 
-    display:none;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
-
-    z-index:1000;
-
-}
-
-.dropdown-menu.show{
-    display:block;
-    animation:fadeUp .25s;
-}
-
-.dropdown-menu a,
-.dropdown-menu button{
-
-    width:100%;
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    padding:14px 18px;
-
-    background:transparent;
-    border:none;
-    border-radius:0;
-
-    color:white;
-    font-size:15px;
-    font-weight:500;
-
-    text-align:left;
-
-    box-shadow:none;
-    transform:none;
-}
-
-.dropdown-menu a:hover,
-.dropdown-menu button:hover{
-
-    background:rgba(141,76,255,.18);
-
-}
-
-.dropdown-menu hr{
-
-    margin:6px 15px;
-    border:none;
-    border-top:1px solid rgba(255,255,255,.08);
-
-}
-
-.dropdown-menu button:hover,
-.dropdown-menu a:hover{
-
-    background:rgba(141,76,255,.18);
-    transform:none;
-    box-shadow:none;
-
-}
-
-.dropdown-menu button:active{
-
-    transform:none;
+    z-index: 9999;
 
 }
