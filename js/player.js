@@ -4,7 +4,7 @@
 // ==========================
 
 // 讀取玩家資料
-const player = JSON.parse(localStorage.getItem("player"));
+const playerData = JSON.parse(localStorage.getItem("player"));
 
 // 沒登入就跳回登入頁
 if (!player) {
