@@ -3,22 +3,6 @@
 // Shop System Beta 1
 // ==========================
 
-// 玩家資料
-const players =
-    JSON.parse(localStorage.getItem("players")) || {};
-
-const currentPlayer =
-    localStorage.getItem("currentPlayer");
-
-const player =
-    players[currentPlayer];
-
-if (!player) {
-
-    window.location.href = "login.html";
-
-}
-
 // ==========================
 // Navbar
 // ==========================
