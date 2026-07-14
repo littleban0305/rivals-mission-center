@@ -106,7 +106,9 @@ function login() {
 
             createTime: Date.now(),
 
-            lastLogin: Date.now()
+            lastLogin: Date.now(),
+
+            missions: {}
 
         };
 
@@ -155,6 +157,9 @@ function login() {
 
         if (player.version === undefined)
             player.version = "Beta 0.2";
+
+        if (player.missions === undefined)
+            player.missions = {};
 
     }
 
