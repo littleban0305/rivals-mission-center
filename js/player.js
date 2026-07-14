@@ -5,9 +5,9 @@
 
 // 讀取玩家資料
 const playerData = JSON.parse(localStorage.getItem("player"));
+const isLogin = localStorage.getItem("isLogin");
 
-// 沒登入就跳回登入頁
-if (!playerData) {
+if (!playerData || isLogin !== "true") {
 
     window.location.href = "login.html";
 
