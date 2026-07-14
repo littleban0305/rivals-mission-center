@@ -165,7 +165,11 @@ const saveProfile = document.getElementById("saveProfile");
 
 if (saveProfile) {
 
+    console.log("SaveProfile 已綁定");
+
     saveProfile.addEventListener("click", function () {
+
+        console.log("按下儲存");
 
         player.username =
             document.getElementById("editUsername").value;
@@ -176,13 +180,9 @@ if (saveProfile) {
         player.discord =
             document.getElementById("editDiscord").value;
 
-        localStorage.setItem(
-            "player",
-            JSON.stringify(player)
-        );
+        localStorage.setItem("player", JSON.stringify(player));
 
-        document.getElementById("username").textContent =
-            player.username;
+        document.getElementById("username").textContent = player.username;
 
         const dropdownUsername =
             document.getElementById("dropdownUsername");
