@@ -18,11 +18,8 @@ const isLogin = localStorage.getItem("isLogin");
 
 if (!player || isLogin !== "true") {
 
-    if (!window.location.pathname.includes("login.html")) {
-
-        window.location.href = "login.html";
-
-    }
+    console.log("登入檢查失敗");
+    // window.location.href = "login.html";
 
 }
 
