@@ -7,15 +7,6 @@
 // 讀取玩家資料
 // ==========================
 
-const players =
-    JSON.parse(localStorage.getItem("players")) || {};
-
-const currentPlayer =
-    localStorage.getItem("currentPlayer");
-
-let player =
-    players[currentPlayer];
-
 if (!player) {
 
     alert("找不到玩家資料！");
