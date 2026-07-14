@@ -102,11 +102,14 @@ const dropdownArrow = document.getElementById("dropdownArrow");
 
 if(userBtn){
 
-    userBtn.addEventListener("click", function(e){
+    userBtn.addEventListener("click", function (e) {
 
         e.stopPropagation();
 
         dropdownMenu.classList.toggle("show");
+        dropdownArrow.classList.toggle("rotate");
+
+});
 
     });
 
