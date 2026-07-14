@@ -122,3 +122,32 @@ if (userBtn && dropdownMenu && dropdownArrow) {
     });
 
 }
+
+// ==========================
+// Edit Profile
+// ==========================
+
+const editProfileBtn = document.getElementById("editProfileBtn");
+const editModal = document.getElementById("editModal");
+
+const cancelEdit = document.getElementById("cancelEdit");
+
+if (editProfileBtn && editModal) {
+
+    editProfileBtn.addEventListener("click", function () {
+
+        editModal.classList.add("show");
+
+    });
+
+}
+
+if (cancelEdit) {
+
+    cancelEdit.addEventListener("click", function () {
+
+        editModal.classList.remove("show");
+
+    });
+
+}
