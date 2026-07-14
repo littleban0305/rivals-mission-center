@@ -23,7 +23,7 @@
 
 <nav class="navbar">
 
-    <a href="index.html" class="logo">
+    <a class="logo" href="index.html">
 
         <i class="bi bi-controller"></i>
 
@@ -47,13 +47,49 @@
 
     </ul>
 
-  <button class="btn login-btn">
+<div class="user-menu">
 
+    <button class="btn"  id="userBtn">
         <i class="bi bi-person-circle"></i>
-
-        玩家
-
+        <span id="username">elo哥</span>
+        <i class="bi bi-chevron-down" id="dropdownArrow"></i>
     </button>
+
+    <div class="dropdown-menu" id="dropdownMenu">
+
+        <div class="dropdown-header">
+
+            <i class="bi bi-person-circle"></i>
+
+            <div>
+                <h4 id="dropdownUsername">elo哥</h4>
+                <span>Closed Beta</span>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <a href="player.html">
+            <i class="bi bi-person"></i>
+            玩家中心
+        </a>
+
+        <button id="editProfileBtn">
+            <i class="bi bi-pencil"></i>
+            編輯資料
+        </button>
+
+        <hr>
+
+        <button id="logoutBtn">
+            <i class="bi bi-box-arrow-right"></i>
+            登出
+        </button>
+
+    </div>
+
+</div>
 
 </nav>
 
