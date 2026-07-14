@@ -131,3 +131,68 @@ if (missionSelect && player.missions) {
     }
 
 }
+
+const approveBtn =
+    document.getElementById("approveMission");
+
+if (approveBtn) {
+
+    approveBtn.addEventListener("click", () => {
+
+        const missionId =
+            missionSelect.value;
+
+        if (!missionId) {
+
+            alert("請先選擇任務！");
+            return;
+
+        }
+
+        const mission =
+            missions[missionId];
+
+        if (!mission) {
+
+            alert("找不到任務！");
+            return;
+
+        }
+
+        // 標記完成
+        player.missions[missionId] =
+            "completed";
+
+        // 發放 Gold
+        const gold =
+            parseInt(mission.reward) || 0;
+
+        player.gold += gold;
+
+        // EXP
+        const expMatch =
+            mission.reward.match(/(\d+)\s*EXP/);
+
+        if (expMatch) {
+
+            player.exp +=
+                Number(expMatch[1]);
+
+        }
+
+        // 存回玩家資料
+        players[currentPlayer] =
+            player;
+
+        localStorage.setItem(
+            "players",
+            JSON.stringify(players)
+        );
+
+        alert("✅ 任務已核准！");
+
+        location.reload();
+
+    });
+
+}
