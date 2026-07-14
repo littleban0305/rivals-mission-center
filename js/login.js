@@ -8,7 +8,7 @@ const isLogin = localStorage.getItem("isLogin");
 
 if (isLogin === "true") {
 
-    location.replace("index.html");
+    // location.replace("index.html");
 
 }
 
