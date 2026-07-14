@@ -136,15 +136,62 @@ if (editProfileBtn && editModal) {
 
     editProfileBtn.addEventListener("click", function () {
 
-        editModal.classList.add("show");
+    document.getElementById("editUsername").value =
+        player.username || "";
 
-    });
+    document.getElementById("editRoblox").value =
+        player.roblox || "";
+
+    document.getElementById("editDiscord").value =
+        player.discord || "";
+
+    editModal.classList.add("show");
+
+});
 
 }
 
 if (cancelEdit) {
 
     cancelEdit.addEventListener("click", function () {
+
+        editModal.classList.remove("show");
+
+    });
+
+}
+
+const saveProfile = document.getElementById("saveProfile");
+
+if (saveProfile) {
+
+    saveProfile.addEventListener("click", function () {
+
+        player.username =
+            document.getElementById("editUsername").value;
+
+        player.roblox =
+            document.getElementById("editRoblox").value;
+
+        player.discord =
+            document.getElementById("editDiscord").value;
+
+        localStorage.setItem(
+            "player",
+            JSON.stringify(player)
+        );
+
+        document.getElementById("username").textContent =
+            player.username;
+
+        const dropdownUsername =
+            document.getElementById("dropdownUsername");
+
+        if (dropdownUsername) {
+
+            dropdownUsername.textContent = player.username;
+
+        }
 
         editModal.classList.remove("show");
 
