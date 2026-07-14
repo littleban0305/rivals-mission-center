@@ -3,8 +3,6 @@
 // Submit System Beta 1.1
 // ==========================
 
-const mission = missions[id];
-
 // ==========================
 // 讀取網址參數
 // ==========================
@@ -75,7 +73,7 @@ if (type === "mission") {
 
 }
 
-    }
+}
 
 }
 
@@ -88,22 +86,30 @@ else if (type === "shop") {
     const shop = {
 
         SC001: {
-
+    
             name: "Skin Case",
             reward: "Skin Case",
             proof: "Roblox 名稱"
-
+    
         },
-
+    
         SC002: {
-
+    
             name: "椰子鐮刀",
             reward: "Palm Scythe",
             proof: "Roblox 名稱"
+    
+        },
+    
+        SC003: {
+    
+            name: "漫畫閱讀券 ×1",
+            reward: "一本漫畫永久閱讀權",
+            proof: "請於 Google Form 填寫欲兌換的漫畫名稱"
 
-        }
+    }
 
-    };
+};
 
     const item = shop[id];
 
