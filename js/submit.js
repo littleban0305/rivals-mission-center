@@ -169,7 +169,13 @@ if (submitBtn) {
                 localStorage.getItem("currentPlayer");
 
             if (players[currentPlayer]) {
-
+            
+                if (!players[currentPlayer].missions) {
+            
+                    players[currentPlayer].missions = {};
+            
+                }
+            
                 players[currentPlayer].missions[id] = "pending";
 
                 localStorage.setItem(
