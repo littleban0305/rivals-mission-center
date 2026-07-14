@@ -1531,3 +1531,11 @@ img{
     background:rgba(255,255,255,.08);
 
 }
+
+#editModal{
+    display:none !important;
+}
+
+#editModal.show{
+    display:flex !important;
+}
