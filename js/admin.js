@@ -3,13 +3,30 @@
 // Admin Panel
 // ==========================
 
+const params =
+    new URLSearchParams(location.search);
+
 const selectedPlayer =
+    params.get("player") ||
     currentPlayer;
 
 const playerSelect =
     document.getElementById("playerSelect");
 
+const adminPlayer =
+    players[selectedPlayer];
+
+if (!adminPlayer) {
+
+    alert("找不到玩家資料！");
+
+    window.location.href = "login.html";
+
+}
+
+// ==========================
 // 建立玩家下拉選單
+// ==========================
 
 if (playerSelect) {
 
@@ -46,80 +63,86 @@ if (playerSelect) {
 // ==========================
 
 document.getElementById("adminUsername").value =
-    player.username || "";
+    adminPlayer.username || "";
 
 document.getElementById("adminRoblox").value =
-    player.roblox || "";
+    adminPlayer.roblox || "";
 
 document.getElementById("adminDiscord").value =
-    player.discord || "";
+    adminPlayer.discord || "";
 
 document.getElementById("adminGold").value =
-    player.gold || 0;
+    adminPlayer.gold || 0;
 
 document.getElementById("adminRcoin").value =
-    player.rcoin || 0;
+    adminPlayer.rcoin || 0;
 
 document.getElementById("adminExp").value =
-    player.exp || 0;
+    adminPlayer.exp || 0;
 
 document.getElementById("adminBP").value =
-    player.battlePass || 1;
+    adminPlayer.battlePass || 1;
 
 document.getElementById("adminLevel").value =
-    player.level || 1;
+    adminPlayer.level || 1;
 
 document.getElementById("adminSkinCase").value =
-    player.skinCase || 0;
+    adminPlayer.skinCase || 0;
 
 document.getElementById("adminScythe").value =
-    player.coconutScythe || 0;
+    adminPlayer.coconutScythe || 0;
 
 // ==========================
 // 儲存
 // ==========================
 
-const saveBtn = document.getElementById("saveAdmin");
+const saveBtn =
+    document.getElementById("saveAdmin");
 
-saveBtn.addEventListener("click", () => {
+if (saveBtn) {
 
-    player.roblox =
-        document.getElementById("adminRoblox").value;
+    saveBtn.addEventListener("click", () => {
 
-    player.discord =
-        document.getElementById("adminDiscord").value;
+        adminPlayer.roblox =
+            document.getElementById("adminRoblox").value;
 
-    player.gold =
-        Number(document.getElementById("adminGold").value);
+        adminPlayer.discord =
+            document.getElementById("adminDiscord").value;
 
-    player.rcoin =
-        Number(document.getElementById("adminRcoin").value);
+        adminPlayer.gold =
+            Number(document.getElementById("adminGold").value);
 
-    player.exp =
-        Number(document.getElementById("adminExp").value);
+        adminPlayer.rcoin =
+            Number(document.getElementById("adminRcoin").value);
 
-    player.battlePass =
-        Number(document.getElementById("adminBP").value);
+        adminPlayer.exp =
+            Number(document.getElementById("adminExp").value);
 
-    player.level =
-        Number(document.getElementById("adminLevel").value);
+        adminPlayer.battlePass =
+            Number(document.getElementById("adminBP").value);
 
-    player.skinCase =
-        Number(document.getElementById("adminSkinCase").value);
+        adminPlayer.level =
+            Number(document.getElementById("adminLevel").value);
 
-    player.coconutScythe =
-        Number(document.getElementById("adminScythe").value);
+        adminPlayer.skinCase =
+            Number(document.getElementById("adminSkinCase").value);
 
-players[selectedPlayer] = player;
+        adminPlayer.coconutScythe =
+            Number(document.getElementById("adminScythe").value);
 
-localStorage.setItem(
-    "players",
-    JSON.stringify(players)
-);
+        players[selectedPlayer] =
+            adminPlayer;
 
-    alert("✅ 玩家資料已儲存！");
+        localStorage.setItem(
+            "players",
+            JSON.stringify(players)
+        );
 
-});
+        alert("✅ 玩家資料已儲存！");
+
+    });
+
+}
 
 // ==========================
 // 任務審核
@@ -128,18 +151,19 @@ localStorage.setItem(
 const missionSelect =
     document.getElementById("missionSelect");
 
-if (missionSelect && player.missions) {
+if (missionSelect && adminPlayer.missions) {
 
-    for (const id in player.missions) {
+    for (const id in adminPlayer.missions) {
 
-        if (player.missions[id] === "pending") {
+        if (adminPlayer.missions[id] === "pending") {
 
             const option =
                 document.createElement("option");
 
             option.value = id;
 
-            option.textContent = `${id}（審核中）`;
+            option.textContent =
+                `${id}（審核中）`;
 
             missionSelect.appendChild(option);
 
@@ -176,29 +200,34 @@ if (approveBtn) {
 
         }
 
-        // 標記完成
-        player.missions[missionId] =
+        // 完成任務
+
+        adminPlayer.missions[missionId] =
             "completed";
 
         // 發放 Gold
+
         const gold =
             parseInt(mission.reward) || 0;
 
-        player.gold += gold;
+        adminPlayer.gold += gold;
 
-        // EXP
+        // 發放 EXP
+
         const expMatch =
             mission.reward.match(/(\d+)\s*EXP/);
 
         if (expMatch) {
 
-            player.exp +=
+            adminPlayer.exp +=
                 Number(expMatch[1]);
 
         }
 
-        // 存回玩家資料
-        players[selectedPlayer] = player;
+        // 存回資料
+
+        players[selectedPlayer] =
+            adminPlayer;
 
         localStorage.setItem(
             "players",
