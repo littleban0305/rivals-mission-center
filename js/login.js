@@ -169,6 +169,8 @@ function login() {
         JSON.stringify(player)
     );
 
+    localStorage.setItem("isLogin", "true");
+    
     alert("登入成功！");
 
     window.location.href = "index.html";
