@@ -19,6 +19,12 @@ if (!player) {
 
 document.getElementById("playerName").textContent = player.username;
 
+document.getElementById("playerRoblox").textContent =
+player.roblox || "未設定";
+
+document.getElementById("playerDiscord").textContent =
+player.discord || "未設定";
+
 document.getElementById("gold").textContent = player.gold;
 
 document.getElementById("rcoin").textContent = player.rcoin;
