@@ -7,7 +7,14 @@
 // 讀取玩家資料
 // ==========================
 
-const playerData = JSON.parse(localStorage.getItem("player"));
+const players =
+    JSON.parse(localStorage.getItem("players")) || {};
+
+const currentPlayer =
+    localStorage.getItem("currentPlayer");
+
+const playerData =
+    players[currentPlayer];
 
 if (!playerData || localStorage.getItem("isLogin") !== "true") {
 
@@ -155,7 +162,9 @@ logoutBtns.forEach(btn => {
 // 更新玩家資料
 // ==========================
 
+players[currentPlayer] = playerData;
+
 localStorage.setItem(
-    "player",
-    JSON.stringify(playerData)
+    "players",
+    JSON.stringify(players)
 );
