@@ -3,8 +3,18 @@
 // Admin Panel
 // ==========================
 
+// ==========================
 // 讀取玩家資料
-let player = JSON.parse(localStorage.getItem("player"));
+// ==========================
+
+const players =
+    JSON.parse(localStorage.getItem("players")) || {};
+
+const currentPlayer =
+    localStorage.getItem("currentPlayer");
+
+let player =
+    players[currentPlayer];
 
 if (!player) {
 
@@ -86,10 +96,12 @@ saveBtn.addEventListener("click", () => {
     player.coconutScythe =
         Number(document.getElementById("adminScythe").value);
 
-    localStorage.setItem(
-        "player",
-        JSON.stringify(player)
-    );
+players[currentPlayer] = player;
+
+localStorage.setItem(
+    "players",
+    JSON.stringify(players)
+);
 
     alert("✅ 玩家資料已儲存！");
 
