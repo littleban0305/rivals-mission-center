@@ -29,37 +29,35 @@ if (username && player) {
 
 // ---------- 首頁資料 ----------
 
-const playerName = document.querySelector(".card p");
+const isHome =
+    window.location.pathname.includes("index.html") ||
+    window.location.pathname.endsWith("/");
 
-if (playerName && player) {
+if (isHome) {
 
-    playerName.textContent = `Roblox：${player.username}`;
+    const goldText = document.querySelector(".dashboard .card:nth-child(2) h1");
 
-}
+    if (goldText && player) {
 
-const goldText = document.querySelector(".dashboard .card:nth-child(2) h1");
+        goldText.textContent = player.gold;
 
-if (goldText && player) {
+    }
 
-    goldText.textContent = player.gold;
+    const bpText = document.querySelector(".dashboard .card:nth-child(3) p");
 
-}
+    if (bpText && player) {
 
-const bpText = document.querySelector(".dashboard .card:nth-child(3) p");
+        bpText.textContent = `Lv.${player.battlePass}`;
 
-if (bpText && player) {
+    }
 
-    bpText.textContent = `Lv.${player.battlePass}`;
+    const progressBar = document.querySelector(".progress-bar");
 
-}
+    if (progressBar && player) {
 
-const progressBar = document.querySelector(".progress-bar");
+        progressBar.style.width = `${player.exp}%`;
 
-if (progressBar && player) {
-
-    progressBar.style.width = `${player.exp}%`;
-
-}
+    }
 
 // ---------- Hero Button ----------
 
