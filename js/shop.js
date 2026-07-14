@@ -19,12 +19,6 @@ if (!player) {
 
 }
 
-if (!player) {
-
-    window.location.href = "login.html";
-
-}
-
 // ==========================
 // Navbar
 // ==========================
