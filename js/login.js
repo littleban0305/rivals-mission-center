@@ -73,6 +73,9 @@ async function login() {
 
         }
 
+        console.log("Sheet密碼:", player.password);
+        console.log("輸入密碼:", password);
+        
         if (player.password !== password) {
 
             alert("密碼錯誤！");
