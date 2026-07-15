@@ -232,8 +232,8 @@ if (editProfileBtn && editModal) {
 
     editProfileBtn.addEventListener("click", function () {
 
-        document.getElementById("editUsername").value =
-            player.username || "";
+        document.getElementById("editNickname").value =
+            player.nickname || "";
 
         document.getElementById("editRoblox").value =
             player.roblox || "";
