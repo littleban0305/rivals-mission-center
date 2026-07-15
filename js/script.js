@@ -201,9 +201,11 @@ if (saveProfile) {
         player.discord =
             document.getElementById("editDiscord").value;
 
+        players[currentPlayer] = player;
+
         localStorage.setItem(
-            "player",
-            JSON.stringify(player)
+            "players",
+            JSON.stringify(players)
         );
 
         // 更新 Navbar
