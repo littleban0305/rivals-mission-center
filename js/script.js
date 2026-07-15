@@ -4,7 +4,7 @@
 // ==========================
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbzURjyuu9xjEo68I4WmYc7vyaXQv7BMeleaWfkaJGrPAak3V3QvDIX2wDtXon24qCgM/exec";
+"https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnTlWewcSlRbKtsANs3GGLh9yiJFMTCEiap9G5ZHCgX8OWGNxAJvXGAAE58n2k8bucIjfBkAYCV26NdpyVoiO7nOw_TPR6TqRWOOrYdetBdkmmzPAPCgSUyJdMrpu_Q_ooxnrqiCNSM8kK1FlRuyoCIYCKfvuibP6q2UyBH3pQT0ycyGh08OrKdlwRs9_AIF0_H2RBC8LN2zKGz0ZCSL3dBu0BoKVLltJtf4AQq9qYRKPBhbmlPgB0y3QBzm3380eBa229rj&lib=MzXXqH3DWKhrOZgWygeGlnMFsysbwZQ-i";
 
 async function syncPlayer() {
 
