@@ -252,8 +252,6 @@ if (
 
     }
 
-}
-
 const approveBtn =
     document.getElementById("approveMission");
 
