@@ -163,27 +163,26 @@ if (submitBtn) {
         // 任務提交
         if (type === "mission") {
 
-            const players =
-                JSON.parse(localStorage.getItem("players")) || {};
-
-            const currentPlayer =
-                localStorage.getItem("currentPlayer");
-
-            if (players[currentPlayer]) {
+            const player =
+                JSON.parse(
+                    localStorage.getItem("playerData")
+                );
             
-                if (!players[currentPlayer].missions) {
+            if (player) {
             
-                    players[currentPlayer].missions = {};
+                if (!player.missions) {
+            
+                    player.missions = {};
             
                 }
             
-                players[currentPlayer].missions[id] = "pending";
-
+                player.missions[id] = "pending";
+            
                 localStorage.setItem(
-                    "players",
-                    JSON.stringify(players)
+                    "playerData",
+                    JSON.stringify(player)
                 );
-
+            
             }
 
         }
