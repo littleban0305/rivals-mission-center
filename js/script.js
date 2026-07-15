@@ -256,7 +256,9 @@ const saveProfile = document.getElementById("saveProfile");
 if (saveProfile) {
 
     saveProfile.addEventListener("click", function () {
-
+        
+        const oldUsername = player.username;
+        
         player.username =
             document.getElementById("editUsername").value;
 
