@@ -324,12 +324,6 @@ if (approveBtn) {
         adminPlayer.missions[missionId] =
             "completed";
 
-        alert(
-            JSON.stringify(
-                adminPlayer.missions
-            )
-        );
-
         // 發放 Gold
 
         const gold =
