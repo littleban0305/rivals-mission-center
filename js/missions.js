@@ -3,6 +3,11 @@
 // Mission Generator Beta 0.2
 // ==========================
 
+const player =
+    JSON.parse(
+        localStorage.getItem("playerData")
+    );
+
 // ==========================
 // 任務分類容器
 // ==========================
