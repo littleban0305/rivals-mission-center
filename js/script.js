@@ -98,7 +98,8 @@ const username = document.getElementById("username");
 
 if (username && player) {
 
-    username.textContent = player.username;
+    username.textContent =
+        player.nickname || player.username;
 
 }
 
@@ -106,7 +107,8 @@ const dropdownUsername = document.getElementById("dropdownUsername");
 
 if (dropdownUsername && player) {
 
-    dropdownUsername.textContent = player.username;
+    dropdownUsername.textContent =
+        player.nickname || player.username;
 
 }
 
