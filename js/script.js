@@ -161,7 +161,11 @@ const cancelEdit = document.getElementById("cancelEdit");
 
 if (editProfileBtn && editModal) {
 
+    console.log("EditProfile 初始化成功");
+
     editProfileBtn.addEventListener("click", function () {
+
+        console.log("按到編輯資料");
 
         document.getElementById("editUsername").value =
             player.username || "";
@@ -173,16 +177,6 @@ if (editProfileBtn && editModal) {
             player.discord || "";
 
         editModal.classList.add("show");
-
-    });
-
-}
-
-if (cancelEdit && editModal) {
-
-    cancelEdit.addEventListener("click", function () {
-
-        editModal.classList.remove("show");
 
     });
 
