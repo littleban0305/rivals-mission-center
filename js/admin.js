@@ -89,6 +89,13 @@ async function loadPlayers() {
 
         }
 
+        playerSelect.addEventListener("change", () => {
+
+            location.href =
+                `admin.html?player=${playerSelect.value}`;
+        
+        });
+
         // 載入資料
 
         document.getElementById("adminUsername").value =
@@ -227,30 +234,6 @@ if (saveBtn) {
 
 const missionSelect =
     document.getElementById("missionSelect");
-
-if (
-    missionSelect &&
-    adminPlayer &&
-    adminPlayer.missions
-)
-
-    for (const id in adminPlayer.missions) {
-
-        if (adminPlayer.missions[id] === "pending") {
-
-            const option =
-                document.createElement("option");
-
-            option.value = id;
-
-            option.textContent =
-                `${id}（審核中）`;
-
-            missionSelect.appendChild(option);
-
-        }
-
-    }
 
 const approveBtn =
     document.getElementById("approveMission");
