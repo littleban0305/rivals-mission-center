@@ -31,18 +31,16 @@ if (playerSelect) {
 
     const option =
         document.createElement("option");
-    
+
     option.value =
         adminPlayer.username;
-    
+
     option.textContent =
         adminPlayer.username;
-    
+
     option.selected = true;
-    
+
     playerSelect.appendChild(option);
-    
-        }
 
     playerSelect.addEventListener("change", () => {
 
