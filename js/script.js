@@ -6,6 +6,39 @@
 const API_URL =
 "https://script.google.com/macros/s/AKfycbzURjyuu9xjEo68I4WmYc7vyaXQv7BMeleaWfkaJGrPAak3V3QvDIX2wDtXon24qCgM/exec";
 
+async function syncPlayer() {
+
+    if (!player) return;
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}?username=${encodeURIComponent(player.username)}`
+            );
+
+        const latestPlayer =
+            await response.json();
+
+        if (!latestPlayer.error) {
+
+            localStorage.setItem(
+                "playerData",
+                JSON.stringify(latestPlayer)
+            );
+
+        }
+
+    }
+
+    catch (err) {
+
+        console.error("同步失敗", err);
+
+    }
+
+}
+
 // ---------- 玩家登入 ----------
 
 const player =
