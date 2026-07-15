@@ -24,6 +24,22 @@ const playerSelect =
 let adminPlayer = null;
 let players = [];
 
+async function loadPlayers() {
+
+    const response =
+        await fetch(
+            `${API_URL}?action=players`
+        );
+
+    players =
+        await response.json();
+
+    console.log(players);
+
+}
+
+loadPlayers();
+
 // ==========================
 // 建立玩家下拉選單
 // ==========================
