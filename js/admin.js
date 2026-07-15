@@ -51,6 +51,11 @@ async function loadPlayers() {
                 p => p.username === selectedPlayer
             );
 
+        console.log(
+            "missions",
+            adminPlayer.missions
+        );
+
         if (!adminPlayer) {
 
             alert("找不到玩家資料！");
