@@ -3,9 +3,6 @@
 // Admin Panel
 // ==========================
 
-const API_URL =
-"https://script.google.com/macros/s/AKfycbxnbQ_vh4Ug2ZwlbhxHubMubHe9rxVrgrsJmrsoySY/dev";
-
 const currentPlayer =
     JSON.parse(
         localStorage.getItem("playerData")
