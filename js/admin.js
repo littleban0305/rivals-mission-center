@@ -300,6 +300,8 @@ if (approveBtn) {
         const missionId =
             missionSelect.value;
 
+        console.log("missionId =", missionId);
+
         if (!missionId) {
 
             alert("請先選擇任務！");
