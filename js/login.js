@@ -73,8 +73,8 @@ async function login() {
 
         }
 
-        console.log("Sheet密碼:", player.password);
-        console.log("輸入密碼:", password);
+        console.log("Sheet密碼:", JSON.stringify(player.password));
+        console.log("輸入密碼:", JSON.stringify(password));
         
         if (player.password !== password) {
 
