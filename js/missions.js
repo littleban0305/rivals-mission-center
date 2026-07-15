@@ -3,7 +3,7 @@
 // Mission Generator Beta 0.2
 // ==========================
 
-const player =
+const missionPlayer =
     JSON.parse(
         localStorage.getItem("playerData")
     );
