@@ -61,7 +61,14 @@ async function loadPlayers() {
         // 建立下拉選單
 
         if (playerSelect) {
+            
+            playerSelect.addEventListener("change", () => {
 
+                location.href =
+                    `admin.html?player=${playerSelect.value}`;
+            
+            });
+            
             playerSelect.innerHTML = "";
 
             players.forEach(player => {
@@ -88,13 +95,6 @@ async function loadPlayers() {
             });
 
         }
-
-        playerSelect.addEventListener("change", () => {
-
-            location.href =
-                `admin.html?player=${playerSelect.value}`;
-        
-        });
 
         // 載入資料
 
@@ -129,9 +129,6 @@ async function loadPlayers() {
             adminPlayer.coconutScythe || 0;
 
         // 任務清單
-
-        const missionSelect =
-            document.getElementById("missionSelect");
 
         if (
             missionSelect &&
