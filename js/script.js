@@ -259,8 +259,8 @@ if (saveProfile) {
         
         const oldUsername = player.username;
         
-        player.username =
-            document.getElementById("editUsername").value;
+        player.nickname =
+            document.getElementById("editNickname").value;
 
         player.roblox =
             document.getElementById("editRoblox").value;
