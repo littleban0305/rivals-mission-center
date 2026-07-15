@@ -334,16 +334,65 @@ if (approveBtn) {
 
         }
 
-        // 存回資料
-
-        localStorage.setItem(
-            "playerData",
-            JSON.stringify(adminPlayer)
-        );
-
-        alert("✅ 任務已核准！");
-
-        location.reload();
+        fetch(API_URL, {
+        
+            method: "POST",
+        
+            body: JSON.stringify({
+        
+                action: "updatePlayer",
+        
+                username: adminPlayer.username,
+        
+                roblox: adminPlayer.roblox,
+        
+                discord: adminPlayer.discord,
+        
+                gold: adminPlayer.gold,
+        
+                rcoin: adminPlayer.rcoin,
+        
+                exp: adminPlayer.exp,
+        
+                level: adminPlayer.level,
+        
+                battlePass: adminPlayer.battlePass,
+        
+                skinCase: adminPlayer.skinCase,
+        
+                coconutScythe: adminPlayer.coconutScythe
+        
+            })
+        
+        })
+        
+        .then(res => res.json())
+        
+        .then(data => {
+        
+            if (data.success) {
+        
+                alert("✅ 任務已核准並同步！");
+        
+                location.reload();
+        
+            }
+        
+            else {
+        
+                alert("❌ 同步失敗");
+        
+            }
+        
+        })
+        
+        .catch(err => {
+        
+            console.error(err);
+        
+            alert("❌ 無法連線到伺服器");
+        
+        });
 
     });
 
