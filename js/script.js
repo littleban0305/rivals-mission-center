@@ -90,6 +90,8 @@ if (!player || isLogin !== "true") {
 
 }
 
+syncPlayer();
+
 // ---------- Navbar ----------
 
 const username = document.getElementById("username");
