@@ -41,6 +41,7 @@ loadPlayers();
 // 建立玩家下拉選單
 // ==========================
 
+/*
 if (playerSelect) {
 
     const option =
@@ -98,6 +99,7 @@ document.getElementById("adminSkinCase").value =
 
 document.getElementById("adminScythe").value =
     adminPlayer.coconutScythe || 0;
+*/
 
 // ==========================
 // 儲存
