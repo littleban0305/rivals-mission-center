@@ -34,162 +34,82 @@ usernameInput.addEventListener("keydown", function (e) {
 
 });
 
-function login() {
+async function login() {
 
-    const username = usernameInput.value.trim();
+    const username =
+        usernameInput.value.trim();
 
-    if (username.length > 20) {
+    const password =
+        passwordInput.value.trim();
 
-        alert("Roblox 名稱最多 20 個字元。");
+    if (!username) {
 
+        alert("請輸入帳號！");
         return;
 
     }
 
-    if (username === "") {
+    if (!password) {
 
-        alert("請輸入 Roblox 名稱！");
-
+        alert("請輸入密碼！");
         return;
 
     }
 
-    // ==========================
-    // 讀取所有玩家
-    // ==========================
+    try {
 
-    let players =
-        JSON.parse(localStorage.getItem("players")) || {};
+        const response =
+            await fetch(
+                `${API_URL}?username=${encodeURIComponent(username)}`
+            );
 
-    // 取得目前玩家
-    let player = players[username];
+        const player =
+            await response.json();
 
-    // ==========================
-    // 第一次登入
-    // ==========================
+        if (player.error) {
 
-    if (!player) {
+            alert("找不到帳號！");
+            return;
 
-        player = {
+        }
 
-            playerId: crypto.randomUUID
-                ? crypto.randomUUID()
-                : Date.now().toString(),
+        if (player.password !== password) {
 
-            username: username,
+            alert("密碼錯誤！");
+            return;
 
-            roblox: username,
+        }
 
-            discord: "",
+        // 登入成功
 
-            version: "Beta 0.2",
+        localStorage.setItem(
+            "currentPlayer",
+            username
+        );
 
-            gold: 0,
+        localStorage.setItem(
+            "playerData",
+            JSON.stringify(player)
+        );
 
-            rcoin: 0,
+        localStorage.setItem(
+            "isLogin",
+            "true"
+        );
 
-            level: 1,
+        alert("登入成功！");
 
-            battlePass: 1,
-
-            exp: 0,
-
-            maxExp: 100,
-
-            skinCase: 0,
-
-            coconutScythe: 0,
-
-            dailyCompleted: 0,
-
-            weeklyCompleted: 0,
-
-            permanentCompleted: 0,
-
-            joinDate: new Date().toLocaleDateString(),
-
-            createTime: Date.now(),
-
-            lastLogin: Date.now(),
-
-            missions: {}
-
-        };
+        window.location.href =
+            "index.html";
 
     }
 
-    // ==========================
-    // 舊玩家登入
-    // ==========================
+    catch (err) {
 
-    else {
+        console.error(err);
 
-        player.lastLogin = Date.now();
-
-        if (player.discord === undefined)
-            player.discord = "";
-
-        if (player.rcoin === undefined)
-            player.rcoin = 0;
-
-        if (player.level === undefined)
-            player.level = 1;
-
-        if (player.battlePass === undefined)
-            player.battlePass = 1;
-
-        if (player.exp === undefined)
-            player.exp = 0;
-
-        if (player.maxExp === undefined)
-            player.maxExp = 100;
-
-        if (player.skinCase === undefined)
-            player.skinCase = 0;
-
-        if (player.coconutScythe === undefined)
-            player.coconutScythe = 0;
-
-        if (player.dailyCompleted === undefined)
-            player.dailyCompleted = 0;
-
-        if (player.weeklyCompleted === undefined)
-            player.weeklyCompleted = 0;
-
-        if (player.permanentCompleted === undefined)
-            player.permanentCompleted = 0;
-
-        if (player.version === undefined)
-            player.version = "Beta 0.2";
-
-        if (player.missions === undefined)
-            player.missions = {};
+        alert("無法連線到伺服器");
 
     }
-
-    // ==========================
-    // 儲存玩家
-    // ==========================
-
-    players[username] = player;
-
-    localStorage.setItem(
-        "players",
-        JSON.stringify(players)
-    );
-
-    localStorage.setItem(
-        "currentPlayer",
-        username
-    );
-
-    localStorage.setItem(
-        "isLogin",
-        "true"
-    );
-
-    alert("登入成功！");
-
-    window.location.href = "index.html";
 
 }
