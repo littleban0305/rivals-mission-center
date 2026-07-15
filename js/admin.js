@@ -3,6 +3,11 @@
 // Admin Panel
 // ==========================
 
+const currentPlayer =
+    JSON.parse(
+        localStorage.getItem("playerData")
+    )?.username;
+
 const params =
     new URLSearchParams(location.search);
 
@@ -14,15 +19,9 @@ const playerSelect =
     document.getElementById("playerSelect");
 
 const adminPlayer =
-    players[selectedPlayer];
-
-if (!adminPlayer) {
-
-    alert("找不到玩家資料！");
-
-    window.location.href = "login.html";
-
-}
+    JSON.parse(
+        localStorage.getItem("playerData")
+    );
 
 // ==========================
 // 建立玩家下拉選單
@@ -30,24 +29,20 @@ if (!adminPlayer) {
 
 if (playerSelect) {
 
-    for (const username in players) {
-
-        const option =
-            document.createElement("option");
-
-        option.value = username;
-
-        option.textContent = username;
-
-        if (username === selectedPlayer) {
-
-            option.selected = true;
-
+    const option =
+        document.createElement("option");
+    
+    option.value =
+        adminPlayer.username;
+    
+    option.textContent =
+        adminPlayer.username;
+    
+    option.selected = true;
+    
+    playerSelect.appendChild(option);
+    
         }
-
-        playerSelect.appendChild(option);
-
-    }
 
     playerSelect.addEventListener("change", () => {
 
@@ -130,12 +125,9 @@ if (saveBtn) {
         adminPlayer.coconutScythe =
             Number(document.getElementById("adminScythe").value);
 
-        players[selectedPlayer] =
-            adminPlayer;
-
         localStorage.setItem(
-            "players",
-            JSON.stringify(players)
+            "playerData",
+            JSON.stringify(adminPlayer)
         );
 
         alert("✅ 玩家資料已儲存！");
@@ -226,12 +218,9 @@ if (approveBtn) {
 
         // 存回資料
 
-        players[selectedPlayer] =
-            adminPlayer;
-
         localStorage.setItem(
-            "players",
-            JSON.stringify(players)
+            "playerData",
+            JSON.stringify(adminPlayer)
         );
 
         alert("✅ 任務已核准！");
