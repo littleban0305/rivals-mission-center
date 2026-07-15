@@ -4,7 +4,7 @@
 // ==========================
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbxnbQ_vh4Ug2ZwlbhxHubMubHe9rxVrgrsJmrsoySY/dev";
+"https://script.google.com/macros/s/AKfycbzURjyuu9xjEo68I4WmYc7vyaXQv7BMeleaWfkaJGrPAak3V3QvDIX2wDtXon24qCgM/exec?action=players";
 
 async function syncPlayer() {
 
