@@ -38,7 +38,8 @@ for (const id in missions) {
     let buttonText = "提交證明";
 let disabled = "";
 
-const status = player?.missions?.[id];
+const status =
+    missionPlayer?.missions?.[id];
 
 if (status === "pending") {
 
