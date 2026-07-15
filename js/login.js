@@ -4,7 +4,7 @@
 // ==========================
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbzURjyuu9xjEo68I4WmYc7vyaXQv7BMeleaWfkaJGrPAak3V3QvDIX2wDtXon24qCgM/exec?action=players";
+"https://script.google.com/macros/s/AKfycbzURjyuu9xjEo68I4WmYc7vyaXQv7BMeleaWfkaJGrPAak3V3QvDIX2wDtXon24qCgM/exec";
 
 // 已登入就直接回首頁
 const isLogin = localStorage.getItem("isLogin");
