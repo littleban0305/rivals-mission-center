@@ -33,6 +33,13 @@ async function loadPlayers() {
 
     console.log(players);
 
+    adminPlayer =
+        players.find(
+            p => p.username === selectedPlayer
+        );
+
+    console.log("目前玩家", adminPlayer);
+
 }
 
 loadPlayers();
