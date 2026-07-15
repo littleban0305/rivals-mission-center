@@ -150,14 +150,3 @@ logoutBtns.forEach(btn => {
     });
 
 });
-
-// ==========================
-// 更新玩家資料
-// ==========================
-
-players[currentPlayer] = playerData;
-
-localStorage.setItem(
-    "players",
-    JSON.stringify(players)
-);
