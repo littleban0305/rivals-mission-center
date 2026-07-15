@@ -282,6 +282,8 @@ if (saveProfile) {
                 action: "updatePlayer",
         
                 username: player.username,
+
+                nickname: player.nickname,
         
                 roblox: player.roblox,
         
