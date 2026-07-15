@@ -322,6 +322,11 @@ if (approveBtn) {
         adminPlayer.missions[missionId] =
             "completed";
 
+        console.log(
+            "核准後 missions:",
+            adminPlayer.missions
+        );
+
         // 發放 Gold
 
         const gold =
