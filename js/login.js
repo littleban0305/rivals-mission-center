@@ -59,28 +59,47 @@ async function login() {
     try {
 
         const response =
-            await fetch(
-                `${API_URL}?username=${encodeURIComponent(username)}`
-            );
-
+            await fetch(API_URL, {
+        
+                method: "POST",
+        
+                headers: {
+        
+                    "Content-Type":
+                        "application/json"
+        
+                },
+        
+                body: JSON.stringify({
+        
+                    username,
+                    password
+        
+                })
+        
+            });
+        
         const player =
             await response.json();
-
-        if (player.error) {
-
-            alert("找不到帳號！");
-            return;
-
-        }
         
-        if (
-            String(player.password).trim() !==
-            String(password).trim()
-        ) {
-
-            alert("密碼錯誤！");
+        if (!player.success) {
+        
+            if (
+                player.error === "username"
+            ) {
+        
+                alert("找不到帳號！");
+        
+            }
+        
+            else {
+        
+                alert("密碼錯誤！");
+        
+            }
+        
             return;
-
+        
         }
 
         // 登入成功
