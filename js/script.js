@@ -13,6 +13,41 @@ const player =
         localStorage.getItem("playerData")
     );
 
+async function refreshPlayerData() {
+
+    if (!player) return;
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}?username=${encodeURIComponent(player.username)}`
+            );
+
+        const latestPlayer =
+            await response.json();
+
+        if (!latestPlayer.error) {
+
+            localStorage.setItem(
+                "playerData",
+                JSON.stringify(latestPlayer)
+            );
+
+            location.reload();
+
+        }
+
+    }
+
+    catch (err) {
+
+        console.error(err);
+
+    }
+
+}
+
 const isLogin = localStorage.getItem("isLogin");
 
 if (!player || isLogin !== "true") {
