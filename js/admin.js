@@ -23,90 +23,154 @@ let players = [];
 
 async function loadPlayers() {
 
-    const response =
-        await fetch(
-            `${API_URL}?action=players`
-        );
+    try {
 
-    players =
-        await response.json();
+        const response =
+            await fetch(
+                `${API_URL}?action=players`
+            );
 
-    console.log(players);
+        players =
+            await response.json();
 
-    adminPlayer =
-        players.find(
-            p => p.username === selectedPlayer
-        );
+        console.log(players);
 
-    console.log("目前玩家", adminPlayer);
+        if (!Array.isArray(players)) {
+
+            console.error(
+                "玩家資料不是陣列",
+                players
+            );
+
+            return;
+
+        }
+
+        adminPlayer =
+            players.find(
+                p => p.username === selectedPlayer
+            );
+
+        if (!adminPlayer) {
+
+            alert("找不到玩家資料！");
+            return;
+
+        }
+
+        // 建立下拉選單
+
+        if (playerSelect) {
+
+            playerSelect.innerHTML = "";
+
+            players.forEach(player => {
+
+                const option =
+                    document.createElement("option");
+
+                option.value =
+                    player.username;
+
+                option.textContent =
+                    player.username;
+
+                if (
+                    player.username === selectedPlayer
+                ) {
+
+                    option.selected = true;
+
+                }
+
+                playerSelect.appendChild(option);
+
+            });
+
+        }
+
+        // 載入資料
+
+        document.getElementById("adminUsername").value =
+            adminPlayer.username || "";
+
+        document.getElementById("adminRoblox").value =
+            adminPlayer.roblox || "";
+
+        document.getElementById("adminDiscord").value =
+            adminPlayer.discord || "";
+
+        document.getElementById("adminGold").value =
+            adminPlayer.gold || 0;
+
+        document.getElementById("adminRcoin").value =
+            adminPlayer.rcoin || 0;
+
+        document.getElementById("adminExp").value =
+            adminPlayer.exp || 0;
+
+        document.getElementById("adminBP").value =
+            adminPlayer.battlePass || 1;
+
+        document.getElementById("adminLevel").value =
+            adminPlayer.level || 1;
+
+        document.getElementById("adminSkinCase").value =
+            adminPlayer.skinCase || 0;
+
+        document.getElementById("adminScythe").value =
+            adminPlayer.coconutScythe || 0;
+
+        // 任務清單
+
+        const missionSelect =
+            document.getElementById("missionSelect");
+
+        if (
+            missionSelect &&
+            adminPlayer.missions
+        ) {
+
+            missionSelect.innerHTML = "";
+
+            for (const id in adminPlayer.missions) {
+
+                if (
+                    adminPlayer.missions[id] ===
+                    "pending"
+                ) {
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+                    option.value = id;
+
+                    option.textContent =
+                        `${id}（審核中）`;
+
+                    missionSelect.appendChild(
+                        option
+                    );
+
+                }
+
+            }
+
+        }
+
+    }
+
+    catch (err) {
+
+        console.error(err);
+
+    }
 
 }
 
 loadPlayers();
-
-// ==========================
-// 建立玩家下拉選單
-// ==========================
-
-/*
-if (playerSelect) {
-
-    const option =
-        document.createElement("option");
-
-    option.value =
-        adminPlayer.username;
-
-    option.textContent =
-        adminPlayer.username;
-
-    option.selected = true;
-
-    playerSelect.appendChild(option);
-
-    playerSelect.addEventListener("change", () => {
-
-        location.href =
-            `admin.html?player=${playerSelect.value}`;
-
-    });
-
-}
-
-// ==========================
-// 載入資料
-// ==========================
-
-document.getElementById("adminUsername").value =
-    adminPlayer.username || "";
-
-document.getElementById("adminRoblox").value =
-    adminPlayer.roblox || "";
-
-document.getElementById("adminDiscord").value =
-    adminPlayer.discord || "";
-
-document.getElementById("adminGold").value =
-    adminPlayer.gold || 0;
-
-document.getElementById("adminRcoin").value =
-    adminPlayer.rcoin || 0;
-
-document.getElementById("adminExp").value =
-    adminPlayer.exp || 0;
-
-document.getElementById("adminBP").value =
-    adminPlayer.battlePass || 1;
-
-document.getElementById("adminLevel").value =
-    adminPlayer.level || 1;
-
-document.getElementById("adminSkinCase").value =
-    adminPlayer.skinCase || 0;
-
-document.getElementById("adminScythe").value =
-    adminPlayer.coconutScythe || 0;
-*/
 
 // ==========================
 // 儲存
@@ -164,7 +228,11 @@ if (saveBtn) {
 const missionSelect =
     document.getElementById("missionSelect");
 
-if (missionSelect && adminPlayer.missions) {
+if (
+    missionSelect &&
+    adminPlayer &&
+    adminPlayer.missions
+)
 
     for (const id in adminPlayer.missions) {
 
