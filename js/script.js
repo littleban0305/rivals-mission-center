@@ -157,11 +157,7 @@ const cancelEdit = document.getElementById("cancelEdit");
 
 if (editProfileBtn && editModal) {
 
-    console.log("EditProfile 初始化成功");
-
     editProfileBtn.addEventListener("click", function () {
-
-        console.log("按到編輯資料");
 
         document.getElementById("editUsername").value =
             player.username || "";
@@ -197,11 +193,9 @@ if (saveProfile) {
         player.discord =
             document.getElementById("editDiscord").value;
 
-        players[currentPlayer] = player;
-
         localStorage.setItem(
-            "players",
-            JSON.stringify(players)
+            "playerData",
+            JSON.stringify(player)
         );
 
         // 更新 Navbar
