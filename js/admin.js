@@ -3,6 +3,9 @@
 // Admin Panel
 // ==========================
 
+const API_URL =
+"https://script.google.com/macros/s/AKfycbxnbQ_vh4Ug2ZwlbhxHubMubHe9rxVrgrsJmrsoySY/dev";
+
 const currentPlayer =
     JSON.parse(
         localStorage.getItem("playerData")
@@ -18,10 +21,8 @@ const selectedPlayer =
 const playerSelect =
     document.getElementById("playerSelect");
 
-const adminPlayer =
-    JSON.parse(
-        localStorage.getItem("playerData")
-    );
+let adminPlayer = null;
+let players = [];
 
 // ==========================
 // 建立玩家下拉選單
