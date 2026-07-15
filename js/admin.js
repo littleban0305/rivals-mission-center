@@ -353,29 +353,31 @@ if (approveBtn) {
             method: "POST",
         
             body: JSON.stringify({
-        
+
                 action: "updatePlayer",
-        
+            
                 username: adminPlayer.username,
-        
+            
                 roblox: adminPlayer.roblox,
-        
+            
                 discord: adminPlayer.discord,
-        
+            
                 gold: adminPlayer.gold,
-        
+            
                 rcoin: adminPlayer.rcoin,
-        
+            
                 exp: adminPlayer.exp,
-        
+            
                 level: adminPlayer.level,
-        
+            
                 battlePass: adminPlayer.battlePass,
-        
+            
                 skinCase: adminPlayer.skinCase,
-        
-                coconutScythe: adminPlayer.coconutScythe
-        
+            
+                coconutScythe: adminPlayer.coconutScythe,
+            
+                missions: adminPlayer.missions
+            
             })
         
         })
