@@ -388,7 +388,7 @@ if (approveBtn) {
         
                 alert("✅ 任務已核准並同步！");
         
-                location.reload();
+                //location.reload();
         
             }
         
