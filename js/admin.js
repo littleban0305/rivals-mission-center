@@ -215,7 +215,7 @@ if (saveBtn) {
             Number(document.getElementById("adminScythe").value);
 
         fetch(API_URL, {
-
+        
             method: "POST",
         
             body: JSON.stringify({
@@ -240,7 +240,9 @@ if (saveBtn) {
         
                 skinCase: adminPlayer.skinCase,
         
-                coconutScythe: adminPlayer.coconutScythe
+                coconutScythe: adminPlayer.coconutScythe,
+        
+                missions: adminPlayer.missions
         
             })
         
