@@ -5,14 +5,10 @@
 
 // ---------- 玩家登入 ----------
 
-const players =
-    JSON.parse(localStorage.getItem("players")) || {};
-
-const currentPlayer =
-    localStorage.getItem("currentPlayer");
-
 const player =
-    players[currentPlayer];
+    JSON.parse(
+        localStorage.getItem("playerData")
+    );
 
 const isLogin = localStorage.getItem("isLogin");
 
