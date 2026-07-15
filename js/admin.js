@@ -214,12 +214,63 @@ if (saveBtn) {
         adminPlayer.coconutScythe =
             Number(document.getElementById("adminScythe").value);
 
-        localStorage.setItem(
-            "playerData",
-            JSON.stringify(adminPlayer)
-        );
+        fetch(API_URL, {
 
-        alert("✅ 玩家資料已儲存！");
+            method: "POST",
+        
+            body: JSON.stringify({
+        
+                action: "updatePlayer",
+        
+                username: adminPlayer.username,
+        
+                roblox: adminPlayer.roblox,
+        
+                discord: adminPlayer.discord,
+        
+                gold: adminPlayer.gold,
+        
+                rcoin: adminPlayer.rcoin,
+        
+                exp: adminPlayer.exp,
+        
+                level: adminPlayer.level,
+        
+                battlePass: adminPlayer.battlePass,
+        
+                skinCase: adminPlayer.skinCase,
+        
+                coconutScythe: adminPlayer.coconutScythe
+        
+            })
+        
+        })
+        
+        .then(res => res.json())
+        
+        .then(data => {
+        
+            if (data.success) {
+        
+                alert("✅ 玩家資料已同步到 Google Sheets！");
+        
+            }
+        
+            else {
+        
+                alert("❌ 儲存失敗");
+        
+            }
+        
+        })
+        
+        .catch(err => {
+        
+            console.error(err);
+        
+            alert("❌ 無法連線到伺服器");
+        
+        });
 
     });
 
