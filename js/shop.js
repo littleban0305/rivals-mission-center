@@ -138,24 +138,8 @@ if (goldInput && result) {
 const shopButtons =
     document.querySelectorAll(".shop-btn");
 
-const shopItems = {
-
-    SC001: {
-        name: "Skin Case",
-        price: 1000
-    },
-
-    SC002: {
-        name: "椰子鐮刀",
-        price: 3200
-    },
-
-    SC003: {
-        name: "漫畫閱讀券",
-        price: 200
-    }
-
-};
+const item =
+    SHOP_ITEMS[itemId];
 
 shopButtons.forEach(button => {
 
