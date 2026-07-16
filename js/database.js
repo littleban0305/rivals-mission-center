@@ -11,6 +11,13 @@ const SHOP_ITEMS = {
         rPrice: 799,
         goldPrice: 3200,
         image: "images/coconut-scythe.png"
+    },
+
+    SC003: {
+        name: "漫畫閱讀券 ×1",
+        rPrice: 69,
+        goldPrice: 200,
+        image: "images/comic-ticket.png"
     }
 };
 
