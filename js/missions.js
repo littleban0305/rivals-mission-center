@@ -44,7 +44,6 @@ const status =
 if (status === "pending") {
 
     buttonText = "🟡 審核中";
-    disabled = "disabled";
 
 }
 
