@@ -445,3 +445,42 @@ if (menuBtn && navLinks) {
     });
 
 }
+
+const dailyContainer =
+    document.getElementById("homeDailyMissions");
+
+if (dailyContainer) {
+
+    Object.entries(missions)
+        .filter(([id, mission]) =>
+            mission.type === "daily"
+        )
+        .forEach(([id, mission]) => {
+
+            dailyContainer.innerHTML += `
+                <div class="mission">
+
+                    <div>
+
+                        <h3>${mission.title}</h3>
+
+                        <p>
+                            獎勵：${mission.reward}
+                        </p>
+
+                    </div>
+
+                    <button
+                    class="btn"
+                    onclick="window.location.href='submit.html?id=${id}'">
+
+                    立即提交
+
+                    </button>
+
+                </div>
+            `;
+
+        });
+
+}
