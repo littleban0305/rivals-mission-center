@@ -77,11 +77,10 @@ else if (status === "completed") {
 
             <button
                 class="btn submit-btn"
-                data-id="${id}"
-                ${disabled}>
-
+                data-id="${id}">
+            
                 ${buttonText}
-
+            
             </button>
 
         </div>
@@ -136,6 +135,28 @@ document.querySelectorAll(".submit-btn").forEach(btn => {
 
         const id = btn.dataset.id;
 
+        const status =
+            player?.missions?.[id];
+        
+        if (status === "pending") {
+        
+            if (confirm("取消此任務申請？")) {
+        
+                delete player.missions[id];
+        
+                localStorage.setItem(
+                    "playerData",
+                    JSON.stringify(player)
+                );
+        
+                location.reload();
+        
+            }
+        
+            return;
+        
+        }
+        
         window.location.href =
             `submit.html?type=mission&id=${id}`;
 
