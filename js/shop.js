@@ -146,8 +146,7 @@ shopButtons.forEach(button => {
             status: "pending",
 
             time:
-                new Date()
-                .toLocaleString("zh-TW")
+                new Date().toISOString()
 
         });
 
