@@ -20,9 +20,3 @@ const SHOP_ITEMS = {
         image: "images/comic-ticket.png"
     }
 };
-
-const MISSIONS = {
-    D001: {...},
-    D002: {...},
-    W001: {...}
-};
