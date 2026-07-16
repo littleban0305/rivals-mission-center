@@ -120,79 +120,73 @@ const isHome =
 
 if (isHome) {
 
-    const goldText = document.querySelector(".dashboard .card:nth-child(2) h1");
+    const bpNeedExp =
+        player.battlePass * 100;
 
-    if (goldText && player) {
+    const homeGold =
+        document.getElementById("homeGold");
 
-        goldText.textContent = player.gold;
+    if (homeGold && player) {
 
-    }
-
-    const bpText = document.querySelector(".dashboard .card:nth-child(3) p");
-
-    if (bpText && player) {
-
-        bpText.textContent = `Lv.${player.battlePass}`;
-
-    }
-
-    const progressBar = document.querySelector(".progress-bar");
-
-    if (progressBar && player) {
-
-        progressBar.style.width = `${player.exp}%`;
+        homeGold.textContent =
+            player.gold;
 
     }
 
     const homeRoblox =
         document.getElementById("homeRoblox");
-    
+
     if (homeRoblox && player) {
-    
+
         homeRoblox.textContent =
             player.roblox;
-    
+
     }
 
     const homeLevel =
         document.getElementById("homeLevel");
-    
+
     if (homeLevel && player) {
-    
+
         homeLevel.textContent =
             `Lv.${player.level}`;
-    
+
     }
-    
+
     const homeExp =
         document.getElementById("homeExp");
-    
+
     if (homeExp && player) {
-    
+
         homeExp.textContent =
-            `${player.exp} / 100`;
-    
+            `${player.exp} / ${bpNeedExp}`;
+
     }
 
     const homeBPLevel =
         document.getElementById("homeBPLevel");
-    
+
     if (homeBPLevel && player) {
-    
+
         homeBPLevel.textContent =
             `Lv.${player.battlePass}`;
-    
+
     }
-    
+
     const homeBPBar =
         document.getElementById("homeBPBar");
-    
+
     if (homeBPBar && player) {
-    
+
         homeBPBar.style.width =
-            `${Math.min(player.exp, 100)}%`;
-    
+            `${Math.min(
+                (player.exp / bpNeedExp) * 100,
+                100
+            )}%`;
+
     }
+
+}
 
     // ---------- Hero Button ----------
 
