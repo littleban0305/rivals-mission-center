@@ -188,6 +188,116 @@ if (isHome) {
 
 }
 
+// ---------- 首頁每日任務 ----------
+
+const homeDailyMissions =
+    document.getElementById(
+        "homeDailyMissions"
+    );
+
+if (homeDailyMissions) {
+
+    Object.entries(missions)
+
+        .filter(
+            ([id, mission]) =>
+                mission.category === "daily"
+        )
+
+        .forEach(
+            ([id, mission]) => {
+
+                homeDailyMissions.innerHTML += `
+
+                <div class="mission">
+
+                    <div>
+
+                        <h3>
+                            ${mission.icon}
+                            ${mission.name}
+                        </h3>
+
+                        <p>
+                            獎勵：
+                            ${mission.reward}
+                        </p>
+
+                    </div>
+
+                    <button
+                    class="btn"
+                    onclick="window.location.href='submit.html?id=${id}'">
+
+                    立即提交
+
+                    </button>
+
+                </div>
+
+                `;
+
+            }
+
+        );
+
+}
+
+// ---------- 首頁每週任務 ----------
+
+const homeWeeklyMissions =
+    document.getElementById(
+        "homeWeeklyMissions"
+    );
+
+if (homeWeeklyMissions) {
+
+    Object.entries(missions)
+
+        .filter(
+            ([id, mission]) =>
+                mission.category === "weekly"
+        )
+
+        .forEach(
+            ([id, mission]) => {
+
+                homeWeeklyMissions.innerHTML += `
+
+                <div class="mission">
+
+                    <div>
+
+                        <h3>
+                            ${mission.icon}
+                            ${mission.name}
+                        </h3>
+
+                        <p>
+                            獎勵：
+                            ${mission.reward}
+                        </p>
+
+                    </div>
+
+                    <button
+                    class="btn"
+                    onclick="window.location.href='submit.html?id=${id}'">
+
+                    立即提交
+
+                    </button>
+
+                </div>
+
+                `;
+
+            }
+
+        );
+
+}
+
     // ---------- Hero Button ----------
 
     const startBtn = document.getElementById("startBtn");
@@ -446,80 +556,3 @@ if (menuBtn && navLinks) {
 
 }
 
-const dailyContainer =
-    document.getElementById("homeDailyMissions");
-
-if (dailyContainer) {
-
-    Object.entries(missions)
-        .filter(([id, mission]) =>
-            mission.type === "daily"
-        )
-        .forEach(([id, mission]) => {
-
-            dailyContainer.innerHTML += `
-                <div class="mission">
-
-                    <div>
-
-                        <h3>${mission.title}</h3>
-
-                        <p>
-                            獎勵：${mission.reward}
-                        </p>
-
-                    </div>
-
-                    <button
-                    class="btn"
-                    onclick="window.location.href='submit.html?id=${id}'">
-
-                    立即提交
-
-                    </button>
-
-                </div>
-            `;
-
-        });
-
-}
-
-const weeklyContainer =
-    document.getElementById("homeWeeklyMissions");
-
-if (weeklyContainer) {
-
-    Object.entries(missions)
-        .filter(([id, mission]) =>
-            mission.type === "weekly"
-        )
-        .forEach(([id, mission]) => {
-
-            weeklyContainer.innerHTML += `
-                <div class="mission">
-
-                    <div>
-
-                        <h3>${mission.title}</h3>
-
-                        <p>
-                            獎勵：${mission.reward}
-                        </p>
-
-                    </div>
-
-                    <button
-                    class="btn"
-                    onclick="window.location.href='submit.html?id=${id}'">
-
-                    立即提交
-
-                    </button>
-
-                </div>
-            `;
-
-        });
-
-}
