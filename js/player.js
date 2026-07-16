@@ -35,13 +35,13 @@ document.getElementById("playerLevel").textContent =
 `Lv.${playerData.level}`;
 
 document.getElementById("joinDate").textContent =
-"Season 1 玩家";
+"創始玩家";
 
 document.getElementById("settingUsername").textContent =
 playerData.roblox || "未設定";
 
 document.getElementById("settingJoinDate").textContent =
-"Season 1 玩家";
+"創始玩家";
 
 // ==========================
 // Battle Pass
