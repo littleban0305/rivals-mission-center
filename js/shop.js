@@ -4,6 +4,68 @@
 // ==========================
 
 // ==========================
+// 自動生成商品
+// ==========================
+
+const shopContainer =
+    document.getElementById("shopContainer");
+
+if (shopContainer) {
+
+    for (const id in SHOP_ITEMS) {
+
+        const item =
+            SHOP_ITEMS[id];
+
+        const card =
+            document.createElement("div");
+
+        card.className = "card";
+
+        card.innerHTML = `
+
+            <img
+            src="${item.image}"
+            alt="${item.name}"
+            style="width:160px;margin:auto;display:block;">
+
+            <h2>${item.name}</h2>
+
+            <p>R 幣價格</p>
+
+            <h3>${item.rPrice} R</h3>
+
+            <p>Gold 價格（8 折優惠）</p>
+
+            <h3>${item.goldPrice} Gold</h3>
+
+            <p>
+
+                <span class="discount-tag">
+
+                🔥 Gold 專屬優惠
+
+                </span>
+
+            </p>
+
+            <button
+                class="btn shop-btn"
+                data-item="${id}">
+
+                立即兌換
+
+            </button>
+
+        `;
+
+        shopContainer.appendChild(card);
+
+    }
+
+}
+
+// ==========================
 // Navbar
 // ==========================
 
