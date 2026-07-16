@@ -1693,3 +1693,17 @@ img{
     }
 
 }
+
+@media (max-width: 900px){
+
+    .user-menu{
+
+        width:100%;
+
+        display:flex;
+
+        justify-content:center;
+
+    }
+
+}
