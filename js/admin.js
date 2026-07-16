@@ -343,6 +343,26 @@ if (approveBtn) {
 
         }
 
+        // ==========================
+        // Battle Pass 升級
+        // ==========================
+        
+        let needExp =
+            adminPlayer.battlePass * 100;
+        
+        while (
+            adminPlayer.exp >= needExp
+        ) {
+        
+            adminPlayer.exp -= needExp;
+        
+            adminPlayer.battlePass++;
+        
+            needExp =
+                adminPlayer.battlePass * 100;
+        
+        }
+
         fetch(API_URL, {
         
             method: "POST",
