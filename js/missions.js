@@ -140,7 +140,7 @@ document.querySelectorAll(".submit-btn").forEach(btn => {
         
         if (status === "pending") {
         
-            if (confirm("取消此任務申請？")) {
+            if (confirm("取消申請此任務？")) {
         
                 delete player.missions[id];
         
