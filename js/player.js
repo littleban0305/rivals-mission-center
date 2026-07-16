@@ -97,14 +97,49 @@ document.getElementById("playerTitle").textContent = rank;
 // 任務統計
 // ==========================
 
-// 之後會串 Google Sheets
-document.getElementById("dailyMissionCount").textContent = 0;
+const completedMissions =
+    Object.entries(player.missions || {})
+        .filter(([id, status]) =>
+            status === "completed"
+        );
 
-document.getElementById("weeklyMissionCount").textContent = 0;
+const dailyCount =
+    completedMissions.filter(
+        ([id]) => id.startsWith("D")
+    ).length;
 
-document.getElementById("permanentMissionCount").textContent = 0;
+const weeklyCount =
+    completedMissions.filter(
+        ([id]) => id.startsWith("W")
+    ).length;
 
-document.getElementById("totalMissionCount").textContent = 0;
+const permanentCount =
+    completedMissions.filter(
+        ([id]) =>
+            id.startsWith("P") ||
+            id.startsWith("L") ||
+            id.startsWith("C")
+    ).length;
+
+document.getElementById(
+    "dailyMissionCount"
+).textContent =
+    dailyCount;
+
+document.getElementById(
+    "weeklyMissionCount"
+).textContent =
+    weeklyCount;
+
+document.getElementById(
+    "permanentMissionCount"
+).textContent =
+    permanentCount;
+
+document.getElementById(
+    "totalMissionCount"
+).textContent =
+    completedMissions.length;
 
 // ==========================
 // 背包
