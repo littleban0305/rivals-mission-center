@@ -180,3 +180,24 @@ if (resetText) {
     setInterval(updateCountdown, 1000);
 
 }
+
+const missionFormBtn =
+    document.getElementById(
+        "missionFormBtn"
+    );
+
+if (missionFormBtn) {
+
+    missionFormBtn.addEventListener(
+        "click",
+        () => {
+
+            window.open(
+                "https://forms.gle/kvrLmooCyYbGAsKP9",
+                "_blank"
+            );
+
+        }
+    );
+
+}
