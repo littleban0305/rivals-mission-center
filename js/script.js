@@ -230,6 +230,16 @@ const editProfileBtn = document.getElementById("editProfileBtn");
 const editModal = document.getElementById("editModal");
 const cancelEdit = document.getElementById("cancelEdit");
 
+if (cancelEdit && editModal) {
+
+    cancelEdit.addEventListener("click", () => {
+
+        editModal.classList.remove("show");
+
+    });
+
+}
+
 if (editProfileBtn && editModal) {
 
     editProfileBtn.addEventListener("click", function () {
