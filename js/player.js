@@ -78,23 +78,36 @@ document.getElementById("settingJoinDate").textContent =
 // Battle Pass
 // ==========================
 
+const needExp =
+    playerData.battlePass * 100;
+
 document.getElementById("battlePassLevel").textContent =
-`Lv.${playerData.battlePass}`;
+    `Lv.${playerData.battlePass}`;
 
 document.getElementById("currentBP").textContent =
-`Lv.${playerData.battlePass}`;
+    `Lv.${playerData.battlePass}`;
 
 document.getElementById("battlePassExp").textContent =
-`${playerData.exp} / 100 EXP`;
+    `${playerData.exp} / ${needExp} EXP`;
 
 document.getElementById("nextLevelExp").textContent =
-`${100-playerData.exp} EXP`;
+    `${needExp - playerData.exp} EXP`;
 
-document.getElementById("battlePassProgress").style.width =
-`${playerData.exp}%`;
+const progress =
+    Math.min(
+        (playerData.exp / needExp) * 100,
+        100
+    );
 
-document.getElementById("expProgress").style.width =
-`${playerData.exp}%`;
+document.getElementById(
+    "battlePassProgress"
+).style.width =
+    `${progress}%`;
+
+document.getElementById(
+    "expProgress"
+).style.width =
+    `${progress}%`;
 
 // ==========================
 // 玩家稱號
