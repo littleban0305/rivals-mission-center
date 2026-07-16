@@ -174,6 +174,26 @@ if (isHome) {
     
     }
 
+    const homeBPLevel =
+        document.getElementById("homeBPLevel");
+    
+    if (homeBPLevel && player) {
+    
+        homeBPLevel.textContent =
+            `Lv.${player.battlePass}`;
+    
+    }
+    
+    const homeBPBar =
+        document.getElementById("homeBPBar");
+    
+    if (homeBPBar && player) {
+    
+        homeBPBar.style.width =
+            `${Math.min(player.exp, 100)}%`;
+    
+    }
+
     // ---------- Hero Button ----------
 
     const startBtn = document.getElementById("startBtn");
