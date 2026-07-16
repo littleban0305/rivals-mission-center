@@ -16,6 +16,37 @@ if (!playerData || !isLogin || isLogin !== "true") {
 }
 
 // ==========================
+// Battle Pass 升級檢查
+// ==========================
+
+let needExp =
+    player.battlePass * 100;
+
+let leveledUp = false;
+
+while (player.exp >= needExp) {
+
+    player.exp -= needExp;
+
+    player.battlePass++;
+
+    needExp =
+        player.battlePass * 100;
+
+    leveledUp = true;
+
+}
+
+if (leveledUp) {
+
+    localStorage.setItem(
+        "playerData",
+        JSON.stringify(player)
+    );
+
+}
+
+// ==========================
 // 基本資料
 // ==========================
 
