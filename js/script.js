@@ -484,3 +484,42 @@ if (dailyContainer) {
         });
 
 }
+
+const weeklyContainer =
+    document.getElementById("homeWeeklyMissions");
+
+if (weeklyContainer) {
+
+    Object.entries(missions)
+        .filter(([id, mission]) =>
+            mission.type === "weekly"
+        )
+        .forEach(([id, mission]) => {
+
+            weeklyContainer.innerHTML += `
+                <div class="mission">
+
+                    <div>
+
+                        <h3>${mission.title}</h3>
+
+                        <p>
+                            獎勵：${mission.reward}
+                        </p>
+
+                    </div>
+
+                    <button
+                    class="btn"
+                    onclick="window.location.href='submit.html?id=${id}'">
+
+                    立即提交
+
+                    </button>
+
+                </div>
+            `;
+
+        });
+
+}
