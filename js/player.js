@@ -41,7 +41,7 @@ document.getElementById("settingUsername").textContent =
 playerData.roblox || "未設定";
 
 document.getElementById("settingJoinDate").textContent =
-playerData.joinDate;
+playerData.joinDate || "Beta 玩家";
 
 // ==========================
 // Battle Pass
