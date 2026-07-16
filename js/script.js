@@ -326,6 +326,8 @@ if (saveProfile) {
             if (data.success) {
         
                 console.log("玩家資料同步成功");
+
+                location.reload();
         
             }
         
