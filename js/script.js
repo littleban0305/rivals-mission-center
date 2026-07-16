@@ -154,6 +154,26 @@ if (isHome) {
     
     }
 
+    const homeLevel =
+        document.getElementById("homeLevel");
+    
+    if (homeLevel && player) {
+    
+        homeLevel.textContent =
+            `Lv.${player.level}`;
+    
+    }
+    
+    const homeExp =
+        document.getElementById("homeExp");
+    
+    if (homeExp && player) {
+    
+        homeExp.textContent =
+            `${player.exp} / 100`;
+    
+    }
+
     // ---------- Hero Button ----------
 
     const startBtn = document.getElementById("startBtn");
