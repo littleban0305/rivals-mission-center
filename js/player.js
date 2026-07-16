@@ -140,13 +140,8 @@ logoutBtns.forEach(btn => {
 
     btn.addEventListener("click", () => {
 
-        if (confirm("確定要登出嗎？")) {
-
-            localStorage.setItem("isLogin", "false");
-            window.location.href = "login.html";
-
-        }
-
+        localStorage.setItem("isLogin", "false");
+        window.location.href = "login.html";
     });
 
 });
