@@ -78,7 +78,7 @@ document.getElementById("settingJoinDate").textContent =
 // Battle Pass
 // ==========================
 
-const needExp =
+const bpNeedExp =
     playerData.battlePass * 100;
 
 document.getElementById("battlePassLevel").textContent =
@@ -88,14 +88,14 @@ document.getElementById("currentBP").textContent =
     `Lv.${playerData.battlePass}`;
 
 document.getElementById("battlePassExp").textContent =
-    `${playerData.exp} / ${needExp} EXP`;
+    `${playerData.exp} / ${bpNeedExp} EXP`;
 
 document.getElementById("nextLevelExp").textContent =
-    `${needExp - playerData.exp} EXP`;
+    `${bpNeedExp - playerData.exp} EXP`;
 
 const progress =
     Math.min(
-        (playerData.exp / needExp) * 100,
+        (playerData.exp / bpNeedExp) * 100,
         100
     );
 
