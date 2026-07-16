@@ -144,6 +144,16 @@ if (isHome) {
 
     }
 
+    const homeRoblox =
+        document.getElementById("homeRoblox");
+    
+    if (homeRoblox && player) {
+    
+        homeRoblox.textContent =
+            player.roblox;
+    
+    }
+
     // ---------- Hero Button ----------
 
     const startBtn = document.getElementById("startBtn");
