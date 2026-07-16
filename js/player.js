@@ -35,13 +35,13 @@ document.getElementById("playerLevel").textContent =
 `Lv.${playerData.level}`;
 
 document.getElementById("joinDate").textContent =
-`加入日期：${playerData.joinDate}`;
+"Closed Beta 玩家";
 
 document.getElementById("settingUsername").textContent =
 playerData.roblox || "未設定";
 
 document.getElementById("settingJoinDate").textContent =
-playerData.joinDate || "Beta 玩家";
+"Closed Beta 玩家";
 
 // ==========================
 // Battle Pass
