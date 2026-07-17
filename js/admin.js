@@ -633,12 +633,10 @@ if (approveOrderBtn) {
 
                 if (data.success) {
 
-                    alert(
-                        "📦 商品已發送"
-                    );
-
-                    location.reload();
-
+                    alert("📦 商品已發送");
+                
+                    loadPlayers();
+                
                 }
 
             });
