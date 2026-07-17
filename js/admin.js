@@ -477,7 +477,9 @@ if (approveBtn) {
             
                 coconutScythe: adminPlayer.coconutScythe,
             
-                missions: adminPlayer.missions
+                missions: adminPlayer.missions,
+
+                shopOrders: adminPlayer.shopOrders
             
             })
         
