@@ -364,6 +364,11 @@ async function loadPendingReviews() {
 
     const files =
         await res.json();
+    
+    console.log(
+        "pending files =",
+        files
+    );
 
     if (
         files.length === 0
