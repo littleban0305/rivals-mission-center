@@ -150,7 +150,7 @@ shopButtons.forEach(button => {
 
         if (!item) return;
 
-        if (player.gold < item.price) {
+        if (player.gold < item.goldPrice) {
 
             alert("Gold 不足！");
 
@@ -159,7 +159,7 @@ shopButtons.forEach(button => {
         }
 
         if (!confirm(
-            `確定花費 ${item.price} Gold 購買 ${item.name}？`
+            `確定花費 ${item.goldPrice} Gold 購買 ${item.name}？`
         )) {
 
             return;
@@ -168,7 +168,7 @@ shopButtons.forEach(button => {
 
         // 扣 Gold
 
-        player.gold -= item.price;
+        player.gold -= item.goldPrice;
 
         // 建立訂單
 
@@ -184,7 +184,7 @@ shopButtons.forEach(button => {
 
             name: item.name,
 
-            price: item.price,
+            price: item.goldPrice,
 
             status: "pending",
 
