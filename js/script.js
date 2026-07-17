@@ -67,8 +67,6 @@ async function refreshPlayerData() {
                 JSON.stringify(latestPlayer)
             );
 
-            location.reload();
-
         }
 
     }
