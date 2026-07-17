@@ -224,3 +224,64 @@ logoutBtns.forEach(btn => {
     });
 
 });
+
+// ==========================
+// 購買紀錄
+// ==========================
+
+const purchaseHistory =
+    document.getElementById(
+        "purchaseHistory"
+    );
+
+if (
+    purchaseHistory &&
+    playerData.shopOrders
+) {
+
+    playerData.shopOrders
+        .slice()
+        .reverse()
+        .forEach(order => {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+            card.className =
+                "mission";
+
+            const statusText =
+                order.status ===
+                "completed"
+                ? "✅ 已發送"
+                : "🟡 待發送";
+
+            card.innerHTML = `
+
+                <div>
+
+                    <h3>
+                        ${order.name}
+                    </h3>
+
+                    <p>
+                        ${statusText}
+                    </p>
+
+                    <small>
+                        ${order.time}
+                    </small>
+
+                </div>
+
+            `;
+
+            purchaseHistory.appendChild(
+                card
+            );
+
+        });
+
+}
