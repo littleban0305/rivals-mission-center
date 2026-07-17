@@ -470,3 +470,135 @@ if (approveBtn) {
     });
 
 }
+
+// ==========================
+// 商店訂單發送
+// ==========================
+
+const approveOrderBtn =
+    document.getElementById(
+        "approveOrder"
+    );
+
+if (approveOrderBtn) {
+
+    approveOrderBtn.addEventListener(
+        "click",
+        () => {
+
+            const index =
+                document.getElementById(
+                    "shopOrderSelect"
+                ).value;
+
+            if (index === "") {
+
+                alert("請選擇訂單");
+
+                return;
+
+            }
+
+            const order =
+                adminPlayer.shopOrders[index];
+
+            // 發送商品
+
+            if (
+                order.id === "SC001"
+            ) {
+
+                adminPlayer.skinCase =
+                    (adminPlayer.skinCase || 0)
+                    + 1;
+
+            }
+
+            if (
+                order.id === "SC002"
+            ) {
+
+                adminPlayer.coconutScythe =
+                    (adminPlayer.coconutScythe || 0)
+                    + 1;
+
+            }
+
+            order.status =
+                "completed";
+
+            // 同步 Google Sheets
+
+            fetch(API_URL, {
+
+                method: "POST",
+
+                body: JSON.stringify({
+
+                    action:
+                        "updatePlayer",
+
+                    username:
+                        adminPlayer.username,
+
+                    nickname:
+                        adminPlayer.nickname,
+
+                    roblox:
+                        adminPlayer.roblox,
+
+                    discord:
+                        adminPlayer.discord,
+
+                    gold:
+                        adminPlayer.gold,
+
+                    rcoin:
+                        adminPlayer.rcoin,
+
+                    exp:
+                        adminPlayer.exp,
+
+                    level:
+                        adminPlayer.level,
+
+                    battlePass:
+                        adminPlayer.battlePass,
+
+                    skinCase:
+                        adminPlayer.skinCase,
+
+                    coconutScythe:
+                        adminPlayer.coconutScythe,
+
+                    missions:
+                        adminPlayer.missions,
+
+                    shopOrders:
+                        adminPlayer.shopOrders
+
+                })
+
+            })
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                if (data.success) {
+
+                    alert(
+                        "📦 商品已發送"
+                    );
+
+                    location.reload();
+
+                }
+
+            });
+
+        }
+
+    );
+
+}
