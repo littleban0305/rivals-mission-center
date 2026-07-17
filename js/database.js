@@ -18,5 +18,12 @@ const SHOP_ITEMS = {
         rPrice: 69,
         goldPrice: 240,
         image: "images/items/comic-ticket.png"
+    },
+
+    SC004: {
+        name: "像素組合包",
+        rPrice: 649,
+        goldPrice: 2600,
+        image: "images/1.png"
     }
 };
