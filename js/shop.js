@@ -138,9 +138,6 @@ if (goldInput && result) {
 const shopButtons =
     document.querySelectorAll(".shop-btn");
 
-const item =
-    SHOP_ITEMS[itemId];
-
 shopButtons.forEach(button => {
 
     button.addEventListener("click", () => {
@@ -149,7 +146,7 @@ shopButtons.forEach(button => {
             button.dataset.item;
 
         const item =
-            shopItems[itemId];
+            SHOP_ITEMS[itemId];
 
         if (!item) return;
 
