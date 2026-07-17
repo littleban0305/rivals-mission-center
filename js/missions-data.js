@@ -121,9 +121,17 @@ const missions = {
         icon: "⭐",
         category: "once",
         status: "active",
+    
         name: "Rivals 等級達到 Lv.400",
         desc: "將 Rivals 帳號提升至 400 等。",
+    
         reward: "200 Gold",
+    
+        rewardGold: 200,
+        rewardExp: 0,
+    
+        proofCount: 1,
+    
         proof: "等級截圖"
     },
 
@@ -131,9 +139,17 @@ const missions = {
         icon: "⭐",
         category: "once",
         status: "active",
+    
         name: "Rivals 等級達到 Lv.500",
         desc: "將 Rivals 帳號提升至 500 等。",
+    
         reward: "500 Gold",
+    
+        rewardGold: 500,
+        rewardExp: 0,
+    
+        proofCount: 1,
+    
         proof: "等級截圖"
     },
 
@@ -141,9 +157,17 @@ const missions = {
         icon: "💻",
         category: "once",
         status: "active",
+        
         name: "安裝指定軟體",
         desc: "完成指定軟體安裝。",
+        
         reward: "60 Gold",
+        
+        rewardGold: 60,
+        rewardExp: 0,
+        
+        proofCount: 1,
+        
         proof: "安裝完成截圖"
     },
 
@@ -151,9 +175,17 @@ const missions = {
         icon: "📱",
         category: "once",
         status: "active",
+        
         name: "安裝指定手機遊戲",
         desc: "完成指定手遊安裝。",
+        
         reward: "60 Gold",
+
+        rewardGold: 60,
+        rewardExp: 0,
+        
+        proofCount: 1,
+        
         proof: "安裝完成截圖"
     },
 
@@ -161,9 +193,17 @@ const missions = {
         icon: "🤝",
         category: "once",
         status: "active",
+        
         name: "幫 ELO 升到 Lv.100",
         desc: "協助 ELO 帳號升到 100 等。",
+        
         reward: "100 Gold",
+
+        rewardGold: 100,
+        rewardExp: 0,
+        
+        proofCount: 1,
+        
         proof: "等級截圖"
     },
 
@@ -171,9 +211,17 @@ const missions = {
         icon: "🤝",
         category: "once",
         status: "active",
+        
         name: "幫 ELO 升到 Lv.200",
         desc: "協助 ELO 帳號升到 200 等。",
+        
         reward: "300 Gold",
+
+        rewardGold: 300,
+        rewardExp: 0,
+        
+        proofCount: 1,
+        
         proof: "等級截圖"
     },
 
@@ -181,9 +229,17 @@ const missions = {
         icon: "🤝",
         category: "once",
         status: "active",
+        
         name: "幫 ELO 升到 Lv.300",
         desc: "協助 ELO 帳號升到 300 等。",
+        
         reward: "600 Gold",
+
+        rewardGold: 600,
+        rewardExp: 0,
+        
+        proofCount: 1,
+        
         proof: "等級截圖"
     },
 
@@ -194,6 +250,9 @@ const missions = {
         name: "SkinApe 達到 30000 Coins",
         desc: "SkinApe Coins 累積達到 30000。",
         reward: "200 Gold",
+        rewardGold: 200,
+        rewardExp: 0,
+        proofCount: 1,
         proof: "Coins 截圖"
     },
 
@@ -204,6 +263,9 @@ const missions = {
         name: "SkinApe 達到 40000 Coins",
         desc: "SkinApe Coins 累積達到 40000。",
         reward: "400 Gold",
+        rewardGold: 400,
+        rewardExp: 0,
+        proofCount: 1,
         proof: "Coins 截圖"
     },
 
@@ -218,6 +280,9 @@ const missions = {
         name: "2v2 達成 20 次雙殺",
         desc: "累積完成 25 次雙殺。",
         reward: "150 Gold",
+        rewardGold: 150,
+        rewardExp: 0,
+        proofCount: 1,
         proof: "Medal 影片"
     },
 
@@ -228,6 +293,9 @@ const missions = {
         name: "大魔王模式當魔王並贏三整場",
         desc: "成為魔王並贏得三整場。",
         reward: "200 Gold",
+        rewardGold: 200,
+        rewardExp: 0,
+        proofCount: 1,
         proof: "Medal 影片"
     },
 
@@ -238,6 +306,9 @@ const missions = {
         name: "錄製 50 個精華",
         desc: "累積錄製 50 個 Medal 精華。",
         reward: "150 Gold",
+        rewardGold: 150,
+        rewardExp: 0,
+        proofCount: 1,
         proof: "Medal 個人頁截圖"
     },
 
@@ -248,6 +319,9 @@ const missions = {
         name: "開 Skin Case 開到超稀有武器（紅色）",
         desc: "抽到紅色超稀有武器。",
         reward: "100 Gold",
+        rewardGold: 100,
+        rewardExp: 0,
+        proofCount: 1,
         proof: "開箱截圖"
     },
 
@@ -262,6 +336,9 @@ const missions = {
         name: "與 ELO 單挑獲勝 1 場",
         desc: "在 CS2 單挑中擊敗 ELO。",
         reward: "200 Gold",
+        rewardGold: 200,
+        rewardExp: 0,
+        proofCount: 1,
         proof: "比賽截圖"
     },
 
@@ -272,6 +349,9 @@ const missions = {
         name: "與 ELO 組隊贏得 1 場",
         desc: "與 ELO 一起完成一場競技或優先勝利。",
         reward: "250 Gold",
+        rewardGold: 250,
+        rewardExp: 0,
+        proofCount: 1,
         proof: "比賽截圖"
     },
 
@@ -286,6 +366,9 @@ const missions = {
         name: "完成一個指定手遊任務",
         desc: "完成指定手機遊戲任務。",
         reward: "50 Gold",
+        rewardGold: 50,
+        rewardExp: 0,
+        proofCount: 1,
         proof: "完成截圖"
     }
 
