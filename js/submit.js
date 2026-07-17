@@ -179,8 +179,19 @@ if (submitBtn) {
 
         }
 
+        const player =
+            JSON.parse(
+                localStorage.getItem("playerData")
+            );
+        
+        const username =
+            player?.username || "";
+        
+        const formUrl =
+            `https://docs.google.com/forms/d/e/1FAIpQLSdn_P_0zrWHSQXQ8EXSqjTRaVFuOEVzMELgNwCRNPFEcBnijw/viewform?usp=pp_url&entry.1989358585=${encodeURIComponent(username)}&entry.1608833829=${encodeURIComponent(id)}`;
+        
         window.open(
-            "https://forms.gle/kvrLmooCyYbGAsKP9",
+            formUrl,
             "_blank"
         );
 
