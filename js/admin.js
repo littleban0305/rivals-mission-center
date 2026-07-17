@@ -728,3 +728,128 @@ if (approveOrderBtn) {
     );
 
 }
+
+// ==========================
+// 駁回任務
+// ==========================
+
+const rejectBtn =
+    document.getElementById(
+        "rejectMission"
+    );
+
+if (rejectBtn) {
+
+    rejectBtn.addEventListener(
+        "click",
+        () => {
+
+            const missionId =
+                missionSelect.value;
+
+            if (!missionId) {
+
+                alert(
+                    "請先選擇任務！"
+                );
+
+                return;
+
+            }
+
+            if (
+                adminPlayer.missions[
+                    missionId
+                ] === "rejected"
+            ) {
+
+                alert(
+                    "此任務已駁回"
+                );
+
+                return;
+
+            }
+
+            adminPlayer.missions[
+                missionId
+            ] = "rejected";
+
+            fetch(API_URL, {
+
+                method: "POST",
+
+                body: JSON.stringify({
+
+                    action:
+                        "updatePlayer",
+
+                    username:
+                        adminPlayer.username,
+
+                    roblox:
+                        adminPlayer.roblox,
+
+                    discord:
+                        adminPlayer.discord,
+
+                    gold:
+                        adminPlayer.gold,
+
+                    rcoin:
+                        adminPlayer.rcoin,
+
+                    exp:
+                        adminPlayer.exp,
+
+                    level:
+                        adminPlayer.level,
+
+                    battlePass:
+                        adminPlayer.battlePass,
+
+                    skinCase:
+                        adminPlayer.skinCase,
+
+                    coconutScythe:
+                        adminPlayer.coconutScythe,
+
+                    missions:
+                        adminPlayer.missions,
+
+                    shopOrders:
+                        adminPlayer.shopOrders
+
+                })
+
+            })
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                if (data.success) {
+
+                    alert(
+                        "❌ 任務已駁回"
+                    );
+
+                    loadPlayers();
+
+                }
+
+                else {
+
+                    alert(
+                        "❌ 同步失敗"
+                    );
+
+                }
+
+            });
+
+        }
+
+    );
+
+}
