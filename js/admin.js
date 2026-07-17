@@ -490,11 +490,11 @@ if (approveBtn) {
         .then(data => {
         
             if (data.success) {
-        
+
                 alert("✅ 任務已核准並同步！");
-        
-                location.reload();
-        
+            
+                loadPlayers();
+            
             }
         
             else {
