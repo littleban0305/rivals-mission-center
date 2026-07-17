@@ -220,11 +220,6 @@ async function loadPlayers() {
         console.error(err);
 
     }
-
-    const shopOrderSelect =
-        document.getElementById(
-            "shopOrderSelect"
-        );
     
     if (
         shopOrderSelect &&
@@ -569,93 +564,6 @@ if (approveBtn) {
                 "❌ 無法連線到伺服器"
             );
 
-        });
-
-    });
-
-}
-        // ==========================
-        // Battle Pass 升級
-        // ==========================
-        
-        let needExp =
-            adminPlayer.battlePass * 100;
-        
-        while (
-            adminPlayer.exp >= needExp
-        ) {
-        
-            adminPlayer.exp -= needExp;
-        
-            adminPlayer.battlePass++;
-        
-            needExp =
-                adminPlayer.battlePass * 100;
-        
-        }
-
-        fetch(API_URL, {
-        
-            method: "POST",
-        
-            body: JSON.stringify({
-
-                action: "updatePlayer",
-            
-                username: adminPlayer.username,
-            
-                roblox: adminPlayer.roblox,
-            
-                discord: adminPlayer.discord,
-            
-                gold: adminPlayer.gold,
-            
-                rcoin: adminPlayer.rcoin,
-            
-                exp: adminPlayer.exp,
-            
-                level: adminPlayer.level,
-            
-                battlePass: adminPlayer.battlePass,
-            
-                skinCase: adminPlayer.skinCase,
-            
-                coconutScythe: adminPlayer.coconutScythe,
-            
-                missions: adminPlayer.missions,
-
-                shopOrders: adminPlayer.shopOrders
-            
-            })
-        
-        })
-        
-        .then(res => res.json())
-        
-        .then(data => {
-        
-            if (data.success) {
-
-                alert("✅ 任務已核准並同步！");
-            
-                loadPlayers();
-            
-            }
-        
-            else {
-        
-                alert("❌ 同步失敗");
-        
-            }
-        
-        })
-        
-        .catch(err => {
-        
-            console.error(err);
-        
-            alert("❌ 無法連線到伺服器");
-        
         });
 
     });
