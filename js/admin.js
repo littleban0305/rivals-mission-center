@@ -187,28 +187,55 @@ async function loadPlayers() {
             missionSelect.innerHTML = "";
 
             for (const id in adminPlayer.missions) {
-
+            
+                const status =
+                    adminPlayer.missions[id];
+            
                 if (
-                    adminPlayer.missions[id] ===
-                    "pending"
+                    status === "completed" ||
+                    status === "approved" ||
+                    status === "rejected"
                 ) {
-
+            
                     const option =
                         document.createElement(
                             "option"
                         );
-
+            
                     option.value = id;
-
+            
+                    let statusText = "";
+            
+                    if (status === "completed") {
+            
+                        statusText =
+                            "🟡 已自動審核";
+            
+                    }
+            
+                    if (status === "approved") {
+            
+                        statusText =
+                            "🟢 已人工審核";
+            
+                    }
+            
+                    if (status === "rejected") {
+            
+                        statusText =
+                            "🔴 已駁回";
+            
+                    }
+            
                     option.textContent =
-                        `${id}（審核中）`;
-
+                        `${id} ${statusText}`;
+            
                     missionSelect.appendChild(
                         option
                     );
-
+            
                 }
-
+            
             }
 
         }
