@@ -15,27 +15,48 @@ const missions = {
         status: "active",
         name: "每日登入",
         desc: "登入網站一次。",
+    
         reward: "10 Gold ・10 EXP",
+    
+        rewardGold: 10,
+        rewardExp: 10,
+    
+        proofCount: 1,
+    
         proof: "登入截圖"
     },
-
+    
     D002: {
         icon: "🟢",
         category: "daily",
         status: "active",
         name: "完成 3 場 Rivals",
         desc: "完成任意三場 Rivals 對戰。",
+    
         reward: "20 Gold ・20 EXP",
+    
+        rewardGold: 20,
+        rewardExp: 20,
+    
+        proofCount: 3,
+    
         proof: "戰績截圖"
     },
-
+    
     D003: {
         icon: "🟡",
         category: "daily",
         status: "active",
         name: "贏得 5 場 Rivals",
         desc: "成功獲勝五場 Rivals。",
+    
         reward: "30 Gold ・30 EXP",
+    
+        rewardGold: 30,
+        rewardExp: 30,
+    
+        proofCount: 5,
+    
         proof: "戰績截圖"
     },
 
@@ -48,21 +69,33 @@ const missions = {
         category: "weekly",
         status: "active",
         name: "完成 30 場 Rivals",
-        desc: "一週內完成 30 場 Rivals。",
+    
         reward: "150 Gold ・100 EXP",
+    
+        rewardGold: 150,
+        rewardExp: 100,
+    
+        proofCount: 30,
+    
         proof: "戰績截圖"
     },
-
+    
     W002: {
         icon: "🟡",
         category: "weekly",
         status: "active",
         name: "贏得 15 場 Rivals",
-        desc: "一週內贏得 15 場 Rivals。",
+    
         reward: "250 Gold ・150 EXP",
+    
+        rewardGold: 250,
+        rewardExp: 150,
+    
+        proofCount: 15,
+    
         proof: "戰績截圖"
     },
-
+    
     // ==========================
     // 一次性任務
     // ==========================
@@ -71,9 +104,16 @@ const missions = {
         icon: "⭐",
         category: "once",
         status: "active",
+    
         name: "Rivals 等級達到 Lv.300",
-        desc: "將 Rivals 帳號提升至 300 等。",
+    
         reward: "100 Gold",
+    
+        rewardGold: 100,
+        rewardExp: 0,
+    
+        proofCount: 1,
+    
         proof: "等級截圖"
     },
 
