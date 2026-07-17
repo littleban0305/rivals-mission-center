@@ -140,6 +140,50 @@ async function loadPlayers() {
             adminPlayer.missions
         ) {
 
+        // 商店訂單
+        
+        const shopOrderSelect =
+            document.getElementById(
+                "shopOrderSelect"
+            );
+        
+        if (
+            shopOrderSelect &&
+            adminPlayer.shopOrders
+        ) {
+        
+            shopOrderSelect.innerHTML =
+                '<option value="">請選擇訂單</option>';
+        
+            adminPlayer.shopOrders.forEach(
+                (order, index) => {
+        
+                    if (
+                        order.status === "pending"
+                    ) {
+        
+                        const option =
+                            document.createElement(
+                                "option"
+                            );
+        
+                        option.value =
+                            index;
+        
+                        option.textContent =
+                            `${order.name}`;
+        
+                        shopOrderSelect.appendChild(
+                            option
+                        );
+        
+                    }
+        
+                }
+            );
+        
+        }
+            
             missionSelect.innerHTML = "";
 
             for (const id in adminPlayer.missions) {
