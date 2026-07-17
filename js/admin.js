@@ -263,6 +263,69 @@ async function loadPlayers() {
     
     }
 
+    const missionStatus =
+        document.getElementById(
+            "missionStatus"
+        );
+    
+    if (
+        missionSelect &&
+        missionStatus
+    ) {
+    
+        missionSelect.addEventListener(
+            "change",
+            () => {
+    
+                const missionId =
+                    missionSelect.value;
+    
+                const status =
+                    adminPlayer.missions[
+                        missionId
+                    ];
+    
+                let text =
+                    "未知";
+    
+                if (
+                    status ===
+                    "completed"
+                ) {
+    
+                    text =
+                        "🟡 已自動審核";
+    
+                }
+    
+                if (
+                    status ===
+                    "approved"
+                ) {
+    
+                    text =
+                        "🟢 已人工審核";
+    
+                }
+    
+                if (
+                    status ===
+                    "rejected"
+                ) {
+    
+                    text =
+                        "🔴 已駁回";
+    
+                }
+    
+                missionStatus.textContent =
+                    `目前狀態：${text}`;
+    
+            }
+        );
+    
+    }
+
 }
 
 loadPlayers();
