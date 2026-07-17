@@ -620,6 +620,18 @@ if (approveBtn) {
 
             if (data.success) {
 
+                fetch(API_URL, {
+                
+                    method: "POST",
+                
+                    body: JSON.stringify({
+                
+                        action: "approveFiles"
+                
+                    })
+                
+                });
+                
                 alert(
                     "✅ 已通過人工審核"
                 );
