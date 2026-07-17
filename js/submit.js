@@ -183,39 +183,6 @@ if (submitBtn) {
                     JSON.stringify(player)
                 );
                 
-                fetch(API_URL, {
-                
-                    method: "POST",
-                
-                    body: JSON.stringify({
-                
-                        action: "updatePlayer",
-                
-                        username: player.username,
-                
-                        roblox: player.roblox,
-                
-                        discord: player.discord,
-                
-                        gold: player.gold,
-                
-                        rcoin: player.rcoin,
-                
-                        exp: player.exp,
-                
-                        level: player.level,
-                
-                        battlePass: player.battlePass,
-                
-                        skinCase: player.skinCase,
-                
-                        coconutScythe: player.coconutScythe,
-                
-                        missions: player.missions
-                
-                    })
-                
-                })
                 .catch(console.error);
             
             }
