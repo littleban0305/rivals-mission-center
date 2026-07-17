@@ -25,5 +25,12 @@ const SHOP_ITEMS = {
         rPrice: 649,
         goldPrice: 2600,
         image: "images/items/1.png"
+    },
+
+    SC005: {
+        name: "能源組合包",
+        rPrice: 1299,
+        goldPrice: 5200,
+        image: "images/items/2.png"
     }
 };
