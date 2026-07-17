@@ -16,7 +16,7 @@ const SHOP_ITEMS = {
     SC003: {
         name: "漫畫閱讀券 ×1",
         rPrice: 69,
-        goldPrice: 280,
+        goldPrice: 240,
         image: "images/items/comic-ticket.png"
     }
 };
