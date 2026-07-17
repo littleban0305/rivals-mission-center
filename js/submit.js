@@ -170,19 +170,6 @@ if (submitBtn) {
             
             if (player) {
 
-                if (!player.missions) {
-            
-                    player.missions = {};
-            
-                }
-            
-                if (!player.missions[id]) {
-            
-                    player.missions[id] =
-                        "submitted";
-            
-                }
-            
                 localStorage.setItem(
                     "playerData",
                     JSON.stringify(player)
