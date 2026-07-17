@@ -350,7 +350,57 @@ async function loadPlayers() {
 
 }
 
+async function loadPendingReviews() {
+
+    const container =
+        document.getElementById(
+            "pendingReviewList"
+        );
+
+    const res =
+        await fetch(
+            `${API_URL}?action=pendingReviews`
+        );
+
+    const files =
+        await res.json();
+
+    if (
+        files.length === 0
+    ) {
+
+        container.innerHTML =
+            "目前沒有待審核圖片";
+
+        return;
+
+    }
+
+    container.innerHTML =
+        files.map(file => `
+
+            <div class="card">
+
+                <p>
+                ${file.name}
+                </p>
+
+                <a
+                href="${file.url}"
+                target="_blank"
+                class="btn"
+                >
+                查看圖片
+                </a>
+
+            </div>
+
+        `).join("");
+
+}
+
 loadPlayers();
+loadPendingReviews();
 
 // ==========================
 // 儲存
