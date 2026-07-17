@@ -386,8 +386,6 @@ if (approveBtn) {
         const missionId =
             missionSelect.value;
 
-        console.log("missionId =", missionId);
-
         if (!missionId) {
 
             alert("請先選擇任務！");
@@ -395,40 +393,124 @@ if (approveBtn) {
 
         }
 
-        const mission =
-            missions[missionId];
+        // 已人工審核
 
-        if (!mission) {
+        if (
+            adminPlayer.missions[missionId] ===
+            "approved"
+        ) {
 
-            alert("找不到任務！");
+            alert("此任務已人工審核");
+
             return;
 
         }
 
-        // 完成任務
+        // 尚未完成自動審核
 
-        adminPlayer.missions[missionId] =
-            "completed";
+        if (
+            adminPlayer.missions[missionId] !==
+            "completed"
+        ) {
 
-        // 發放 Gold
+            alert(
+                "此任務尚未通過自動審核"
+            );
 
-        const gold =
-            parseInt(mission.reward) || 0;
-
-        adminPlayer.gold += gold;
-
-        // 發放 EXP
-
-        const expMatch =
-            mission.reward.match(/(\d+)\s*EXP/);
-
-        if (expMatch) {
-
-            adminPlayer.exp +=
-                Number(expMatch[1]);
+            return;
 
         }
 
+        // 標記為人工審核通過
+
+        adminPlayer.missions[missionId] =
+            "approved";
+
+        fetch(API_URL, {
+
+            method: "POST",
+
+            body: JSON.stringify({
+
+                action: "updatePlayer",
+
+                username:
+                    adminPlayer.username,
+
+                roblox:
+                    adminPlayer.roblox,
+
+                discord:
+                    adminPlayer.discord,
+
+                gold:
+                    adminPlayer.gold,
+
+                rcoin:
+                    adminPlayer.rcoin,
+
+                exp:
+                    adminPlayer.exp,
+
+                level:
+                    adminPlayer.level,
+
+                battlePass:
+                    adminPlayer.battlePass,
+
+                skinCase:
+                    adminPlayer.skinCase,
+
+                coconutScythe:
+                    adminPlayer.coconutScythe,
+
+                missions:
+                    adminPlayer.missions,
+
+                shopOrders:
+                    adminPlayer.shopOrders
+
+            })
+
+        })
+
+        .then(res => res.json())
+
+        .then(data => {
+
+            if (data.success) {
+
+                alert(
+                    "✅ 已通過人工審核"
+                );
+
+                loadPlayers();
+
+            }
+
+            else {
+
+                alert(
+                    "❌ 同步失敗"
+                );
+
+            }
+
+        })
+
+        .catch(err => {
+
+            console.error(err);
+
+            alert(
+                "❌ 無法連線到伺服器"
+            );
+
+        });
+
+    });
+
+}
         // ==========================
         // Battle Pass 升級
         // ==========================
