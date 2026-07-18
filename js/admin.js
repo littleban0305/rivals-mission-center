@@ -192,48 +192,56 @@ async function loadPlayers() {
                     adminPlayer.missions[id];
             
                 if (
+                    status === "submitted" ||
                     status === "completed" ||
                     status === "approved" ||
                     status === "rejected"
                 ) {
-            
+                
                     const option =
                         document.createElement(
                             "option"
                         );
-            
+                
                     option.value = id;
-            
+                
                     let statusText = "";
-            
-                    if (status === "completed") {
-            
+                
+                    if (status === "submitted") {
+                
                         statusText =
-                            "🟡 已自動審核";
-            
+                            "🟡 待人工審核";
+                
                     }
-            
-                    if (status === "approved") {
-            
+                
+                    else if (status === "completed") {
+                
+                        statusText =
+                            "⭐ 一次性已完成";
+                
+                    }
+                
+                    else if (status === "approved") {
+                
                         statusText =
                             "🟢 已人工審核";
-            
+                
                     }
-            
-                    if (status === "rejected") {
-            
+                
+                    else if (status === "rejected") {
+                
                         statusText =
                             "🔴 已駁回";
-            
+                
                     }
-            
+                
                     option.textContent =
                         `${id} ${statusText}`;
-            
+                
                     missionSelect.appendChild(
                         option
                     );
-            
+                
                 }
             
             }
