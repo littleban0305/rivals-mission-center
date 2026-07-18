@@ -858,27 +858,31 @@ if (rejectBtn) {
                     missionId
                 ] === "rejected"
             ) {
-
-                const mission =
-                    MISSION_DATA[missionId];
-                
-                if (mission) {
-                
-                    adminPlayer.gold -=
-                        mission.rewardGold || 0;
-                
-                    adminPlayer.exp -=
-                        mission.rewardExp || 0;
-                
-                }
-
+            
                 alert(
                     "此任務已駁回"
                 );
-
+            
                 return;
-
+            
             }
+            
+            const mission =
+                MISSION_DATA[missionId];
+            
+            if (mission) {
+            
+                adminPlayer.gold -=
+                    mission.rewardGold || 0;
+            
+                adminPlayer.exp -=
+                    mission.rewardExp || 0;
+            
+            }
+            
+            adminPlayer.missions[
+                missionId
+            ] = "rejected";
 
             adminPlayer.missions[
                 missionId
