@@ -41,13 +41,32 @@ let disabled = "";
 const status =
     missionPlayer?.missions?.[id];
 
+const today =
+    new Date()
+    .toISOString()
+    .split("T")[0];
+
 if (status === "pending") {
 
     buttonText = "🟡 審核中";
 
 }
 
-else if (status === "completed") {
+else if (id.startsWith("D")) {
+
+    if (status === today) {
+
+        buttonText = "✅ 已完成";
+        disabled = "disabled";
+
+    }
+
+}
+
+else if (
+    status === "completed" ||
+    status === "approved"
+) {
 
     buttonText = "✅ 已完成";
     disabled = "disabled";
@@ -136,7 +155,7 @@ document.querySelectorAll(".submit-btn").forEach(btn => {
         const id = btn.dataset.id;
 
         const status =
-            player?.missions?.[id];
+            missionPlayer?.missions?.[id];
         
         if (status === "pending") {
         
