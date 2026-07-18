@@ -547,6 +547,17 @@ if (approveBtn) {
             return;
         
         }
+
+        if (
+            adminPlayer.missions[missionId] !==
+            "submitted"
+        ) {
+        
+            alert("此任務目前沒有待審核申請");
+        
+            return;
+        
+        }
         
         // L 任務永久完成
         
