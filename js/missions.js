@@ -94,12 +94,18 @@ else if (id.startsWith("D")) {
 }
 
 else if (
-    status === "completed" ||
-    status === "approved"
+    id.startsWith("L")
 ) {
 
-    buttonText = "✅ 已完成";
-    disabled = "disabled";
+    if (
+        status === "completed" ||
+        status === "approved"
+    ) {
+
+        buttonText = "✅ 已完成";
+        disabled = "disabled";
+
+    }
 
 }
     
