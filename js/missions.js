@@ -69,6 +69,9 @@ const today =
     .toISOString()
     .split("T")[0];
 
+console.log("today =", today);
+console.log("status =", status);
+
 if (status === "pending") {
 
     buttonText = "🟡 審核中";
