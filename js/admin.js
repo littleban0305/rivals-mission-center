@@ -578,25 +578,6 @@ if (approveBtn) {
                 "approved";
         
         }
-        // 尚未完成自動審核
-
-        if (
-            adminPlayer.missions[missionId] !==
-            "completed"
-        ) {
-
-            alert(
-                "此任務尚未通過自動審核"
-            );
-
-            return;
-
-        }
-
-        // 標記為人工審核通過
-
-        adminPlayer.missions[missionId] =
-            "approved";
 
         fetch(API_URL, {
 
