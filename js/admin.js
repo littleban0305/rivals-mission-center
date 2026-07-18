@@ -534,6 +534,16 @@ if (approveBtn) {
         }
 
         // 已人工審核
+
+        console.log(
+            "missionId =",
+            missionId
+        );
+        
+        console.log(
+            "status =",
+            adminPlayer.missions[missionId]
+        );
         
         if (
             missionId.startsWith("L")
