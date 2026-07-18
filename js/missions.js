@@ -98,14 +98,15 @@ else if (
 ) {
 
     if (
-        status === "completed" ||
-        status === "approved"
+        status === "completed"
     ) {
 
         buttonText = "✅ 已完成";
         disabled = "disabled";
 
     }
+
+}
 
 }
     
