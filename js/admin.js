@@ -854,6 +854,20 @@ if (rejectBtn) {
             }
 
             if (
+
+                const mission =
+                    MISSION_DATA[missionId];
+                
+                if (mission) {
+                
+                    adminPlayer.gold -=
+                        mission.rewardGold || 0;
+                
+                    adminPlayer.exp -=
+                        mission.rewardExp || 0;
+                
+                }
+                
                 adminPlayer.missions[
                     missionId
                 ] === "rejected"
