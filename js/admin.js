@@ -894,7 +894,7 @@ if (rejectBtn) {
             }
             
             const mission =
-                MISSION_DATA[missionId];
+                missions[missionId];
             
             if (mission) {
             
