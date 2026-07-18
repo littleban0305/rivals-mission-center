@@ -3,10 +3,36 @@
 // Mission Generator Beta 0.2
 // ==========================
 
-const missionPlayer =
+let missionPlayer =
     JSON.parse(
         localStorage.getItem("playerData")
     );
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzURjyuu9xjEo68I4WmYc7vyaXQv7BMeleaWfkaJGrPAak3V3QvDIX2wDtXon24qCgM/exec";
+
+if (missionPlayer?.username) {
+
+    fetch(
+        `${API_URL}?username=${encodeURIComponent(
+            missionPlayer.username
+        )}`
+    )
+
+    .then(res => res.json())
+
+    .then(player => {
+
+        localStorage.setItem(
+            "playerData",
+            JSON.stringify(player)
+        );
+
+    })
+
+    .catch(console.error);
+
+}
 
 // ==========================
 // 任務分類容器
