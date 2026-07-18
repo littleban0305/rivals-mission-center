@@ -66,8 +66,12 @@ const status =
 
 const today =
     new Date()
-    .toISOString()
-    .split("T")[0];
+    .toLocaleDateString(
+        "sv-SE",
+        {
+            timeZone: "Asia/Taipei"
+        }
+    );
 
 console.log("today =", today);
 console.log("status =", status);
