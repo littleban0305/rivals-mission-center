@@ -534,31 +534,40 @@ if (approveBtn) {
         }
 
         // 已人工審核
-
+        
         if (
-            if (
-                missionId.startsWith("L")
-            ) {
-            
-                adminPlayer.missions[missionId] =
-                    "completed";
-            
-            }
-            
-            else {
-            
-                adminPlayer.missions[missionId] =
-                    "approved";
-            
-            }
+            adminPlayer.missions[missionId] ===
+            "completed"
+            ||
+            adminPlayer.missions[missionId] ===
+            "approved"
         ) {
-
+        
             alert("此任務已人工審核");
-
+        
             return;
-
+        
         }
-
+        
+        // L 任務永久完成
+        
+        if (
+            missionId.startsWith("L")
+        ) {
+        
+            adminPlayer.missions[missionId] =
+                "completed";
+        
+        }
+        
+        // 其他任務可重複
+        
+        else {
+        
+            adminPlayer.missions[missionId] =
+                "approved";
+        
+        }
         // 尚未完成自動審核
 
         if (
