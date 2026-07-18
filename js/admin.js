@@ -854,6 +854,10 @@ if (rejectBtn) {
             }
 
             if (
+                adminPlayer.missions[
+                    missionId
+                ] === "rejected"
+            ) {
 
                 const mission =
                     MISSION_DATA[missionId];
@@ -867,11 +871,6 @@ if (rejectBtn) {
                         mission.rewardExp || 0;
                 
                 }
-                
-                adminPlayer.missions[
-                    missionId
-                ] === "rejected"
-            ) {
 
                 alert(
                     "此任務已駁回"
