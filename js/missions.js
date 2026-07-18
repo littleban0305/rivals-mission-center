@@ -8,9 +8,6 @@ let missionPlayer =
         localStorage.getItem("playerData")
     );
 
-const API_URL =
-"https://script.google.com/macros/s/AKfycbzURjyuu9xjEo68I4WmYc7vyaXQv7BMeleaWfkaJGrPAak3V3QvDIX2wDtXon24qCgM/exec";
-
 if (missionPlayer?.username) {
 
     fetch(
