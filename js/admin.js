@@ -536,14 +536,13 @@ if (approveBtn) {
         // 已人工審核
         
         if (
+            missionId.startsWith("L")
+            &&
             adminPlayer.missions[missionId] ===
             "completed"
-            ||
-            adminPlayer.missions[missionId] ===
-            "approved"
         ) {
         
-            alert("此任務已人工審核");
+            alert("此任務已完成");
         
             return;
         
