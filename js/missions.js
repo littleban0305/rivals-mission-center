@@ -131,7 +131,8 @@ else if (
 
             <button
                 class="btn submit-btn"
-                data-id="${id}">
+                data-id="${id}"
+                ${disabled}>
             
                 ${buttonText}
             
