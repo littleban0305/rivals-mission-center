@@ -320,12 +320,22 @@ async function loadPlayers() {
     
                 if (
                     status ===
-                    "completed"
+                    "autoApproved"
                 ) {
-    
+                
                     text =
                         "🟡 已自動審核";
-    
+                
+                }
+                
+                if (
+                    status ===
+                    "completed"
+                ) {
+                
+                    text =
+                        "⭐ 一次性已完成";
+                
                 }
     
                 if (
@@ -867,6 +877,22 @@ if (rejectBtn) {
             
             }
             
+            // 只有已自動審核的任務才能駁回
+            
+            if (
+                adminPlayer.missions[
+                    missionId
+                ] !== "autoApproved"
+            ) {
+            
+                alert(
+                    "此任務目前無法駁回"
+                );
+            
+                return;
+            
+            }
+            
             const mission =
                 MISSION_DATA[missionId];
             
@@ -880,10 +906,6 @@ if (rejectBtn) {
             
             }
             
-            adminPlayer.missions[
-                missionId
-            ] = "rejected";
-
             adminPlayer.missions[
                 missionId
             ] = "rejected";
