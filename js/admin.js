@@ -192,7 +192,7 @@ async function loadPlayers() {
                     adminPlayer.missions[id];
             
                 if (
-                    status === "submitted" ||
+                    status === "autoApproved" ||
                     status === "completed" ||
                     status === "approved" ||
                     status === "rejected"
@@ -207,7 +207,7 @@ async function loadPlayers() {
                 
                     let statusText = "";
                 
-                    if (status === "submitted") {
+                    if (status === "autoApproved") {
                 
                         statusText =
                             "🟡 待人工審核";
@@ -568,7 +568,7 @@ if (approveBtn) {
 
         if (
             adminPlayer.missions[missionId] !==
-            "submitted"
+            "autoApproved"
         ) {
         
             alert("此任務目前沒有待審核申請");
