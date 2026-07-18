@@ -107,8 +107,6 @@ else if (
     }
 
 }
-
-}
     
     const card = document.createElement("div");
 
@@ -195,14 +193,14 @@ document.querySelectorAll(".submit-btn").forEach(btn => {
             missionPlayer?.missions?.[id];
         
         if (status === "pending") {
-        
+
             if (confirm("取消申請此任務？")) {
         
-                delete player.missions[id];
+                delete missionPlayer.missions[id];
         
                 localStorage.setItem(
                     "playerData",
-                    JSON.stringify(player)
+                    JSON.stringify(missionPlayer)
                 );
         
                 location.reload();
