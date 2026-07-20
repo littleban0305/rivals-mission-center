@@ -68,7 +68,7 @@ const missions = {
         icon: "🟢",
         category: "weekly",
         status: "active",
-        name: "完成 30 場 Rivals",
+        name: "完成 60 場 Rivals",
     
         reward: "150 Gold ・100 EXP",
     
@@ -84,9 +84,9 @@ const missions = {
         icon: "🟡",
         category: "weekly",
         status: "active",
-        name: "贏得 15 場 Rivals",
+        name: "贏得 30 場 Rivals",
     
-        reward: "250 Gold ・150 EXP",
+        reward: "200 Gold ・150 EXP",
     
         rewardGold: 250,
         rewardExp: 150,
