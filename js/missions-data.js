@@ -154,42 +154,6 @@ const missions = {
     },
 
     L004: {
-        icon: "💻",
-        category: "once",
-        status: "active",
-        
-        name: "安裝指定軟體",
-        desc: "完成指定軟體安裝。",
-        
-        reward: "60 Gold",
-        
-        rewardGold: 60,
-        rewardExp: 0,
-        
-        proofCount: 1,
-        
-        proof: "安裝完成截圖"
-    },
-
-    L005: {
-        icon: "📱",
-        category: "once",
-        status: "active",
-        
-        name: "安裝指定手機遊戲",
-        desc: "完成指定手遊安裝。",
-        
-        reward: "60 Gold",
-
-        rewardGold: 60,
-        rewardExp: 0,
-        
-        proofCount: 1,
-        
-        proof: "安裝完成截圖"
-    },
-
-    L006: {
         icon: "🤝",
         category: "once",
         status: "active",
@@ -207,7 +171,7 @@ const missions = {
         proof: "等級截圖"
     },
 
-    L007: {
+    L005: {
         icon: "🤝",
         category: "once",
         status: "active",
@@ -225,7 +189,7 @@ const missions = {
         proof: "等級截圖"
     },
 
-    L008: {
+    L006: {
         icon: "🤝",
         category: "once",
         status: "active",
@@ -243,7 +207,7 @@ const missions = {
         proof: "等級截圖"
     },
 
-    L009: {
+    L007: {
         icon: "🏆",
         category: "once",
         status: "active",
@@ -256,7 +220,7 @@ const missions = {
         proof: "Coins 截圖"
     },
 
-    L010: {
+    L008: {
         icon: "🏆",
         category: "once",
         status: "active",
@@ -370,6 +334,42 @@ const missions = {
         rewardExp: 0,
         proofCount: 1,
         proof: "完成截圖"
+    },
+
+    O002: {
+        icon: "💻",
+        category: "once",
+        status: "active",
+        
+        name: "安裝指定軟體",
+        desc: "完成指定軟體安裝。",
+        
+        reward: "60 Gold",
+        
+        rewardGold: 60,
+        rewardExp: 0,
+        
+        proofCount: 1,
+        
+        proof: "安裝完成截圖"
+    },
+
+    O003: {
+        icon: "📱",
+        category: "once",
+        status: "active",
+        
+        name: "安裝指定手機遊戲",
+        desc: "完成指定手遊安裝。",
+        
+        reward: "60 Gold",
+
+        rewardGold: 60,
+        rewardExp: 0,
+        
+        proofCount: 1,
+        
+        proof: "安裝完成截圖"
     }
 
 };
