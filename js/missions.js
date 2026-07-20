@@ -3,6 +3,10 @@
 // Mission Generator Beta 0.2
 // ==========================
 
+console.log(
+    missionPlayer
+);
+
 let missionPlayer =
     JSON.parse(
         localStorage.getItem("playerData")
