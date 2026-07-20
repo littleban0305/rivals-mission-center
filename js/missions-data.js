@@ -16,9 +16,9 @@ const missions = {
         name: "每日登入",
         desc: "登入網站一次。",
     
-        reward: "10 Gold ・10 EXP",
+        reward: "50 Gold ・10 EXP",
     
-        rewardGold: 10,
+        rewardGold: 50,
         rewardExp: 10,
     
         proofCount: 1,
@@ -33,9 +33,9 @@ const missions = {
         name: "完成 3 場 Rivals",
         desc: "完成任意三場 Rivals 對戰。",
     
-        reward: "20 Gold ・30 EXP",
+        reward: "100 Gold ・30 EXP",
     
-        rewardGold: 20,
+        rewardGold: 100,
         rewardExp: 30,
     
         proofCount: 3,
@@ -50,9 +50,9 @@ const missions = {
         name: "贏得 5 場 Rivals",
         desc: "成功獲勝五場 Rivals。",
     
-        reward: "30 Gold ・60 EXP",
+        reward: "50 Gold ・60 EXP",
     
-        rewardGold: 30,
+        rewardGold: 50,
         rewardExp: 60,
     
         proofCount: 5,
@@ -107,9 +107,9 @@ const missions = {
     
         name: "Rivals 等級達到 Lv.300",
     
-        reward: "100 Gold ・100 EXP",
+        reward: "200 Gold ・100 EXP",
     
-        rewardGold: 100,
+        rewardGold: 200,
         rewardExp: 100,
     
         proofCount: 1,
@@ -125,9 +125,9 @@ const missions = {
         name: "Rivals 等級達到 Lv.400",
         desc: "將 Rivals 帳號提升至 400 等。",
     
-        reward: "200 Gold ・200 EXP",
+        reward: "500 Gold ・200 EXP",
     
-        rewardGold: 200,
+        rewardGold: 500,
         rewardExp: 200,
     
         proofCount: 1,
@@ -143,9 +143,9 @@ const missions = {
         name: "Rivals 等級達到 Lv.500",
         desc: "將 Rivals 帳號提升至 500 等。",
     
-        reward: "500 Gold ・500 EXP",
+        reward: "1000 Gold ・500 EXP",
     
-        rewardGold: 500,
+        rewardGold: 1000,
         rewardExp: 500,
     
         proofCount: 1,
@@ -161,9 +161,9 @@ const missions = {
         name: "幫 ELO 升到 Lv.100",
         desc: "協助 ELO 帳號升到 100 等。",
         
-        reward: "100 Gold ・100 EXP",
+        reward: "350 Gold ・100 EXP",
 
-        rewardGold: 100,
+        rewardGold: 350,
         rewardExp: 100,
         
         proofCount: 1,
@@ -179,10 +179,10 @@ const missions = {
         name: "幫 ELO 升到 Lv.200",
         desc: "協助 ELO 帳號升到 200 等。",
         
-        reward: "300 Gold ・250 EXP",
+        reward: "700 Gold ・250 EXP",
 
-        rewardGold: 250,
-        rewardExp: 0,
+        rewardGold: 700,
+        rewardExp: 250,
         
         proofCount: 1,
         
@@ -197,9 +197,9 @@ const missions = {
         name: "幫 ELO 升到 Lv.300",
         desc: "協助 ELO 帳號升到 300 等。",
         
-        reward: "600 Gold ・500 EXP",
+        reward: "1000 Gold ・500 EXP",
 
-        rewardGold: 600,
+        rewardGold: 1000,
         rewardExp: 500,
         
         proofCount: 1,
@@ -213,8 +213,8 @@ const missions = {
         status: "active",
         name: "SkinApe 達到 30000 Coins",
         desc: "SkinApe Coins 累積達到 30000。",
-        reward: "200 Gold ・200 EXP",
-        rewardGold: 200,
+        reward: "500 Gold ・200 EXP",
+        rewardGold: 500,
         rewardExp: 200,
         proofCount: 1,
         proof: "Coins 截圖"
@@ -226,8 +226,8 @@ const missions = {
         status: "active",
         name: "SkinApe 達到 40000 Coins",
         desc: "SkinApe Coins 累積達到 40000。",
-        reward: "400 Gold ・400 EXP",
-        rewardGold: 400,
+        reward: "1000 Gold ・400 EXP",
+        rewardGold: 1000,
         rewardExp: 400,
         proofCount: 1,
         proof: "Coins 截圖"
@@ -254,8 +254,8 @@ const missions = {
         icon: "👑",
         category: "permanent",
         status: "active",
-        name: "大魔王模式當魔王並贏三整場",
-        desc: "成為魔王並贏得三整場。",
+        name: "大魔王模式當魔王並贏一整場",
+        desc: "成為魔王並贏得一整場。",
         reward: "200 Gold ・200 EXP",
         rewardGold: 200,
         rewardExp: 200,
@@ -269,8 +269,8 @@ const missions = {
         status: "active",
         name: "錄製 50 個精華",
         desc: "累積錄製 50 個 Medal 精華。",
-        reward: "150 Gold ・150 EXP",
-        rewardGold: 150,
+        reward: "300 Gold ・150 EXP",
+        rewardGold: 300,
         rewardExp: 150,
         proofCount: 1,
         proof: "Medal 個人頁截圖"
