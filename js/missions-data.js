@@ -16,9 +16,9 @@ const missions = {
         name: "每日登入",
         desc: "登入網站一次。",
     
-        reward: "50 Gold ・10 EXP",
+        reward: "10 Gold ・10 EXP",
     
-        rewardGold: 50,
+        rewardGold: 10,
         rewardExp: 10,
     
         proofCount: 1,
@@ -33,9 +33,9 @@ const missions = {
         name: "完成 3 場 Rivals",
         desc: "完成任意三場 Rivals 對戰。",
     
-        reward: "100 Gold ・30 EXP",
+        reward: "50 Gold ・30 EXP",
     
-        rewardGold: 100,
+        rewardGold: 50,
         rewardExp: 30,
     
         proofCount: 3,
@@ -50,9 +50,9 @@ const missions = {
         name: "贏得 5 場 Rivals",
         desc: "成功獲勝五場 Rivals。",
     
-        reward: "50 Gold ・60 EXP",
+        reward: "30 Gold ・60 EXP",
     
-        rewardGold: 50,
+        rewardGold: 30,
         rewardExp: 60,
     
         proofCount: 5,
@@ -68,11 +68,11 @@ const missions = {
         icon: "🟢",
         category: "weekly",
         status: "active",
-        name: "完成 60 場 Rivals",
+        name: "完成 100 場 Rivals",
     
-        reward: "150 Gold ・300 EXP",
+        reward: "350 Gold ・300 EXP",
     
-        rewardGold: 150,
+        rewardGold: 350,
         rewardExp: 300,
     
         proofCount: 30,
@@ -84,11 +84,11 @@ const missions = {
         icon: "🟡",
         category: "weekly",
         status: "active",
-        name: "贏得 30 場 Rivals",
+        name: "贏得 50 場 Rivals",
     
-        reward: "200 Gold ・500 EXP",
+        reward: "500 Gold ・500 EXP",
     
-        rewardGold: 250,
+        rewardGold: 500,
         rewardExp: 500,
     
         proofCount: 15,
