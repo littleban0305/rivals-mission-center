@@ -282,8 +282,8 @@ const missions = {
         status: "active",
         name: "開 Skin Case 開到超稀有武器（紅色）",
         desc: "抽到紅色超稀有武器。",
-        reward: "100 Gold ・300 EXP",
-        rewardGold: 100,
+        reward: "500 Gold ・300 EXP",
+        rewardGold: 500,
         rewardExp: 300,
         proofCount: 1,
         proof: "開箱截圖"
