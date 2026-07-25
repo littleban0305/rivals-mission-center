@@ -44,16 +44,21 @@ async function loadPlayers() {
 
         }
 
+        console.log("selectedPlayer =", selectedPlayer);
+        console.log("players =", players);
+        
         adminPlayer =
             players.find(
                 p => p.username === selectedPlayer
             );
-
+        
+        console.log("adminPlayer =", adminPlayer);
+        
         if (!adminPlayer) {
-
+        
             alert("找不到玩家資料！");
             return;
-
+        
         }
 
         console.log(
