@@ -33,8 +33,6 @@ async function loadPlayers() {
         players =
             await response.json();
 
-        console.log(players);
-
         if (!Array.isArray(players)) {
 
             console.error(
@@ -51,11 +49,6 @@ async function loadPlayers() {
                 p => p.username === selectedPlayer
             );
 
-        console.log(
-            "missions",
-            adminPlayer.missions
-        );
-
         if (!adminPlayer) {
 
             alert("找不到玩家資料！");
@@ -63,23 +56,25 @@ async function loadPlayers() {
 
         }
 
-        // 建立下拉選單
+        console.log(
+            "目前玩家：",
+            adminPlayer
+        );
+
+        // -----------------
+        // 玩家下拉選單
+        // -----------------
 
         if (playerSelect) {
-            
-            playerSelect.addEventListener("change", () => {
 
-                location.href =
-                    `admin.html?player=${playerSelect.value}`;
-            
-            });
-            
             playerSelect.innerHTML = "";
 
             players.forEach(player => {
 
                 const option =
-                    document.createElement("option");
+                    document.createElement(
+                        "option"
+                    );
 
                 option.value =
                     player.username;
@@ -88,20 +83,32 @@ async function loadPlayers() {
                     player.username;
 
                 if (
-                    player.username === selectedPlayer
+                    player.username ===
+                    selectedPlayer
                 ) {
 
                     option.selected = true;
 
                 }
 
-                playerSelect.appendChild(option);
+                playerSelect.appendChild(
+                    option
+                );
 
             });
 
+            playerSelect.onchange = () => {
+
+                location.href =
+                    `admin.html?player=${playerSelect.value}`;
+
+            };
+
         }
 
-        // 載入資料
+        // -----------------
+        // 玩家資料
+        // -----------------
 
         document.getElementById("adminUsername").value =
             adminPlayer.username || "";
@@ -133,117 +140,126 @@ async function loadPlayers() {
         document.getElementById("adminScythe").value =
             adminPlayer.coconutScythe || 0;
 
-        // 任務清單
+        // -----------------
+        // 商店訂單
+        // -----------------
+
+        const shopOrderSelect =
+            document.getElementById(
+                "shopOrderSelect"
+            );
+
+        if (
+            shopOrderSelect &&
+            Array.isArray(adminPlayer.shopOrders)
+        ) {
+
+            shopOrderSelect.innerHTML =
+                '<option value="">請選擇訂單</option>';
+
+            adminPlayer.shopOrders.forEach(
+                (order, index) => {
+
+                    if (
+                        order.status ===
+                        "pending"
+                    ) {
+
+                        const option =
+                            document.createElement(
+                                "option"
+                            );
+
+                        option.value =
+                            index;
+
+                        option.textContent =
+                            order.name;
+
+                        shopOrderSelect.appendChild(
+                            option
+                        );
+
+                    }
+
+                }
+
+            );
+
+        }
+
+        // -----------------
+        // 任務列表
+        // -----------------
 
         if (
             missionSelect &&
             adminPlayer.missions
         ) {
 
-        // 商店訂單
-        
-        const shopOrderSelect =
-            document.getElementById(
-                "shopOrderSelect"
-            );
-        
-        if (
-            shopOrderSelect &&
-            adminPlayer.shopOrders
-        ) {
-        
-            shopOrderSelect.innerHTML =
-                '<option value="">請選擇訂單</option>';
-        
-            adminPlayer.shopOrders.forEach(
-                (order, index) => {
-        
-                    if (
-                        order.status === "pending"
-                    ) {
-        
-                        const option =
-                            document.createElement(
-                                "option"
-                            );
-        
-                        option.value =
-                            index;
-        
-                        option.textContent =
-                            `${order.name}`;
-        
-                        shopOrderSelect.appendChild(
-                            option
-                        );
-        
-                    }
-        
-                }
-            );
-        
-        }
-            
             missionSelect.innerHTML = "";
 
-            for (const id in adminPlayer.missions) {
-            
+            for (
+                const id
+                in adminPlayer.missions
+            ) {
+
                 const status =
                     adminPlayer.missions[id];
-            
+
                 if (
-                    status === "autoApproved" ||
-                    status === "completed" ||
-                    status === "approved" ||
-                    status === "rejected"
-                ) {
-                
-                    const option =
-                        document.createElement(
-                            "option"
-                        );
-                
-                    option.value = id;
-                
-                    let statusText = "";
-                
-                    if (status === "autoApproved") {
-                
-                        statusText =
-                            "🟡 待人工審核";
-                
-                    }
-                
-                    else if (status === "completed") {
-                
-                        statusText =
-                            "⭐ 一次性已完成";
-                
-                    }
-                
-                    else if (status === "approved") {
-                
-                        statusText =
-                            "🟢 已人工審核";
-                
-                    }
-                
-                    else if (status === "rejected") {
-                
-                        statusText =
-                            "🔴 已駁回";
-                
-                    }
-                
-                    option.textContent =
-                        `${id} ${statusText}`;
-                
-                    missionSelect.appendChild(
-                        option
+                    ![
+                        "autoApproved",
+                        "approved",
+                        "completed",
+                        "rejected"
+                    ].includes(status)
+                ) continue;
+
+                const option =
+                    document.createElement(
+                        "option"
                     );
-                
+
+                option.value = id;
+
+                let text = "";
+
+                switch (status) {
+
+                    case "autoApproved":
+
+                        text =
+                            "🟡 待人工審核";
+                        break;
+
+                    case "approved":
+
+                        text =
+                            "🟢 已人工審核";
+                        break;
+
+                    case "completed":
+
+                        text =
+                            "⭐ 一次性已完成";
+                        break;
+
+                    case "rejected":
+
+                        text =
+                            "🔴 已駁回";
+                        break;
+
                 }
-            
+
+                option.textContent =
+                    `${id} ${text}`;
+
+                missionSelect.appendChild(
+                    option
+                );
+
             }
 
         }
@@ -254,43 +270,6 @@ async function loadPlayers() {
 
         console.error(err);
 
-    }
-    
-    if (
-        shopOrderSelect &&
-        adminPlayer.shopOrders
-    ) {
-    
-        shopOrderSelect.innerHTML =
-            '<option value="">請選擇訂單</option>';
-    
-        adminPlayer.shopOrders.forEach(
-            (order, index) => {
-    
-                if (
-                    order.status === "pending"
-                ) {
-    
-                    const option =
-                        document.createElement(
-                            "option"
-                        );
-    
-                    option.value =
-                        index;
-    
-                    option.textContent =
-                        `${order.name}`;
-    
-                    shopOrderSelect.appendChild(
-                        option
-                    );
-    
-                }
-    
-            }
-        );
-    
     }
 
     const missionStatus =
