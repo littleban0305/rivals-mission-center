@@ -329,9 +329,9 @@ const missions = {
         status: "active",
         name: "完成一個指定手遊任務",
         desc: "完成指定手機遊戲任務。",
-        reward: "50 Gold ・50 EXP",
-        rewardGold: 50,
-        rewardExp: 50,
+        reward: "100 Gold ・150 EXP",
+        rewardGold: 100,
+        rewardExp: 150,
         proofCount: 1,
         proof: "完成截圖"
     },
