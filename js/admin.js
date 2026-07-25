@@ -411,98 +411,114 @@ loadPendingReviews();
 const saveBtn =
     document.getElementById("saveAdmin");
 
+async function savePlayer() {
+
+    adminPlayer.roblox =
+        document.getElementById("adminRoblox").value;
+
+    adminPlayer.discord =
+        document.getElementById("adminDiscord").value;
+
+    adminPlayer.gold =
+        Number(document.getElementById("adminGold").value);
+
+    adminPlayer.rcoin =
+        Number(document.getElementById("adminRcoin").value);
+
+    adminPlayer.exp =
+        Number(document.getElementById("adminExp").value);
+
+    adminPlayer.level =
+        Number(document.getElementById("adminLevel").value);
+
+    adminPlayer.battlePass =
+        Number(document.getElementById("adminBP").value);
+
+    adminPlayer.skinCase =
+        Number(document.getElementById("adminSkinCase").value);
+
+    adminPlayer.coconutScythe =
+        Number(document.getElementById("adminScythe").value);
+
+    try {
+
+        const res =
+            await fetch(API_URL, {
+
+                method: "POST",
+
+                body: JSON.stringify({
+
+                    action: "updatePlayer",
+
+                    username:
+                        adminPlayer.username,
+
+                    roblox:
+                        adminPlayer.roblox,
+
+                    discord:
+                        adminPlayer.discord,
+
+                    gold:
+                        adminPlayer.gold,
+
+                    rcoin:
+                        adminPlayer.rcoin,
+
+                    exp:
+                        adminPlayer.exp,
+
+                    level:
+                        adminPlayer.level,
+
+                    battlePass:
+                        adminPlayer.battlePass,
+
+                    skinCase:
+                        adminPlayer.skinCase,
+
+                    coconutScythe:
+                        adminPlayer.coconutScythe,
+
+                    missions:
+                        adminPlayer.missions,
+
+                    shopOrders:
+                        adminPlayer.shopOrders
+
+                })
+
+            });
+
+        const data =
+            await res.json();
+
+        if (!data.success) {
+
+            alert("❌ 儲存失敗");
+            return;
+
+        }
+
+        alert("✅ 玩家資料已同步");
+
+    }
+
+    catch (err) {
+
+        console.error(err);
+
+        alert("❌ 無法連線");
+
+    }
+
+}
+
 if (saveBtn) {
 
-    saveBtn.addEventListener("click", () => {
-
-        adminPlayer.roblox =
-            document.getElementById("adminRoblox").value;
-
-        adminPlayer.discord =
-            document.getElementById("adminDiscord").value;
-
-        adminPlayer.gold =
-            Number(document.getElementById("adminGold").value);
-
-        adminPlayer.rcoin =
-            Number(document.getElementById("adminRcoin").value);
-
-        adminPlayer.exp =
-            Number(document.getElementById("adminExp").value);
-
-        adminPlayer.battlePass =
-            Number(document.getElementById("adminBP").value);
-
-        adminPlayer.level =
-            Number(document.getElementById("adminLevel").value);
-
-        adminPlayer.skinCase =
-            Number(document.getElementById("adminSkinCase").value);
-
-        adminPlayer.coconutScythe =
-            Number(document.getElementById("adminScythe").value);
-
-        fetch(API_URL, {
-        
-            method: "POST",
-        
-            body: JSON.stringify({
-        
-                action: "updatePlayer",
-        
-                username: adminPlayer.username,
-        
-                roblox: adminPlayer.roblox,
-        
-                discord: adminPlayer.discord,
-        
-                gold: adminPlayer.gold,
-        
-                rcoin: adminPlayer.rcoin,
-        
-                exp: adminPlayer.exp,
-        
-                level: adminPlayer.level,
-        
-                battlePass: adminPlayer.battlePass,
-        
-                skinCase: adminPlayer.skinCase,
-        
-                coconutScythe: adminPlayer.coconutScythe,
-        
-                missions: adminPlayer.missions
-        
-            })
-        
-        })
-        
-        .then(res => res.json())
-        
-        .then(data => {
-        
-            if (data.success) {
-        
-                alert("✅ 玩家資料已同步到 Google Sheets！");
-        
-            }
-        
-            else {
-        
-                alert("❌ 儲存失敗");
-        
-            }
-        
-        })
-        
-        .catch(err => {
-        
-            console.error(err);
-        
-            alert("❌ 無法連線到伺服器");
-        
-        });
-
-    });
+    saveBtn.onclick =
+        savePlayer;
 
 }
 
@@ -516,246 +532,56 @@ const missionSelect =
 const approveBtn =
     document.getElementById("approveMission");
 
-if (approveBtn) {
+async function approveMission() {
 
-    approveBtn.addEventListener("click", () => {
+    const missionId =
+        missionSelect.value;
 
-        const missionId =
-            missionSelect.value;
+    if (!missionId) {
 
-        if (!missionId) {
+        alert("請先選擇任務！");
+        return;
 
-            alert("請先選擇任務！");
-            return;
+    }
 
-        }
+    const status =
+        adminPlayer.missions[missionId];
 
-        // 已人工審核
+    if (
+        missionId.startsWith("L") &&
+        status === "completed"
+    ) {
 
-        console.log(
-            "missionId =",
-            missionId
-        );
-        
-        console.log(
-            "status =",
-            adminPlayer.missions[missionId]
-        );
-        
-        if (
-            missionId.startsWith("L")
-            &&
-            adminPlayer.missions[missionId] ===
-            "completed"
-        ) {
-        
-            alert("此任務已完成");
-        
-            return;
-        
-        }
+        alert("此任務已完成");
+        return;
 
-        if (
-            adminPlayer.missions[missionId] !==
-            "autoApproved"
-        ) {
-        
-            alert("此任務目前沒有待審核申請");
-        
-            return;
-        
-        }
-        
-        // L 任務永久完成
-        
-        if (
-            missionId.startsWith("L")
-        ) {
-        
-            adminPlayer.missions[missionId] =
-                "completed";
-        
-        }
-        
-        // 其他任務可重複
-        
-        else {
-        
-            adminPlayer.missions[missionId] =
-                "approved";
-        
-        }
+    }
 
-        fetch(API_URL, {
+    if (status !== "autoApproved") {
 
-            method: "POST",
+        alert("此任務目前沒有待審核申請");
+        return;
 
-            body: JSON.stringify({
+    }
 
-                action: "updatePlayer",
+    adminPlayer.missions[missionId] =
+        missionId.startsWith("L")
+            ? "completed"
+            : "approved";
 
-                username:
-                    adminPlayer.username,
+    try {
 
-                roblox:
-                    adminPlayer.roblox,
-
-                discord:
-                    adminPlayer.discord,
-
-                gold:
-                    adminPlayer.gold,
-
-                rcoin:
-                    adminPlayer.rcoin,
-
-                exp:
-                    adminPlayer.exp,
-
-                level:
-                    adminPlayer.level,
-
-                battlePass:
-                    adminPlayer.battlePass,
-
-                skinCase:
-                    adminPlayer.skinCase,
-
-                coconutScythe:
-                    adminPlayer.coconutScythe,
-
-                missions:
-                    adminPlayer.missions,
-
-                shopOrders:
-                    adminPlayer.shopOrders
-
-            })
-
-        })
-
-        .then(res => res.json())
-
-        .then(data => {
-
-            if (data.success) {
-
-                fetch(API_URL, {
-                
-                    method: "POST",
-                
-                    body: JSON.stringify({
-                
-                        action: "approveFiles"
-                
-                    })
-                
-                });
-                
-                alert(
-                    "✅ 已通過人工審核"
-                );
-
-                loadPlayers();
-
-            }
-
-            else {
-
-                alert(
-                    "❌ 同步失敗"
-                );
-
-            }
-
-        })
-
-        .catch(err => {
-
-            console.error(err);
-
-            alert(
-                "❌ 無法連線到伺服器"
-            );
-
-        });
-
-    });
-
-}
-
-// ==========================
-// 商店訂單發送
-// ==========================
-
-const approveOrderBtn =
-    document.getElementById(
-        "approveOrder"
-    );
-
-if (approveOrderBtn) {
-
-    approveOrderBtn.addEventListener(
-        "click",
-        () => {
-
-            const index =
-                document.getElementById(
-                    "shopOrderSelect"
-                ).value;
-
-            if (index === "") {
-
-                alert("請選擇訂單");
-
-                return;
-
-            }
-
-            const order =
-                adminPlayer.shopOrders[index];
-
-            // 發送商品
-
-            if (
-                order.id === "SC001"
-            ) {
-
-                adminPlayer.skinCase =
-                    (adminPlayer.skinCase || 0)
-                    + 1;
-
-            }
-
-            if (
-                order.id === "SC002"
-            ) {
-
-                adminPlayer.coconutScythe =
-                    (adminPlayer.coconutScythe || 0)
-                    + 1;
-
-            }
-
-            order.status =
-                "completed";
-
-            // 同步 Google Sheets
-
-            fetch(API_URL, {
+        const res =
+            await fetch(API_URL, {
 
                 method: "POST",
 
                 body: JSON.stringify({
 
-                    action:
-                        "updatePlayer",
+                    action: "updatePlayer",
 
                     username:
                         adminPlayer.username,
-
-                    nickname:
-                        adminPlayer.nickname,
 
                     roblox:
                         adminPlayer.roblox,
@@ -792,25 +618,108 @@ if (approveOrderBtn) {
 
                 })
 
-            })
-
-            .then(res => res.json())
-
-            .then(data => {
-
-                if (data.success) {
-
-                    alert("📦 商品已發送");
-                
-                    loadPlayers();
-                
-                }
-
             });
+
+        const data =
+            await res.json();
+
+        if (!data.success) {
+
+            alert("❌ 同步失敗");
+            return;
 
         }
 
-    );
+        await fetch(API_URL, {
+
+            method: "POST",
+
+            body: JSON.stringify({
+
+                action:
+                    "approveFiles"
+
+            })
+
+        });
+
+        alert("✅ 已通過人工審核");
+
+        loadPlayers();
+
+    }
+
+    catch (err) {
+
+        console.error(err);
+
+        alert("❌ 無法連線");
+
+    }
+
+}
+
+if (approveBtn) {
+
+    approveBtn.onclick =
+        approveMission;
+
+}
+
+// ==========================
+// 商店訂單發送
+// ==========================
+
+const approveOrderBtn =
+    document.getElementById("approveOrder");
+
+async function approveOrder() {
+
+    const index =
+        document.getElementById(
+            "shopOrderSelect"
+        ).value;
+
+    if (index === "") {
+
+        alert("請選擇訂單");
+        return;
+
+    }
+
+    const order =
+        adminPlayer.shopOrders[index];
+
+    switch (order.id) {
+
+        case "SC001":
+
+            adminPlayer.skinCase =
+                (adminPlayer.skinCase || 0) + 1;
+            break;
+
+        case "SC002":
+
+            adminPlayer.coconutScythe =
+                (adminPlayer.coconutScythe || 0) + 1;
+            break;
+
+    }
+
+    order.status = "completed";
+
+    await savePlayer();
+
+    alert("📦 商品已發送");
+
+    loadPlayers();
+
+}
+
+if (approveOrderBtn) {
+
+    approveOrderBtn.onclick =
+        approveOrder;
 
 }
 
@@ -823,147 +732,65 @@ const rejectBtn =
         "rejectMission"
     );
 
+async function rejectMission() {
+
+    const missionId =
+        missionSelect.value;
+
+    if (!missionId) {
+
+        alert("請先選擇任務！");
+        return;
+
+    }
+
+    if (
+        adminPlayer.missions[missionId] ===
+        "rejected"
+    ) {
+
+        alert("此任務已駁回");
+        return;
+
+    }
+
+    if (
+        adminPlayer.missions[missionId] !==
+        "autoApproved"
+    ) {
+
+        alert("此任務目前無法駁回");
+        return;
+
+    }
+
+    const mission =
+        missions[missionId];
+
+    if (mission) {
+
+        adminPlayer.gold -=
+            mission.rewardGold || 0;
+
+        adminPlayer.exp -=
+            mission.rewardExp || 0;
+
+    }
+
+    adminPlayer.missions[missionId] =
+        "rejected";
+
+    await savePlayer();
+
+    alert("❌ 任務已駁回");
+
+    loadPlayers();
+
+}
+
 if (rejectBtn) {
 
-    rejectBtn.addEventListener(
-        "click",
-        () => {
-
-            const missionId =
-                missionSelect.value;
-
-            if (!missionId) {
-
-                alert(
-                    "請先選擇任務！"
-                );
-
-                return;
-
-            }
-
-            if (
-                adminPlayer.missions[
-                    missionId
-                ] === "rejected"
-            ) {
-            
-                alert(
-                    "此任務已駁回"
-                );
-            
-                return;
-            
-            }
-            
-            // 只有已自動審核的任務才能駁回
-            
-            if (
-                adminPlayer.missions[
-                    missionId
-                ] !== "autoApproved"
-            ) {
-            
-                alert(
-                    "此任務目前無法駁回"
-                );
-            
-                return;
-            
-            }
-            
-            const mission =
-                missions[missionId];
-            
-            if (mission) {
-            
-                adminPlayer.gold -=
-                    mission.rewardGold || 0;
-            
-                adminPlayer.exp -=
-                    mission.rewardExp || 0;
-            
-            }
-            
-            adminPlayer.missions[
-                missionId
-            ] = "rejected";
-
-            fetch(API_URL, {
-
-                method: "POST",
-
-                body: JSON.stringify({
-
-                    action:
-                        "updatePlayer",
-
-                    username:
-                        adminPlayer.username,
-
-                    roblox:
-                        adminPlayer.roblox,
-
-                    discord:
-                        adminPlayer.discord,
-
-                    gold:
-                        adminPlayer.gold,
-
-                    rcoin:
-                        adminPlayer.rcoin,
-
-                    exp:
-                        adminPlayer.exp,
-
-                    level:
-                        adminPlayer.level,
-
-                    battlePass:
-                        adminPlayer.battlePass,
-
-                    skinCase:
-                        adminPlayer.skinCase,
-
-                    coconutScythe:
-                        adminPlayer.coconutScythe,
-
-                    missions:
-                        adminPlayer.missions,
-
-                    shopOrders:
-                        adminPlayer.shopOrders
-
-                })
-
-            })
-
-            .then(res => res.json())
-
-            .then(data => {
-
-                if (data.success) {
-
-                    alert(
-                        "❌ 任務已駁回"
-                    );
-
-                    loadPlayers();
-
-                }
-
-                else {
-
-                    alert(
-                        "❌ 同步失敗"
-                    );
-
-                }
-
-            });
-
-        }
-
-    );
+    rejectBtn.onclick =
+        rejectMission;
 
 }
