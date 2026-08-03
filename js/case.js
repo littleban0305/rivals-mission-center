@@ -93,9 +93,9 @@ openBtn.addEventListener(
 
         // 等動畫結束
 
-        await playAnimation(
-            reward
-        );
+        // await playAnimation(reward);
+
+        alert("動畫結束");
 
         console.log("① 動畫結束");
 
