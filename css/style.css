@@ -1760,11 +1760,17 @@ img{
    Case Opening
 ========================== */
 
+#animationContainer{
+
+    margin-top:40px;
+
+}
+
 #caseViewport{
 
     position:relative;
 
-    width:720px;
+    width:760px;
 
     max-width:95%;
 
@@ -1778,6 +1784,14 @@ img{
 
     background:#181818;
 
+    padding:20px 0;
+
+}
+
+#caseTrack{
+
+    will-change:transform;
+
 }
 
 #caseRoll{
@@ -1785,10 +1799,6 @@ img{
     display:flex;
 
     gap:15px;
-
-    padding:25px;
-
-    transition:none;
 
 }
 
@@ -1798,15 +1808,15 @@ img{
 
     left:50%;
 
-    top:0;
+    top:4px;
 
     transform:translateX(-50%);
 
-    font-size:30px;
+    font-size:28px;
 
-    color:gold;
+    color:#ffd700;
 
-    z-index:99;
+    z-index:999;
 
 }
 
@@ -1822,6 +1832,12 @@ img{
 
 .case-item img{
 
-    width:100px;
+    width:95px;
+
+}
+
+.case-item p{
+
+    margin-top:8px;
 
 }
