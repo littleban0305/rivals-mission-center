@@ -133,11 +133,22 @@ openBtn.addEventListener(
                 break;
 
             case "weapon":
-
-                alert(
-                    "武器背包尚未完成"
-                );
-
+            
+                if(!player.weapons){
+            
+                    player.weapons = {};
+            
+                }
+            
+                player.weapons[
+                    reward.id
+                ] =
+                (
+                    player.weapons[
+                        reward.id
+                    ] || 0
+                ) + 1;
+            
                 break;
 
         }
