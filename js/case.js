@@ -387,8 +387,15 @@ function playAnimation(
             const rewardElement =
                 roll.children[60];
             
+            const maxScroll =
+                roll.scrollWidth -
+                roll.clientWidth;
+            
             const target =
-                rewardElement.offsetLeft;
+                Math.min(
+                    rewardElement.offsetLeft,
+                    maxScroll
+                );
 
             const timer=
                 setInterval(()=>{
@@ -412,12 +419,9 @@ function playAnimation(
 
                     }
 
-                    if(
-
-                        roll.scrollLeft>=
-                        target
-
-                    ){
+                    if (
+                        roll.scrollLeft >= target - 2
+                    ) {
 
                         clearInterval(
                             timer
