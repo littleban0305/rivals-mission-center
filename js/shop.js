@@ -4,6 +4,82 @@
 // ==========================
 
 // ==========================
+// 自動生成商品
+// ==========================
+
+const shopContainer =
+    document.getElementById(
+        "shopContainer"
+    );
+
+if (
+    shopContainer
+) {
+
+    for (
+        const id
+        in SHOP_ITEMS
+    ) {
+
+        const item =
+            SHOP_ITEMS[id];
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+        card.className =
+            "shop-card";
+
+        card.innerHTML = `
+
+<img
+src="${item.image}"
+class="shop-image">
+
+<h2>
+
+${item.name}
+
+</h2>
+
+<p>
+
+${item.rPrice} R
+
+</p>
+
+<p>
+
+${item.goldPrice} Gold
+
+</p>
+
+<div
+class="shop-buttons">
+
+<button
+class="btn shop-btn"
+data-item="${id}">
+
+立即購買
+
+</button>
+
+</div>
+
+`;
+
+        shopContainer.appendChild(
+            card
+        );
+
+    }
+
+}
+
+// ==========================
 // Navbar
 // ==========================
 
