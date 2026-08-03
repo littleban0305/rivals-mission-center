@@ -321,3 +321,67 @@ if (exchangeBtn) {
 }
 
 console.log(player);
+
+const caseList =
+    document.getElementById(
+        "caseList"
+    );
+
+if (caseList) {
+
+    for (const id in cases) {
+
+        const box =
+            cases[id];
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+        card.className =
+            "card";
+
+        card.innerHTML = `
+
+            <img
+            src="${box.image}"
+            class="case-image">
+
+            <h3>
+
+                ${box.name}
+
+            </h3>
+
+            <p>
+
+                ${box.desc}
+
+            </p>
+
+            <small>
+
+                ${box.price} Gold
+
+            </small>
+
+            <br><br>
+
+            <button
+                class="btn buy-case"
+                data-id="${id}">
+
+                購買
+
+            </button>
+
+        `;
+
+        caseList.appendChild(
+            card
+        );
+
+    }
+
+}
