@@ -1958,3 +1958,95 @@ img{
     width:100%;
 
 }
+
+/* ==========================
+   Shop Beta 2
+========================== */
+
+.shop-title{
+
+    margin:40px 0 20px;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+}
+
+.shop-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px,1fr)
+        );
+
+    gap:24px;
+
+}
+
+.shop-card,
+.case-card{
+
+    background:#241935;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+    border:1px solid
+    rgba(255,255,255,.08);
+
+    transition:.25s;
+
+}
+
+.shop-card:hover,
+.case-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 0 20px
+    rgba(156,91,255,.3);
+
+}
+
+.shop-image,
+.case-image{
+
+    width:170px;
+
+    height:170px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:auto;
+
+}
+
+.shop-buttons,
+.case-buttons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+.shop-buttons .btn,
+.case-buttons .btn{
+
+    width:100%;
+
+}
