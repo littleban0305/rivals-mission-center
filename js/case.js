@@ -347,6 +347,9 @@ function addItem(
 
     div.className =
         "case-item";
+    
+    div.dataset.id =
+        item.name;
 
     div.innerHTML = `
 
