@@ -4,82 +4,6 @@
 // ==========================
 
 // ==========================
-// 自動生成商品
-// ==========================
-
-const shopContainer =
-    document.getElementById("shopContainer");
-
-if (shopContainer) {
-
-    for (const id in SHOP_ITEMS) {
-
-        const item =
-            SHOP_ITEMS[id];
-
-        const card =
-            document.createElement("div");
-
-        card.className =
-            "case-card";
-
-        card.innerHTML = `
-        
-        <img
-        src="${box.image}"
-        class="case-image">
-        
-        <h2
-        class="case-title">
-        
-        ${box.name}
-        
-        </h2>
-        
-        <p
-        class="case-desc">
-        
-        ${box.desc}
-        
-        </p>
-        
-        <div
-        class="case-price">
-        
-        💰 ${box.price} Gold
-        
-        </div>
-        
-        <div
-        class="case-buttons">
-        
-        <button
-        class="btn buy-case"
-        data-id="${id}">
-        
-        購買
-        
-        </button>
-        
-        <button
-        class="btn open-case"
-        data-id="${id}">
-        
-        開啟
-        
-        </button>
-        
-        </div>
-        
-        `;
-
-        shopContainer.appendChild(card);
-
-    }
-
-}
-
-// ==========================
 // Navbar
 // ==========================
 
@@ -354,50 +278,61 @@ if (caseList) {
             );
 
         card.className =
-            "card";
+            "case-card";
 
         card.innerHTML = `
-
-            <img
-            src="${box.image}"
-            class="case-image">
-
-            <h3>
-
-                ${box.name}
-
-            </h3>
-
-            <p>
-
-                ${box.desc}
-
-            </p>
-
-            <small>
-
-                ${box.price} Gold
-
-            </small>
-
-            <br><br>
-
-            <button
-                class="btn buy-case"
-                data-id="${id}">
-
-                購買
-
-            </button>
-
-            <button
-            class="btn open-case"
-            data-id="${id}">
-            
-            開啟
-            
-            </button>
-
+        
+        <img
+        src="${box.image}"
+        class="case-image">
+        
+        <h2
+        class="case-title">
+        
+        ${box.name}
+        
+        </h2>
+        
+        <p
+        class="case-desc">
+        
+        ${box.desc}
+        
+        </p>
+        
+        <div
+        class="case-price">
+        
+        💰 ${box.price} Gold
+        
+        </div>
+        
+        <div
+        class="case-buttons">
+        
+        <button
+        class="btn buy-case"
+        data-id="${id}">
+        
+        📦 購買
+        
+        </button>
+        
+        <button
+        class="btn open-case"
+        data-id="${id}">
+        
+        🎁 開啟
+        ${
+            player.cases?.[id]
+            ? ` (${player.cases[id]})`
+            : ""
+        }
+        
+        </button>
+        
+        </div>
+        
         `;
 
         caseList.appendChild(
