@@ -13,7 +13,7 @@ const items = {
 
         name: "50 Gold",
 
-        image: "images/items/gold.png",
+        image: "images/icons/coin.png",
 
         type: "gold",
 
@@ -25,7 +25,7 @@ const items = {
 
         name: "100 Gold",
 
-        image: "images/items/gold.png",
+        image: "images/icons/coin.png",
 
         type: "gold",
 
@@ -37,7 +37,7 @@ const items = {
 
         name: "500 Gold",
 
-        image: "images/items/gold.png",
+        image: "images/icons/coin.png",
 
         type: "gold",
 
@@ -56,7 +56,7 @@ const items = {
         name: "Palm Scythe",
     
         image:
-            "images/items/palm_scythe.png",
+            "images/items/coconut_scythe.png",
     
         type:
             "weapon",
