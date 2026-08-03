@@ -90,6 +90,8 @@ document
             reward
         );
 
+        console.log("動畫結束");
+
         // 扣箱子
 
         player.cases[caseId]--;
@@ -148,6 +150,8 @@ document
         );
 
         // Google Sheets
+
+        console.log("開始同步");
 
         const res =
             await fetch(
@@ -424,6 +428,8 @@ function playAnimation(
 function showReward(
     reward
 ){
+
+    console.log("showReward");
 
     document
     .getElementById(
