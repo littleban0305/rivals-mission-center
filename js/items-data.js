@@ -82,3 +82,4 @@ const items = {
             "legendary"
     
     },
+}
