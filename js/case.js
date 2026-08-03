@@ -66,27 +66,31 @@ document
                 box.items
             );
 
-        createRoll(reward);
-
-        playAnimation(
+        createRoll(
             reward
         );
-        
-        document
-        .getElementById(
-        "caseContainer"
-        )
-        .style.display="none";
-        
-        document
-        .getElementById(
-        "animationContainer"
-        )
-        .style.display="block";
 
-        // ==========================
-        // 扣除箱子
-        // ==========================
+        document
+        .getElementById(
+            "caseContainer"
+        )
+        .style.display =
+        "none";
+
+        document
+        .getElementById(
+            "animationContainer"
+        )
+        .style.display =
+        "block";
+
+        // 等動畫結束
+
+        await playAnimation(
+            reward
+        );
+
+        // 扣箱子
 
         player.cases[caseId]--;
 
@@ -94,15 +98,17 @@ document
             player.cases[caseId] <= 0
         ) {
 
-            delete player.cases[caseId];
+            delete player.cases[
+                caseId
+            ];
 
         }
 
-        // ==========================
-        // 發放獎勵
-        // ==========================
+        // 發獎
 
-        switch (reward.type) {
+        switch (
+            reward.type
+        ) {
 
             case "gold":
 
@@ -129,69 +135,88 @@ document
 
         }
 
-        // ==========================
-        // 更新 LocalStorage
-        // ==========================
+        // LocalStorage
 
         localStorage.setItem(
 
             "playerData",
 
-            JSON.stringify(player)
+            JSON.stringify(
+                player
+            )
 
         );
 
-        // ==========================
-        // 同步 Google Sheets
-        // ==========================
+        // Google Sheets
 
         const res =
-            await fetch(API_URL, {
+            await fetch(
+                API_URL,
+                {
 
-                method: "POST",
+                    method:
+                        "POST",
 
-                body: JSON.stringify({
+                    body:
+                        JSON.stringify({
 
-                    action: "updatePlayer",
+                            action:
+                                "updatePlayer",
 
-                    username: player.username,
+                            username:
+                                player.username,
 
-                    nickname: player.nickname,
+                            nickname:
+                                player.nickname,
 
-                    roblox: player.roblox,
+                            roblox:
+                                player.roblox,
 
-                    discord: player.discord,
+                            discord:
+                                player.discord,
 
-                    gold: player.gold,
+                            gold:
+                                player.gold,
 
-                    rcoin: player.rcoin,
+                            rcoin:
+                                player.rcoin,
 
-                    exp: player.exp,
+                            exp:
+                                player.exp,
 
-                    level: player.level,
+                            level:
+                                player.level,
 
-                    battlePass: player.battlePass,
+                            battlePass:
+                                player.battlePass,
 
-                    skinCase: player.skinCase,
+                            skinCase:
+                                player.skinCase,
 
-                    coconutScythe:
-                        player.coconutScythe,
+                            coconutScythe:
+                                player.coconutScythe,
 
-                    missions: player.missions,
+                            missions:
+                                player.missions,
 
-                    shopOrders:
-                        player.shopOrders,
+                            shopOrders:
+                                player.shopOrders,
 
-                    cases: player.cases
+                            cases:
+                                player.cases
 
-                })
+                        })
 
-            });
+                }
+
+            );
 
         const data =
             await res.json();
 
-        if (!data.success) {
+        if (
+            !data.success
+        ) {
 
             alert(
                 "同步失敗"
@@ -201,35 +226,12 @@ document
 
         }
 
-        document
-        .getElementById(
-            "openCase"
-        )
-        .style.display =
-        "none";
-        
-        document
-        .getElementById(
-            "rewardBox"
-        )
-        .style.display =
-        "block";
-        
-        document
-        .getElementById(
-            "rewardImage"
-        )
-        .src =
-        reward.image;
-        
-        document
-        .getElementById(
-            "rewardName"
-        )
-        .textContent =
-        `🎉 恭喜獲得 ${reward.name}`;
+        showReward(
+            reward
+        );
 
     }
+
 );
 
 document
@@ -348,66 +350,74 @@ function addItem(
 
 }
 
-function playAnimation(reward) {
+function playAnimation(
+    reward
+){
 
-    const roll =
-        document.getElementById(
-            "caseRoll"
-        );
+    return new Promise(
 
-    let speed = 22;
+        resolve=>{
 
-    const rewardIndex = 60;
-
-    const itemWidth = 135;
-
-    const target =
-        rewardIndex * itemWidth;
-
-    const timer =
-        setInterval(() => {
-
-            roll.scrollLeft += speed;
-
-            // 慢慢減速
-
-            speed *= 0.992;
-
-            // 快到終點時限制速度
-
-            if (
-                target -
-                roll.scrollLeft <
-                250
-            ) {
-
-                speed = Math.min(
-                    speed,
-                    4
+            const roll=
+                document.getElementById(
+                    "caseRoll"
                 );
 
-            }
+            let speed=22;
 
-            // 到終點
+            const rewardIndex=60;
 
-            if (
-                roll.scrollLeft >= target
-            ) {
+            const itemWidth=135;
 
-                clearInterval(
-                    timer
-                );
+            const target=
+                rewardIndex*
+                itemWidth;
 
-                roll.scrollLeft =
-                    target;
+            const timer=
+                setInterval(()=>{
 
-                showReward(
-                    reward
-                );
+                    roll.scrollLeft+=
+                        speed;
 
-            }
+                    speed*=0.992;
 
-        },16);
+                    if(
+
+                        target-
+                        roll.scrollLeft<250
+
+                    ){
+
+                        speed=Math.min(
+                            speed,
+                            4
+                        );
+
+                    }
+
+                    if(
+
+                        roll.scrollLeft>=
+                        target
+
+                    ){
+
+                        clearInterval(
+                            timer
+                        );
+
+                        roll.scrollLeft=
+                            target;
+
+                        resolve();
+
+                    }
+
+                },16);
+
+        }
+
+    );
 
 }
 
