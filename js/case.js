@@ -93,9 +93,7 @@ openBtn.addEventListener(
 
         // 等動畫結束
 
-        // await playAnimation(reward);
-
-        alert("動畫結束");
+        await playAnimation(reward);
 
         console.log("① 動畫結束");
 
@@ -382,15 +380,15 @@ function playAnimation(
                     "caseRoll"
                 );
 
+            roll.scrollLeft = 0;
+
             let speed=22;
 
-            const rewardIndex=60;
-
-            const itemWidth=135;
-
-            const target=
-                rewardIndex*
-                itemWidth;
+            const rewardElement =
+                roll.children[60];
+            
+            const target =
+                rewardElement.offsetLeft;
 
             const timer=
                 setInterval(()=>{
@@ -425,7 +423,7 @@ function playAnimation(
                             timer
                         );
 
-                        roll.scrollLeft=
+                        roll.scrollLeft =
                             target;
 
                         resolve();
