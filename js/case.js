@@ -67,6 +67,8 @@ document
             );
 
         createRoll(reward);
+
+        playAnimation();
         
         document
         .getElementById(
@@ -239,58 +241,135 @@ window.location.href=
 
 };
 
-function createRoll(reward){
+function createRoll(reward) {
 
     const roll =
         document.getElementById(
             "caseRoll"
         );
 
-    roll.innerHTML="";
+    roll.innerHTML = "";
 
     const ids =
         Object.keys(items);
 
-    for(
-        let i=0;
-        i<40;
+    // 前面 60 個亂數
+
+    for (
+        let i = 0;
+        i < 60;
         i++
-    ){
+    ) {
 
         const randomId =
             ids[
                 Math.floor(
-                    Math.random()*ids.length
+                    Math.random() *
+                    ids.length
                 )
             ];
 
         const item =
             items[randomId];
 
-        roll.innerHTML+=`
-
-        <div class="case-item">
-
-            <img src="${item.image}">
-
-            <p>${item.name}</p>
-
-        </div>
-
-        `;
+        addItem(
+            roll,
+            item
+        );
 
     }
 
-    roll.innerHTML+=`
+    // 中獎物放第61個
 
-    <div class="case-item">
+    addItem(
+        roll,
+        reward
+    );
 
-        <img src="${reward.image}">
+    // 後面再補20個
 
-        <p>${reward.name}</p>
+    for (
+        let i = 0;
+        i < 20;
+        i++
+    ) {
 
-    </div>
+        const randomId =
+            ids[
+                Math.floor(
+                    Math.random() *
+                    ids.length
+                )
+            ];
+
+        const item =
+            items[randomId];
+
+        addItem(
+            roll,
+            item
+        );
+
+    }
+
+}
+
+function addItem(
+    roll,
+    item
+) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+    div.className =
+        "case-item";
+
+    div.innerHTML = `
+
+        <img
+        src="${item.image}">
+
+        <p>
+
+            ${item.name}
+
+        </p>
 
     `;
+
+    roll.appendChild(
+        div
+    );
+
+}
+
+function playAnimation() {
+
+    const roll =
+        document.getElementById(
+            "caseRoll"
+        );
+
+    let speed =
+        18;
+
+    const timer =
+        setInterval(() => {
+
+            roll.scrollLeft +=
+                speed;
+
+        }, 16);
+
+    setTimeout(() => {
+
+        clearInterval(
+            timer
+        );
+
+    }, 3000);
 
 }
