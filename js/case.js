@@ -271,6 +271,13 @@ function createRoll(reward) {
 
     roll.innerHTML = "";
 
+    document
+    .getElementById(
+        "caseTrack"
+    )
+    .style.transform=
+    "translateX(0px)";
+
     const ids =
         Object.keys(items);
 
@@ -370,58 +377,77 @@ function addItem(
 
 }
 
-function playAnimation() {
+function playAnimation(){
 
-    return new Promise(resolve => {
+    return new Promise(resolve=>{
 
-        const roll =
+        const track =
             document.getElementById(
-                "caseRoll"
+                "caseTrack"
             );
 
-        roll.scrollLeft = 0;
+        const reward =
+            document
+            .querySelectorAll(
+                ".case-item"
+            )[60];
 
-        const duration = 4000;
+        const viewport =
+            document.getElementById(
+                "caseViewport"
+            );
 
-        const start =
-            performance.now();
+        const center =
+            viewport.clientWidth/2;
 
-        const rewardElement =
-            roll.children[60];
+        const rewardCenter =
+            reward.offsetLeft+
+            reward.offsetWidth/2;
 
         const target =
-            rewardElement.offsetLeft;
+            rewardCenter-center;
 
-        function animate(now) {
+        const duration=4000;
 
-            const progress =
+        const start=
+            performance.now();
+
+        function easeOutQuart(x){
+
+            return 1-
+            Math.pow(
+                1-x,
+                4
+            );
+
+        }
+
+        function frame(now){
+
+            const progress=
                 Math.min(
-                    (now - start) / duration,
+                    (now-start)/
+                    duration,
                     1
                 );
 
-            // ease out
-            const ease =
-                1 - Math.pow(
-                    1 - progress,
-                    4
+            const eased=
+                easeOutQuart(
+                    progress
                 );
 
-            roll.scrollLeft =
-                target * ease;
+            track.style.transform=
+            `translateX(${-target*eased}px)`;
 
-            if (progress < 1) {
+            if(progress<1){
 
                 requestAnimationFrame(
-                    animate
+                    frame
                 );
 
             }
 
-            else {
-
-                roll.scrollLeft =
-                    target;
+            else{
 
                 resolve();
 
@@ -430,7 +456,7 @@ function playAnimation() {
         }
 
         requestAnimationFrame(
-            animate
+            frame
         );
 
     });
