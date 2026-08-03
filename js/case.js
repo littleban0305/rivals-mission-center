@@ -227,7 +227,7 @@ openBtn.addEventListener(
                                 player.shopOrders,
 
                             cases:
-                                player.cases
+                                player.cases,
 
                             weapons:
                                 player.weapons
