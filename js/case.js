@@ -311,7 +311,8 @@ function createRoll(reward) {
 
     addItem(
         roll,
-        reward
+        reward,
+        true
     );
 
     // 後面再補20個
@@ -344,8 +345,9 @@ function createRoll(reward) {
 
 function addItem(
     roll,
-    item
-) {
+    item,
+    reward=false
+){
 
     const div =
         document.createElement(
@@ -354,6 +356,14 @@ function addItem(
 
     div.className =
         "case-item";
+
+    if(reward){
+    
+        div.classList.add(
+            "reward-item"
+        );
+    
+    }
     
     div.dataset.id =
         item.name;
@@ -448,9 +458,33 @@ function playAnimation(){
             }
 
             else{
-
-                resolve();
-
+            
+                // 往前一點
+            
+                track.style.transform =
+                `translateX(${-target-18}px)`;
+            
+                setTimeout(()=>{
+            
+                    // 再彈回來
+            
+                    track.style.transition =
+                    "transform .18s ease-out";
+            
+                    track.style.transform =
+                    `translateX(${-target}px)`;
+            
+                    setTimeout(()=>{
+            
+                        track.style.transition =
+                        "";
+            
+                        resolve();
+            
+                    },180);
+            
+                },60);
+            
             }
 
         }
