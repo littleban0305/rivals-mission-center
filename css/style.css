@@ -1802,9 +1802,13 @@ img{
 
 .case-item{
 
+    width:120px;
+
     min-width:120px;
 
     text-align:center;
+
+    flex-shrink:0;
 
 }
 
