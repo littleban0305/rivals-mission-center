@@ -376,6 +376,14 @@ if (caseList) {
 
             </button>
 
+            <button
+            class="btn open-case"
+            data-id="${id}">
+            
+            開啟
+            
+            </button>
+
         `;
 
         caseList.appendChild(
