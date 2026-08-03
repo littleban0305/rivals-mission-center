@@ -23,46 +23,61 @@
 
 <div class="card" style="text-align:center;">
 
-<img
-id="caseImage"
-style="width:180px;">
+    <div id="caseContainer">
 
-<h2 id="caseName"></h2>
+        <img
+            id="caseImage"
+            style="width:180px;display:block;margin:auto;">
 
-<br>
+        <h2 id="caseName"></h2>
 
-<button
-id="openCase"
-class="btn">
+        <br>
 
-開啟箱子
+        <button
+            id="openCase"
+            class="btn">
 
-</button>
+            開啟箱子
 
-<div
-id="rewardBox"
-style="display:none;margin-top:30px;">
+        </button>
 
-    <img
-    id="rewardImage"
-    style="
-        width:180px;
-        display:block;
-        margin:auto;
-    ">
+    </div>
 
-    <h2
-    id="rewardName"></h2>
+    <div
+        id="animationContainer"
+        style="display:none;">
 
-    <br>
+        <div class="case-pointer">
 
-    <button
-    id="backShop"
-    class="btn">
+            ▼
 
-        返回商店
+        </div>
 
-    </button>
+        <div id="caseRoll"></div>
+
+    </div>
+
+    <div
+        id="rewardContainer"
+        style="display:none;">
+
+        <img
+            id="rewardImage"
+            style="width:180px;display:block;margin:auto;">
+
+        <h2 id="rewardName"></h2>
+
+        <br>
+
+        <button
+            id="backShop"
+            class="btn">
+
+            返回商店
+
+        </button>
+
+    </div>
 
 </div>
 
