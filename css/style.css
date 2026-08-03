@@ -1760,21 +1760,23 @@ img{
    Case Opening
 ========================== */
 
-#animationContainer{
+#caseViewport{
 
-    margin-top:40px;
+    position:relative;
+
+    width:720px;
+
+    max-width:95%;
+
+    margin:auto;
 
     overflow:hidden;
 
-}
+    border-radius:12px;
 
-.case-pointer{
+    border:2px solid #555;
 
-    text-align:center;
-
-    font-size:28px;
-
-    margin-bottom:10px;
+    background:#181818;
 
 }
 
@@ -1784,19 +1786,27 @@ img{
 
     gap:15px;
 
-    overflow:hidden;
+    padding:25px;
 
-    justify-content:flex-start;
+    transition:none;
 
-    align-items:center;
+}
 
-    padding:20px;
+#casePointer{
 
-    border:2px solid #444;
+    position:absolute;
 
-    border-radius:12px;
+    left:50%;
 
-    background:#222;
+    top:0;
+
+    transform:translateX(-50%);
+
+    font-size:30px;
+
+    color:gold;
+
+    z-index:99;
 
 }
 
@@ -1804,16 +1814,14 @@ img{
 
     width:120px;
 
-    min-width:120px;
+    flex-shrink:0;
 
     text-align:center;
-
-    flex-shrink:0;
 
 }
 
 .case-item img{
 
-    width:90px;
+    width:100px;
 
 }
