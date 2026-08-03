@@ -478,6 +478,10 @@ function playAnimation(){
             
                         track.style.transition =
                         "";
+
+                        reward.classList.add(
+                            "win"
+                        );
             
                         resolve();
             
