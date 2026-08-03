@@ -20,43 +20,57 @@ if (shopContainer) {
         const card =
             document.createElement("div");
 
-        card.className = "card";
+        card.className =
+            "case-card";
 
         card.innerHTML = `
-
-            <img
-            src="${item.image}"
-            alt="${item.name}"
-            style="width:160px;margin:auto;display:block;">
-
-            <h2>${item.name}</h2>
-
-            <p>R 幣價格</p>
-
-            <h3>${item.rPrice} R</h3>
-
-            <p>Gold 價格（8 折優惠）</p>
-
-            <h3>${item.goldPrice} Gold</h3>
-
-            <p>
-
-                <span class="discount-tag">
-
-                🔥 Gold 專屬優惠
-
-                </span>
-
-            </p>
-
-            <button
-                class="btn shop-btn"
-                data-item="${id}">
-
-                立即兌換
-
-            </button>
-
+        
+        <img
+        src="${box.image}"
+        class="case-image">
+        
+        <h2
+        class="case-title">
+        
+        ${box.name}
+        
+        </h2>
+        
+        <p
+        class="case-desc">
+        
+        ${box.desc}
+        
+        </p>
+        
+        <div
+        class="case-price">
+        
+        💰 ${box.price} Gold
+        
+        </div>
+        
+        <div
+        class="case-buttons">
+        
+        <button
+        class="btn buy-case"
+        data-id="${id}">
+        
+        購買
+        
+        </button>
+        
+        <button
+        class="btn open-case"
+        data-id="${id}">
+        
+        開啟
+        
+        </button>
+        
+        </div>
+        
         `;
 
         shopContainer.appendChild(card);
