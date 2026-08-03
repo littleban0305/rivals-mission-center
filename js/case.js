@@ -66,6 +66,20 @@ document
                 box.items
             );
 
+        createRoll(reward);
+        
+        document
+        .getElementById(
+        "caseContainer"
+        )
+        .style.display="none";
+        
+        document
+        .getElementById(
+        "animationContainer"
+        )
+        .style.display="block";
+
         // ==========================
         // 扣除箱子
         // ==========================
@@ -224,3 +238,59 @@ window.location.href=
 "shop.html";
 
 };
+
+function createRoll(reward){
+
+    const roll =
+        document.getElementById(
+            "caseRoll"
+        );
+
+    roll.innerHTML="";
+
+    const ids =
+        Object.keys(items);
+
+    for(
+        let i=0;
+        i<40;
+        i++
+    ){
+
+        const randomId =
+            ids[
+                Math.floor(
+                    Math.random()*ids.length
+                )
+            ];
+
+        const item =
+            items[randomId];
+
+        roll.innerHTML+=`
+
+        <div class="case-item">
+
+            <img src="${item.image}">
+
+            <p>${item.name}</p>
+
+        </div>
+
+        `;
+
+    }
+
+    roll.innerHTML+=`
+
+    <div class="case-item">
+
+        <img src="${reward.image}">
+
+        <p>${reward.name}</p>
+
+    </div>
+
+    `;
+
+}
