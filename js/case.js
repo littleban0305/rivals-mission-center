@@ -183,14 +183,44 @@ document
 
         }
 
-        alert(
-
-            `🎉 恭喜獲得\n\n${reward.name}`
-
-        );
-
-        window.location.href =
-            "shop.html";
+        document
+        .getElementById(
+            "openCase"
+        )
+        .style.display =
+        "none";
+        
+        document
+        .getElementById(
+            "rewardBox"
+        )
+        .style.display =
+        "block";
+        
+        document
+        .getElementById(
+            "rewardImage"
+        )
+        .src =
+        reward.image;
+        
+        document
+        .getElementById(
+            "rewardName"
+        )
+        .textContent =
+        `🎉 恭喜獲得 ${reward.name}`;
 
     }
 );
+
+document
+.getElementById(
+    "backShop"
+)
+.onclick=()=>{
+
+window.location.href=
+"shop.html";
+
+};
