@@ -367,78 +367,70 @@ function addItem(
 
 }
 
-function playAnimation(
-    reward
-){
+function playAnimation() {
 
-    return new Promise(
+    return new Promise(resolve => {
 
-        resolve=>{
+        const roll =
+            document.getElementById(
+                "caseRoll"
+            );
 
-            const roll=
-                document.getElementById(
-                    "caseRoll"
-                );
+        roll.scrollLeft = 0;
 
-            roll.scrollLeft = 0;
+        const duration = 4000;
 
-            let speed=22;
+        const start =
+            performance.now();
 
-            const rewardElement =
-                roll.children[60];
-            
-            const maxScroll =
-                roll.scrollWidth -
-                roll.clientWidth;
-            
-            const target =
+        const rewardElement =
+            roll.children[60];
+
+        const target =
+            rewardElement.offsetLeft;
+
+        function animate(now) {
+
+            const progress =
                 Math.min(
-                    rewardElement.offsetLeft,
-                    maxScroll
+                    (now - start) / duration,
+                    1
                 );
 
-            const timer=
-                setInterval(()=>{
+            // ease out
+            const ease =
+                1 - Math.pow(
+                    1 - progress,
+                    4
+                );
 
-                    roll.scrollLeft+=
-                        speed;
+            roll.scrollLeft =
+                target * ease;
 
-                    speed*=0.992;
+            if (progress < 1) {
 
-                    if(
+                requestAnimationFrame(
+                    animate
+                );
 
-                        target-
-                        roll.scrollLeft<250
+            }
 
-                    ){
+            else {
 
-                        speed=Math.min(
-                            speed,
-                            4
-                        );
+                roll.scrollLeft =
+                    target;
 
-                    }
+                resolve();
 
-                    if (
-                        roll.scrollLeft >= target - 2
-                    ) {
-
-                        clearInterval(
-                            timer
-                        );
-
-                        roll.scrollLeft =
-                            target;
-
-                        resolve();
-
-                    }
-
-                },16);
+            }
 
         }
 
-    );
+        requestAnimationFrame(
+            animate
+        );
+
+    });
 
 }
 
