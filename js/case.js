@@ -90,7 +90,7 @@ document
             reward
         );
 
-        console.log("動畫結束");
+        console.log("① 動畫結束");
 
         // 扣箱子
 
@@ -137,6 +137,10 @@ document
 
         }
 
+        console.log("② 發獎完成", reward);
+        console.log("Gold =", player.gold);
+        console.log("Cases =", player.cases);
+
         // LocalStorage
 
         localStorage.setItem(
@@ -151,7 +155,7 @@ document
 
         // Google Sheets
 
-        console.log("開始同步");
+        console.log("③ 開始同步");
 
         const res =
             await fetch(
@@ -218,6 +222,8 @@ document
         const data =
             await res.json();
 
+        console.log("④ API 回傳", data);
+
         if (
             !data.success
         ) {
@@ -229,6 +235,8 @@ document
             return;
 
         }
+
+        console.log("⑤ 顯示獎勵");
 
         showReward(
             reward
@@ -428,8 +436,6 @@ function playAnimation(
 function showReward(
     reward
 ){
-
-    console.log("showReward");
 
     document
     .getElementById(
