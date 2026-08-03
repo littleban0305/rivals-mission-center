@@ -385,3 +385,154 @@ if (caseList) {
     }
 
 }
+
+// ==========================
+// 購買箱子
+// ==========================
+
+document
+.querySelectorAll(".buy-case")
+.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            const caseId =
+                button.dataset.id;
+
+            const box =
+                cases[caseId];
+
+            if (!box) return;
+
+            if (!player.cases) {
+
+                player.cases = {};
+
+            }
+
+            if (
+                player.gold <
+                box.price
+            ) {
+
+                alert(
+                    "Gold 不足！"
+                );
+
+                return;
+
+            }
+
+            if (
+                !confirm(
+                    `確定花費 ${box.price} Gold 購買 ${box.name}？`
+                )
+            ) {
+
+                return;
+
+            }
+
+            // 扣 Gold
+
+            player.gold -=
+                box.price;
+
+            // 增加箱子數量
+
+            player.cases[caseId] =
+                (player.cases[caseId] || 0) + 1;
+
+            // 更新本地
+
+            localStorage.setItem(
+
+                "playerData",
+
+                JSON.stringify(player)
+
+            );
+
+            // 同步 Google Sheets
+
+            fetch(API_URL, {
+
+                method: "POST",
+
+                body: JSON.stringify({
+
+                    action: "updatePlayer",
+
+                    username: player.username,
+
+                    nickname: player.nickname,
+
+                    roblox: player.roblox,
+
+                    discord: player.discord,
+
+                    gold: player.gold,
+
+                    rcoin: player.rcoin,
+
+                    exp: player.exp,
+
+                    level: player.level,
+
+                    battlePass: player.battlePass,
+
+                    skinCase: player.skinCase,
+
+                    coconutScythe: player.coconutScythe,
+
+                    missions: player.missions,
+
+                    shopOrders: player.shopOrders,
+
+                    cases: player.cases
+
+                })
+
+            })
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                if (data.success) {
+
+                    alert(
+                        `📦 已購買 ${box.name}`
+                    );
+
+                    location.reload();
+
+                }
+
+                else {
+
+                    alert(
+                        "❌ 同步失敗"
+                    );
+
+                }
+
+            })
+
+            .catch(err => {
+
+                console.error(err);
+
+                alert(
+                    "❌ 無法連線"
+                );
+
+            });
+
+        }
+
+    );
+
+});
