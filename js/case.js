@@ -66,6 +66,8 @@ openBtn.addEventListener(
     "click",
     async () => {
 
+        console.log("按下開箱");
+
         const reward =
             randomItem(
                 box.items
