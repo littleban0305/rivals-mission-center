@@ -50,27 +50,35 @@ const items = {
     // ==========================
 
     PALM_SCYTHE: {
-
+    
+        id: "PALM_SCYTHE",
+    
         name: "Palm Scythe",
-
-        image: "images/items/palm_scythe.png",
-
-        type: "coconutScythe",
-
-        amount: 1
-
+    
+        image:
+            "images/items/palm_scythe.png",
+    
+        type:
+            "weapon",
+    
+        rarity:
+            "epic"
+    
     },
 
     RED_GUN: {
-
+    
+        id: "RED_GUN",
+    
         name: "超稀有武器",
-
-        image: "images/items/red_weapon.png",
-
-        type: "weapon",
-
-        amount: 1
-
-    }
-
-};
+    
+        image:
+            "images/items/red_weapon.png",
+    
+        type:
+            "weapon",
+    
+        rarity:
+            "legendary"
+    
+    },
