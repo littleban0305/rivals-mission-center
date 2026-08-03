@@ -1755,3 +1755,61 @@ img{
     }
 
 }
+
+/* ==========================
+   Case Opening
+========================== */
+
+#animationContainer{
+
+    margin-top:40px;
+
+    overflow:hidden;
+
+}
+
+.case-pointer{
+
+    text-align:center;
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+#caseRoll{
+
+    display:flex;
+
+    gap:15px;
+
+    overflow:hidden;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    padding:20px;
+
+    border:2px solid #444;
+
+    border-radius:12px;
+
+    background:#222;
+
+}
+
+.case-item{
+
+    min-width:120px;
+
+    text-align:center;
+
+}
+
+.case-item img{
+
+    width:90px;
+
+}
