@@ -1,0 +1,82 @@
+// ==========================
+// Rivals Mission Center
+// Items Data Beta 1
+// ==========================
+
+const items = {
+
+    GOLD50: {
+
+        name:
+            "50 Gold",
+
+        image:
+            "images/items/gold.png",
+
+        type:
+            "gold",
+
+        amount:
+            50
+
+    },
+
+    GOLD100: {
+
+        name:
+            "100 Gold",
+
+        image:
+            "images/items/gold.png",
+
+        type:
+            "gold",
+
+        amount:
+            100
+
+    },
+
+    GOLD500: {
+
+        name:
+            "500 Gold",
+
+        image:
+            "images/items/gold.png",
+
+        type:
+            "gold",
+
+        amount:
+            500
+
+    },
+
+    PALM_SCYTHE: {
+
+        name:
+            "Palm Scythe",
+
+        image:
+            "images/items/palm_scythe.png",
+
+        type:
+            "weapon"
+
+    },
+
+    RED_GUN: {
+
+        name:
+            "超稀有武器",
+
+        image:
+            "images/items/red_weapon.png",
+
+        type:
+            "weapon"
+
+    }
+
+};
