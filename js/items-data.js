@@ -56,7 +56,7 @@ const items = {
         name: "Palm Scythe",
     
         image:
-            "images/items/coconut_scythe.png",
+            "images/items/coconut-scythe.png",
     
         type:
             "weapon",
