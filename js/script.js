@@ -444,7 +444,7 @@ if (saveProfile) {
                 action: "updatePlayer",
         
                 username: player.username,
-
+        
                 nickname: player.nickname,
         
                 roblox: player.roblox,
@@ -465,7 +465,11 @@ if (saveProfile) {
         
                 coconutScythe: player.coconutScythe,
         
-                missions: player.missions
+                missions: player.missions,
+        
+                shopOrders: player.shopOrders,
+        
+                cases: player.cases
         
             })
         
