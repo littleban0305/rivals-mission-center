@@ -55,9 +55,14 @@ function randomItem(itemList) {
 
 }
 
-document
-.getElementById("openCase")
-.addEventListener(
+const openBtn =
+    document.getElementById(
+        "openCase"
+    );
+
+console.log("openBtn =", openBtn);
+
+openBtn.addEventListener(
     "click",
     async () => {
 
