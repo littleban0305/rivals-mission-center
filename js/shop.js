@@ -544,3 +544,19 @@ document
     );
 
 });
+
+document
+.querySelectorAll(".open-case")
+.forEach(button=>{
+
+button.onclick=()=>{
+
+const id=
+button.dataset.id;
+
+window.location.href=
+`case.html?id=${id}`;
+
+};
+
+});
