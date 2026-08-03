@@ -1841,3 +1841,15 @@ img{
     margin-top:8px;
 
 }
+
+.reward-item{
+
+    transition:.25s;
+
+}
+
+.reward-item.win{
+
+    transform:scale(1.18);
+
+}
