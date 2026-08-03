@@ -318,18 +318,27 @@ if (caseList) {
         
         </button>
         
-        <button
-        class="btn open-case"
-        data-id="${id}">
-        
-        🎁 開啟
         ${
             player.cases?.[id]
-            ? ` (${player.cases[id]})`
-            : ""
-        }
+            ? `
+            <button
+            class="btn open-case"
+            data-id="${id}">
         
-        </button>
+                🎁 開啟 (${player.cases[id]})
+        
+            </button>
+            `
+            : `
+            <button
+            class="btn"
+            disabled>
+        
+                沒有箱子
+        
+            </button>
+            `
+        }
         
         </div>
         
