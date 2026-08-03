@@ -229,6 +229,9 @@ openBtn.addEventListener(
                             cases:
                                 player.cases
 
+                            weapons:
+                                player.weapons
+
                         })
 
                 }
