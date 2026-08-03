@@ -68,7 +68,9 @@ document
 
         createRoll(reward);
 
-        playAnimation();
+        playAnimation(
+            reward
+        );
         
         document
         .getElementById(
@@ -346,30 +348,97 @@ function addItem(
 
 }
 
-function playAnimation() {
+function playAnimation(reward) {
 
     const roll =
         document.getElementById(
             "caseRoll"
         );
 
-    let speed =
-        18;
+    let speed = 22;
+
+    const rewardIndex = 60;
+
+    const itemWidth = 135;
+
+    const target =
+        rewardIndex * itemWidth;
 
     const timer =
         setInterval(() => {
 
-            roll.scrollLeft +=
-                speed;
+            roll.scrollLeft += speed;
 
-        }, 16);
+            // 慢慢減速
 
-    setTimeout(() => {
+            speed *= 0.992;
 
-        clearInterval(
-            timer
-        );
+            // 快到終點時限制速度
 
-    }, 3000);
+            if (
+                target -
+                roll.scrollLeft <
+                250
+            ) {
+
+                speed = Math.min(
+                    speed,
+                    4
+                );
+
+            }
+
+            // 到終點
+
+            if (
+                roll.scrollLeft >= target
+            ) {
+
+                clearInterval(
+                    timer
+                );
+
+                roll.scrollLeft =
+                    target;
+
+                showReward(
+                    reward
+                );
+
+            }
+
+        },16);
+
+}
+
+function showReward(
+    reward
+){
+
+    document
+    .getElementById(
+        "animationContainer"
+    )
+    .style.display="none";
+
+    document
+    .getElementById(
+        "rewardContainer"
+    )
+    .style.display="block";
+
+    document
+    .getElementById(
+        "rewardImage"
+    )
+    .src=
+    reward.image;
+
+    document
+    .getElementById(
+        "rewardName"
+    )
+    .textContent=
+    `🎉 恭喜獲得 ${reward.name}`;
 
 }
