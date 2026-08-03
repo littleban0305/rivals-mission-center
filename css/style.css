@@ -1854,23 +1854,50 @@ img{
 
 }
 
+/* ==========================
+   Case Shop
+========================== */
+
+.case-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(300px,1fr)
+        );
+
+    gap:25px;
+
+    margin-top:30px;
+
+}
+
 .case-card{
 
-    width:340px;
+    background:#241935;
 
-    min-height:420px;
-
-    padding:25px;
+    border:1px solid
+    rgba(255,255,255,.08);
 
     border-radius:18px;
 
-    background:#2a1d40;
+    padding:20px;
 
-    display:flex;
+    transition:.25s;
 
-    flex-direction:column;
+}
 
-    align-items:center;
+.case-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#9b5cff;
+
+    box-shadow:
+    0 0 25px
+    rgba(155,92,255,.25);
 
 }
 
@@ -1878,23 +1905,43 @@ img{
 
     width:180px;
 
-    height:180px;
+    display:block;
 
-    object-fit:contain;
+    margin:15px auto;
 
-    margin-bottom:15px;
+}
+
+.case-title{
+
+    text-align:center;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.case-desc{
+
+    text-align:center;
+
+    color:#c7c7c7;
+
+    margin:12px 0;
 
 }
 
 .case-price{
 
-    font-size:28px;
-
-    font-weight:700;
+    text-align:center;
 
     color:#ffd54f;
 
-    margin:20px 0;
+    font-size:24px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
 
 }
 
@@ -1902,18 +1949,14 @@ img{
 
     display:flex;
 
+    flex-direction:column;
+
     gap:10px;
-
-    width:100%;
-
-    margin-top:auto;
 
 }
 
 .case-buttons .btn{
 
-    flex:1;
-
-    height:45px;
+    width:100%;
 
 }
