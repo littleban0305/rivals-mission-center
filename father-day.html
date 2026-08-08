@@ -17,15 +17,20 @@
 
 <style>
 
-/* ==========================
-   Father's Day
-========================== */
+/* =========================================================
+   Father's Day Special
+========================================================= */
 
 body{
 
     overflow-x:hidden;
 
 }
+
+
+/* =========================================================
+   Main Layout
+========================================================= */
 
 .father-page{
 
@@ -40,6 +45,7 @@ body{
     padding:50px 20px;
 
 }
+
 
 .father-card{
 
@@ -69,6 +75,18 @@ body{
 
 }
 
+
+/* =========================================================
+   Common
+========================================================= */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+
 .father-icon{
 
     font-size:65px;
@@ -77,6 +95,7 @@ body{
 
 }
 
+
 .father-title{
 
     font-size:42px;
@@ -84,6 +103,7 @@ body{
     margin:10px 0;
 
 }
+
 
 .father-subtitle{
 
@@ -97,16 +117,19 @@ body{
 
 }
 
-.hidden{
 
-    display:none !important;
+.father-button{
+
+    padding:14px 38px;
+
+    font-size:18px;
 
 }
 
 
-/* ==========================
+/* =========================================================
    Gift Box
-========================== */
+========================================================= */
 
 .gift-box{
 
@@ -145,9 +168,9 @@ body{
 }
 
 
-/* ==========================
+/* =========================================================
    Prize Pool
-========================== */
+========================================================= */
 
 .prize-pool{
 
@@ -162,11 +185,12 @@ body{
 
 }
 
+
 .prize-card{
 
-    padding:20px 10px;
+    padding:22px 10px;
 
-    border-radius:16px;
+    border-radius:18px;
 
     background:
     rgba(255,255,255,.04);
@@ -174,21 +198,38 @@ body{
     border:1px solid
     rgba(255,255,255,.08);
 
+    transition:
+    transform .25s,
+    box-shadow .25s;
+
 }
+
+
+.prize-card:hover{
+
+    transform:
+    translateY(-4px);
+
+}
+
 
 .prize-icon{
 
-    font-size:40px;
+    font-size:42px;
 
 }
+
 
 .prize-name{
 
     font-weight:bold;
 
-    margin-top:8px;
+    margin-top:10px;
+
+    font-size:17px;
 
 }
+
 
 .prize-chance{
 
@@ -200,6 +241,7 @@ body{
 
 }
 
+
 .common{
 
     border-color:
@@ -207,12 +249,18 @@ body{
 
 }
 
+
 .rare{
 
     border-color:
-    rgba(80,150,255,.35);
+    rgba(80,150,255,.4);
+
+    box-shadow:
+    0 0 15px
+    rgba(80,150,255,.05);
 
 }
+
 
 .legendary{
 
@@ -220,34 +268,92 @@ body{
     rgba(190,100,255,.7);
 
     box-shadow:
-    0 0 20px
+    0 0 25px
     rgba(180,80,255,.12);
 
 }
 
 
-/* ==========================
-   Buttons
-========================== */
+/* =========================================================
+   Mystery Reward
+========================================================= */
 
-.father-button{
+.mystery-card{
 
-    padding:14px 38px;
+    max-width:560px;
 
-    font-size:18px;
+    margin:30px auto;
+
+    padding:30px 20px;
+
+    border-radius:22px;
+
+    border:2px solid
+    rgba(190,100,255,.5);
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(130,60,180,.13),
+        rgba(255,215,80,.04)
+    );
+
+    box-shadow:
+    0 0 30px
+    rgba(180,80,255,.12);
 
 }
 
 
-/* ==========================
-   Opening
-========================== */
+.mystery-icon{
+
+    font-size:65px;
+
+    margin-bottom:10px;
+
+}
+
+
+.mystery-title{
+
+    font-size:28px;
+
+    margin:8px 0;
+
+}
+
+
+.mystery-text{
+
+    color:#aaa;
+
+    line-height:1.8;
+
+}
+
+
+.question-mark{
+
+    font-size:48px;
+
+    letter-spacing:8px;
+
+    margin:20px 0;
+
+    color:#d8a6ff;
+
+}
+
+
+/* =========================================================
+   Opening Animation
+========================================================= */
 
 .opening-area{
 
     position:relative;
 
-    min-height:420px;
+    min-height:430px;
 
     display:flex;
 
@@ -261,6 +367,7 @@ body{
 
 }
 
+
 .opening-gift{
 
     position:relative;
@@ -268,6 +375,7 @@ body{
     z-index:3;
 
 }
+
 
 .opening-gift.shake{
 
@@ -277,6 +385,7 @@ body{
     infinite alternate;
 
 }
+
 
 @keyframes giftShake{
 
@@ -298,6 +407,7 @@ body{
 
 }
 
+
 .opening-gift.glow{
 
     animation:
@@ -307,6 +417,7 @@ body{
     forwards;
 
 }
+
 
 @keyframes legendaryGlow{
 
@@ -344,6 +455,7 @@ body{
 
 }
 
+
 .opening-gift.opened{
 
     animation:
@@ -353,6 +465,7 @@ body{
     forwards;
 
 }
+
 
 @keyframes giftDisappear{
 
@@ -368,9 +481,9 @@ body{
 }
 
 
-/* ==========================
+/* =========================================================
    Light Burst
-========================== */
+========================================================= */
 
 .light-burst{
 
@@ -393,6 +506,7 @@ body{
 
 }
 
+
 .light-burst.active{
 
     animation:
@@ -402,6 +516,7 @@ body{
     forwards;
 
 }
+
 
 @keyframes burst{
 
@@ -430,9 +545,9 @@ body{
 }
 
 
-/* ==========================
+/* =========================================================
    Sparks
-========================== */
+========================================================= */
 
 .spark{
 
@@ -450,6 +565,7 @@ body{
 
 }
 
+
 .spark.active{
 
     animation:
@@ -459,6 +575,7 @@ body{
     forwards;
 
 }
+
 
 @keyframes sparkFly{
 
@@ -488,9 +605,9 @@ body{
 }
 
 
-/* ==========================
-   Legendary Reveal
-========================== */
+/* =========================================================
+   Legendary Result
+========================================================= */
 
 .legendary-reveal{
 
@@ -501,6 +618,7 @@ body{
     forwards;
 
 }
+
 
 @keyframes legendaryReveal{
 
@@ -524,9 +642,10 @@ body{
 
 }
 
+
 .legendary-text{
 
-    font-size:46px;
+    font-size:48px;
 
     font-weight:bold;
 
@@ -554,6 +673,7 @@ body{
 
 }
 
+
 @keyframes legendaryText{
 
     to{
@@ -565,22 +685,22 @@ body{
 }
 
 
-/* ==========================
-   Bundle
-========================== */
+/* =========================================================
+   Legendary Box
+========================================================= */
 
-.bundle-card{
-
-    margin:30px auto;
-
-    padding:25px;
+.legendary-box{
 
     max-width:600px;
 
-    border-radius:22px;
+    margin:30px auto;
+
+    padding:35px 25px;
+
+    border-radius:24px;
 
     border:2px solid
-    rgba(190,100,255,.6);
+    rgba(190,100,255,.65);
 
     background:
     linear-gradient(
@@ -590,56 +710,257 @@ body{
     );
 
     box-shadow:
-    0 0 35px
-    rgba(180,80,255,.15);
+    0 0 40px
+    rgba(180,80,255,.18);
 
 }
 
-.bundle-title{
 
-    font-size:28px;
+.legendary-box-icon{
 
-    margin-bottom:20px;
+    font-size:75px;
 
-}
-
-.bundle-items{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:12px;
+    margin-bottom:10px;
 
 }
 
-.bundle-item{
 
-    padding:18px 8px;
+.legendary-box-title{
 
-    border-radius:14px;
+    font-size:30px;
+
+    margin-bottom:12px;
+
+}
+
+
+.legendary-box-description{
+
+    color:#aaa;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   Voucher
+========================================================= */
+
+.voucher-wrapper{
+
+    margin:35px auto;
+
+    max-width:650px;
+
+    padding:8px;
+
+    border-radius:24px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #d7a6ff,
+        #ffd75a,
+        #d7a6ff
+    );
+
+    box-shadow:
+    0 0 45px
+    rgba(210,140,255,.3);
+
+}
+
+
+.voucher{
+
+    position:relative;
+
+    padding:40px 25px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #21152f,
+        #17111f
+    );
+
+    border:1px dashed
+    rgba(255,255,255,.35);
+
+    overflow:hidden;
+
+}
+
+
+.voucher::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-80px;
+
+    left:-80px;
+
+    width:200px;
+
+    height:200px;
+
+    border-radius:50%;
+
+    background:
+    rgba(210,140,255,.08);
+
+}
+
+
+.voucher::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-80px;
+
+    right:-80px;
+
+    width:200px;
+
+    height:200px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,215,90,.06);
+
+}
+
+
+.voucher-top{
+
+    font-size:15px;
+
+    letter-spacing:5px;
+
+    color:#cfa2ff;
+
+    margin-bottom:15px;
+
+}
+
+
+.voucher-title{
+
+    font-size:38px;
+
+    font-weight:bold;
+
+    margin:10px 0;
+
+}
+
+
+.voucher-subtitle{
+
+    color:#ffd75a;
+
+    font-size:18px;
+
+    letter-spacing:2px;
+
+}
+
+
+.voucher-divider{
+
+    width:80%;
+
+    height:1px;
+
+    margin:25px auto;
+
+    background:
+    rgba(255,255,255,.2);
+
+}
+
+
+.voucher-icon{
+
+    font-size:75px;
+
+    margin:15px 0;
+
+}
+
+
+.voucher-redeem-title{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    margin:15px 0;
+
+}
+
+
+.voucher-redeem-text{
+
+    color:#ccc;
+
+    line-height:1.9;
+
+    font-size:17px;
+
+}
+
+
+.voucher-code{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:10px 20px;
+
+    border-radius:10px;
 
     background:
     rgba(255,255,255,.05);
 
-}
+    border:1px solid
+    rgba(255,255,255,.12);
 
-.bundle-item-icon{
+    color:#ffd75a;
 
-    font-size:38px;
+    font-family:
+    monospace;
 
-}
+    letter-spacing:3px;
 
-.bundle-item-name{
-
-    margin-top:8px;
-
-    font-size:14px;
-
-    color:#ddd;
+    font-size:16px;
 
 }
+
+
+.voucher-date{
+
+    margin-top:20px;
+
+    color:#777;
+
+    font-size:13px;
+
+}
+
+
+/* =========================================================
+   Final Message
+========================================================= */
 
 .final-message{
 
@@ -654,9 +975,9 @@ body{
 }
 
 
-/* ==========================
+/* =========================================================
    Mobile
-========================== */
+========================================================= */
 
 @media(max-width:600px){
 
@@ -666,6 +987,7 @@ body{
 
     }
 
+
     .father-card{
 
         padding:
@@ -673,15 +995,24 @@ body{
 
     }
 
+
     .prize-pool{
 
         grid-template-columns:1fr;
 
     }
 
-    .bundle-items{
 
-        grid-template-columns:1fr;
+    .voucher-title{
+
+        font-size:30px;
+
+    }
+
+
+    .voucher-redeem-text{
+
+        font-size:15px;
 
     }
 
@@ -695,10 +1026,16 @@ body{
 <body>
 
 
+<!-- ========================================================
+     Header
+========================================================= -->
+
 <div class="hero">
 
     <h1>
+
         🎁 父親節特別禮物
+
     </h1>
 
 </div>
@@ -706,16 +1043,19 @@ body{
 
 <main>
 
+
 <div class="father-page">
+
 
 <div class="father-card">
 
 
-<!-- ==========================
+<!-- ========================================================
      Welcome
-========================== -->
+========================================================= -->
 
 <div id="welcomeSection">
+
 
     <div class="father-icon">
 
@@ -723,11 +1063,13 @@ body{
 
     </div>
 
+
     <h1 class="father-title">
 
         父親節快樂！
 
     </h1>
+
 
     <p class="father-subtitle">
 
@@ -757,6 +1099,7 @@ body{
 
     </h2>
 
+
     <p class="father-subtitle">
 
         箱子裡藏著幾種不同的禮物……
@@ -772,16 +1115,18 @@ body{
 
     </button>
 
+
 </div>
 
 
-<!-- ==========================
+<!-- ========================================================
      Prize Preview
-========================== -->
+========================================================= -->
 
 <div
     id="previewSection"
     class="hidden">
+
 
     <div class="gift-box">
 
@@ -799,7 +1144,7 @@ body{
 
     <p class="father-subtitle">
 
-        每種禮物都有自己的稀有度。
+        每種獎勵都有自己的稀有度。
 
     </p>
 
@@ -807,7 +1152,10 @@ body{
     <div class="prize-pool">
 
 
+        <!-- Common -->
+
         <div class="prize-card common">
+
 
             <div class="prize-icon">
 
@@ -815,11 +1163,13 @@ body{
 
             </div>
 
+
             <div class="prize-name">
 
                 一般禮物
 
             </div>
+
 
             <div class="prize-chance">
 
@@ -827,10 +1177,14 @@ body{
 
             </div>
 
+
         </div>
 
 
+        <!-- Rare -->
+
         <div class="prize-card rare">
+
 
             <div class="prize-icon">
 
@@ -838,11 +1192,13 @@ body{
 
             </div>
 
+
             <div class="prize-name">
 
                 稀有禮物
 
             </div>
+
 
             <div class="prize-chance">
 
@@ -850,10 +1206,14 @@ body{
 
             </div>
 
+
         </div>
 
 
+        <!-- Legendary -->
+
         <div class="prize-card legendary">
+
 
             <div class="prize-icon">
 
@@ -861,11 +1221,13 @@ body{
 
             </div>
 
+
             <div class="prize-name">
 
                 傳說組合包
 
             </div>
+
 
             <div class="prize-chance">
 
@@ -873,40 +1235,53 @@ body{
 
             </div>
 
+
         </div>
+
 
     </div>
 
 
-    <div class="bundle-card">
+    <!-- Mystery -->
 
-        <div class="bundle-title">
+    <div class="mystery-card">
 
-            💎 傳說組合包
+
+        <div class="mystery-icon">
+
+            💎
 
         </div>
 
-        <p>
+
+        <div class="mystery-title">
+
+            傳說組合包
+
+        </div>
+
+
+        <div class="question-mark">
+
+            ? ? ?
+
+        </div>
+
+
+        <div class="mystery-text">
 
             極其稀有的父親節限定獎勵
 
-        </p>
-
-        <br>
-
-        <p>
-
-            🃏 特別卡片
-
             <br>
 
-            💵 神秘現金禮物
+            <strong>
 
-            <br>
+                內容未知
 
-            🔫 CS2 特別造型
+            </strong>
 
-        </p>
+        </div>
+
 
     </div>
 
@@ -926,18 +1301,21 @@ body{
 
     </button>
 
+
 </div>
 
 
-<!-- ==========================
+<!-- ========================================================
      Opening
-========================== -->
+========================================================= -->
 
 <div
     id="openingSection"
     class="hidden">
 
+
     <div class="opening-area">
+
 
         <div
             id="openingGift"
@@ -976,18 +1354,21 @@ body{
 
         </p>
 
+
     </div>
+
 
 </div>
 
 
-<!-- ==========================
+<!-- ========================================================
      Legendary Result
-========================== -->
+========================================================= -->
 
 <div
     id="legendarySection"
     class="hidden legendary-reveal">
+
 
     <div class="father-icon">
 
@@ -1010,70 +1391,41 @@ body{
     </p>
 
 
-    <div class="bundle-card">
+    <div class="legendary-box">
 
-        <div class="bundle-title">
 
-            🎁 父親節傳說組合包
+        <div class="legendary-box-icon">
+
+            🎁
+
+        </div>
+
+
+        <div class="legendary-box-title">
+
+            父親節傳說組合包
 
         </div>
 
 
-        <div class="bundle-items">
+        <div class="legendary-box-description">
 
+            你抽中了極其稀有的
 
-            <div class="bundle-item">
+            <br>
 
-                <div class="bundle-item-icon">
+            父親節限定傳說獎勵。
 
-                    🃏
+            <br><br>
 
-                </div>
+            <strong>
 
-                <div class="bundle-item-name">
+                內容只有打開之後才能知道。
 
-                    父親節卡片
-
-                </div>
-
-            </div>
-
-
-            <div class="bundle-item">
-
-                <div class="bundle-item-icon">
-
-                    💵
-
-                </div>
-
-                <div class="bundle-item-name">
-
-                    現金禮物
-
-                </div>
-
-            </div>
-
-
-            <div class="bundle-item">
-
-                <div class="bundle-item-icon">
-
-                    🔫
-
-                </div>
-
-                <div class="bundle-item-name">
-
-                    CS2 造型
-
-                </div>
-
-            </div>
-
+            </strong>
 
         </div>
+
 
     </div>
 
@@ -1086,16 +1438,18 @@ body{
 
     </button>
 
+
 </div>
 
 
-<!-- ==========================
-     Final Reveal
-========================== -->
+<!-- ========================================================
+     Voucher Result
+========================================================= -->
 
 <div
     id="rewardSection"
     class="hidden legendary-reveal">
+
 
     <div class="father-icon">
 
@@ -1104,84 +1458,113 @@ body{
     </div>
 
 
-    <h1>
-
-        父親節快樂！
-
-    </h1>
-
-
     <div class="legendary-text">
 
-        你真的抽到了！
+        REWARD UNLOCKED
 
     </div>
 
 
-    <div class="bundle-card">
+    <p class="father-subtitle">
 
-        <div class="bundle-title">
+        父親節傳說組合包已開啟
 
-            💎 父親節傳說組合包
+    </p>
+
+
+    <!-- ====================================================
+         Voucher
+    ===================================================== -->
+
+    <div class="voucher-wrapper">
+
+
+        <div class="voucher">
+
+
+            <div class="voucher-top">
+
+                FATHER'S DAY 2026
+
+            </div>
+
+
+            <div class="voucher-title">
+
+                特別兌換券
+
+            </div>
+
+
+            <div class="voucher-subtitle">
+
+                LEGENDARY REWARD
+
+            </div>
+
+
+            <div class="voucher-divider">
+
+            </div>
+
+
+            <div class="voucher-icon">
+
+                🎟️
+
+            </div>
+
+
+            <div class="voucher-redeem-title">
+
+                父親節限定兌換資格
+
+            </div>
+
+
+            <div class="voucher-redeem-text">
+
+                恭喜你成功開啟
+
+                <br>
+
+                父親節傳說組合包。
+
+                <br><br>
+
+                <strong>
+
+                    請截圖此畫面
+
+                </strong>
+
+                <br>
+
+                並將截圖交給本人
+
+                <br>
+
+                即可兌換真正的禮物。
+
+            </div>
+
+
+            <div class="voucher-code">
+
+                FD2026-LEGENDARY
+
+            </div>
+
+
+            <div class="voucher-date">
+
+                Father's Day Special · 2026
+
+            </div>
+
 
         </div>
 
-
-        <div class="bundle-items">
-
-
-            <div class="bundle-item">
-
-                <div class="bundle-item-icon">
-
-                    🃏
-
-                </div>
-
-                <div class="bundle-item-name">
-
-                    父親節卡片
-
-                </div>
-
-            </div>
-
-
-            <div class="bundle-item">
-
-                <div class="bundle-item-icon">
-
-                    💵
-
-                </div>
-
-                <div class="bundle-item-name">
-
-                    現金禮物
-
-                </div>
-
-            </div>
-
-
-            <div class="bundle-item">
-
-                <div class="bundle-item-icon">
-
-                    🔫
-
-                </div>
-
-                <div class="bundle-item-name">
-
-                    CS2 造型
-
-                </div>
-
-            </div>
-
-
-        </div>
 
     </div>
 
@@ -1196,56 +1579,66 @@ body{
 
     </div>
 
+
+</div>
+
+
 </div>
 
 
 </div>
 
-</div>
 
 </main>
 
 
 <script>
 
-/* ==========================
+/* =========================================================
    Elements
-========================== */
+========================================================= */
 
 const welcomeSection =
     document.getElementById(
         "welcomeSection"
     );
 
+
 const previewSection =
     document.getElementById(
         "previewSection"
     );
+
 
 const openingSection =
     document.getElementById(
         "openingSection"
     );
 
+
 const legendarySection =
     document.getElementById(
         "legendarySection"
     );
+
 
 const rewardSection =
     document.getElementById(
         "rewardSection"
     );
 
+
 const previewBtn =
     document.getElementById(
         "previewBtn"
     );
 
+
 const openGiftBtn =
     document.getElementById(
         "openGiftBtn"
     );
+
 
 const openBundleBtn =
     document.getElementById(
@@ -1253,37 +1646,42 @@ const openBundleBtn =
     );
 
 
-/* ==========================
+/* =========================================================
    Preview
-========================== */
+========================================================= */
 
 previewBtn.addEventListener(
     "click",
     () => {
 
+
         welcomeSection
             .classList
             .add("hidden");
+
 
         previewSection
             .classList
             .remove("hidden");
 
+
     }
 );
 
 
-/* ==========================
+/* =========================================================
    Open Box
-========================== */
+========================================================= */
 
 openGiftBtn.addEventListener(
     "click",
     () => {
 
+
         previewSection
             .classList
             .add("hidden");
+
 
         openingSection
             .classList
@@ -1295,15 +1693,18 @@ openGiftBtn.addEventListener(
                 "openingGift"
             );
 
+
         const burst =
             document.getElementById(
                 "lightBurst"
             );
 
+
         const text =
             document.getElementById(
                 "openingText"
             );
+
 
         const subtext =
             document.getElementById(
@@ -1311,133 +1712,170 @@ openGiftBtn.addEventListener(
             );
 
 
-        /* ==========================
-           開始晃動
-        ========================== */
+        /* =================================================
+           Start shaking
+        ================================================= */
+
 
         gift.classList.add(
             "shake"
         );
 
 
-        /* ==========================
-           1.5 秒後發光
-        ========================== */
+        text.textContent =
+            "正在抽取獎勵...";
+
+
+        subtext.textContent =
+            "正在判定稀有度";
+
+
+        /* =================================================
+           Legendary charge
+        ================================================= */
+
 
         setTimeout(
             () => {
+
 
                 gift.classList.remove(
                     "shake"
                 );
 
+
                 gift.classList.add(
                     "glow"
                 );
+
 
                 burst.classList.add(
                     "active"
                 );
 
+
                 createSparks();
+
 
                 text.textContent =
                     "正在判定稀有度...";
 
+
                 subtext.textContent =
                     "✨ 結果即將揭曉";
+
 
             },
             1500
         );
 
 
-        /* ==========================
-           2.3 秒爆開
-        ========================== */
+        /* =================================================
+           Explosion
+        ================================================= */
+
 
         setTimeout(
             () => {
+
 
                 gift.classList.add(
                     "opened"
                 );
 
+
                 text.textContent =
                     "結果揭曉！";
+
+
+                subtext.textContent =
+                    "💎 稀有度確認完成";
+
 
             },
             2300
         );
 
 
-        /* ==========================
-           3.2 秒顯示傳說
-        ========================== */
+        /* =================================================
+           Legendary
+        ================================================= */
+
 
         setTimeout(
             () => {
+
 
                 openingSection
                     .classList
                     .add("hidden");
 
+
                 legendarySection
                     .classList
                     .remove("hidden");
+
 
             },
             3200
         );
 
+
     }
 );
 
 
-/* ==========================
+/* =========================================================
    Open Bundle
-========================== */
+========================================================= */
 
 openBundleBtn.addEventListener(
     "click",
     () => {
 
+
         legendarySection
             .classList
             .add("hidden");
+
 
         rewardSection
             .classList
             .remove("hidden");
 
+
     }
 );
 
 
-/* ==========================
-   Particles
-========================== */
+/* =========================================================
+   Particle System
+========================================================= */
 
 function createSparks(){
+
 
     const container =
         document.getElementById(
             "sparkContainer"
         );
 
+
     container.innerHTML = "";
 
 
     for(
         let i = 0;
-        i < 30;
+        i < 35;
         i++
     ){
+
 
         const spark =
             document.createElement(
                 "div"
             );
+
 
         spark.className =
             "spark";
@@ -1452,7 +1890,7 @@ function createSparks(){
         const distance =
             130 +
             Math.random() *
-            200;
+            220;
 
 
         const x =
@@ -1470,6 +1908,7 @@ function createSparks(){
             `${x}px`
         );
 
+
         spark.style.setProperty(
             "--y",
             `${y}px`
@@ -1484,19 +1923,23 @@ function createSparks(){
         setTimeout(
             () => {
 
+
                 spark.classList.add(
                     "active"
                 );
 
+
             },
             20
         );
+
 
     }
 
 }
 
 </script>
+
 
 </body>
 
