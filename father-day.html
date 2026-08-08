@@ -269,6 +269,311 @@ body{
 
 }
 
+/* ==========================
+   Father's Day Opening FX
+========================== */
+
+.opening-area{
+
+    position:relative;
+
+    min-height:420px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+.opening-gift{
+
+    position:relative;
+
+    z-index:3;
+
+}
+
+.opening-gift::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-30px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,215,80,.45),
+        rgba(255,215,80,0) 70%
+    );
+
+    opacity:0;
+
+    z-index:-1;
+
+}
+
+.opening-gift.glow::after{
+
+    animation:
+    giftGlow
+    1s
+    ease
+    forwards;
+
+}
+
+@keyframes giftGlow{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(.5);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.2);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:scale(1.5);
+
+    }
+
+}
+
+.opening-gift.shake{
+
+    animation:
+    giftShake
+    .12s
+    infinite alternate;
+
+}
+
+.opening-gift.opened{
+
+    animation:
+    giftOpen
+    .7s
+    ease
+    forwards;
+
+}
+
+@keyframes giftOpen{
+
+    0%{
+
+        transform:
+        scale(1)
+        rotate(0);
+
+    }
+
+    50%{
+
+        transform:
+        scale(1.25)
+        rotate(0);
+
+    }
+
+    100%{
+
+        transform:
+        scale(0)
+        rotate(15deg);
+
+        opacity:0;
+
+    }
+
+}
+
+.light-burst{
+
+    position:absolute;
+
+    width:30px;
+
+    height:30px;
+
+    border-radius:50%;
+
+    background:#fff4b0;
+
+    box-shadow:
+    0 0 30px #ffd75a,
+    0 0 80px #ffd75a,
+    0 0 140px #fff;
+
+    opacity:0;
+
+}
+
+.light-burst.active{
+
+    animation:
+    burst
+    1s
+    ease
+    forwards;
+
+}
+
+@keyframes burst{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(.2);
+
+    }
+
+    30%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:scale(12);
+
+    }
+
+}
+
+.spark{
+
+    position:absolute;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#ffd75a;
+
+    opacity:0;
+
+}
+
+.spark.active{
+
+    animation:
+    sparkFly
+    1.2s
+    ease
+    forwards;
+
+}
+
+@keyframes sparkFly{
+
+    0%{
+
+        opacity:1;
+
+        transform:
+        translate(0,0)
+        scale(1);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+        translate(
+            var(--x),
+            var(--y)
+        )
+        scale(.2);
+
+    }
+
+}
+
+.reveal-items{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.reveal-item{
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:1px solid
+    rgba(255,215,80,.2);
+
+    opacity:0;
+
+    transform:
+    translateY(30px)
+    scale(.8);
+
+}
+
+.reveal-item.show{
+
+    animation:
+    itemReveal
+    .6s
+    ease
+    forwards;
+
+}
+
+@keyframes itemReveal{
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
 
 /* ==========================
    Reveal
@@ -592,29 +897,89 @@ body{
      Opening
 ========================== -->
 
+<!-- ==========================
+     Opening Animation
+========================== -->
+
 <div
     id="openingSection"
     class="hidden">
 
-    <div
-        id="openingGift"
-        class="gift-box opening-box">
+    <div class="opening-area">
 
-        🎁
+        <div
+            id="openingGift"
+            class="gift-box opening-gift">
+
+            🎁
+
+        </div>
+
+        <div
+            id="lightBurst"
+            class="light-burst">
+
+        </div>
+
+        <div
+            id="sparkContainer">
+
+        </div>
+
+        <h2 id="openingText">
+
+            正在打開禮物...
+
+        </h2>
+
+        <p
+            id="openingSubtext"
+            class="father-subtitle">
+
+            好東西要慢慢揭曉 ✨
+
+        </p>
+
+        <div
+            id="revealItems"
+            class="reveal-items">
+
+            <div
+                class="reveal-item">
+
+                🃏
+
+                <br>
+
+                父親節卡片
+
+            </div>
+
+            <div
+                class="reveal-item">
+
+                💵
+
+                <br>
+
+                神秘禮物
+
+            </div>
+
+            <div
+                class="reveal-item">
+
+                🔫
+
+                <br>
+
+                CS2 禮物
+
+            </div>
+
+        </div>
 
     </div>
-
-    <h2>
-
-        正在打開禮物...
-
-    </h2>
-
-    <p class="father-subtitle">
-
-        等一下，驚喜馬上就來了 ✨
-
-    </p>
 
 </div>
 
@@ -809,29 +1174,218 @@ openGiftBtn.addEventListener(
             .classList
             .remove("hidden");
 
+        const gift =
+            document.getElementById(
+                "openingGift"
+            );
 
-        /*
-            目前先播放
-            禮物盒動畫
-        */
+        const burst =
+            document.getElementById(
+                "lightBurst"
+            );
 
-        setTimeout(
-            () => {
+        const text =
+            document.getElementById(
+                "openingText"
+            );
 
-                openingSection
-                    .classList
-                    .add("hidden");
+        const subtext =
+            document.getElementById(
+                "openingSubtext"
+            );
 
-                rewardSection
-                    .classList
-                    .remove("hidden");
+        const sparkContainer =
+            document.getElementById(
+                "sparkContainer"
+            );
 
-            },
-            3000
+        const revealItems =
+            document.querySelectorAll(
+                ".reveal-item"
+            );
+
+
+        /* ==========================
+           ① 禮物盒開始晃
+        ========================== */
+
+        gift.classList.add(
+            "shake"
         );
+
+
+        text.textContent =
+            "正在打開禮物...";
+
+        subtext.textContent =
+            "到底會出現什麼呢？";
+
+
+        /* ==========================
+           ② 1.5 秒後開始發光
+        ========================== */
+
+        setTimeout(() => {
+
+            gift.classList.remove(
+                "shake"
+            );
+
+            gift.classList.add(
+                "glow"
+            );
+
+            burst.classList.add(
+                "active"
+            );
+
+            createSparks();
+
+            text.textContent =
+                "✨ 禮物打開了！";
+
+            subtext.textContent =
+                "父親節限定驚喜！";
+
+        }, 1500);
+
+
+        /* ==========================
+           ③ 禮物盒消失
+        ========================== */
+
+        setTimeout(() => {
+
+            gift.classList.add(
+                "opened"
+            );
+
+        }, 2100);
+
+
+        /* ==========================
+           ④ 第一份禮物
+        ========================== */
+
+        setTimeout(() => {
+
+            revealItems[0]
+                .classList
+                .add("show");
+
+        }, 2700);
+
+
+        /* ==========================
+           ⑤ 第二份禮物
+        ========================== */
+
+        setTimeout(() => {
+
+            revealItems[1]
+                .classList
+                .add("show");
+
+        }, 3300);
+
+
+        /* ==========================
+           ⑥ 第三份禮物
+        ========================== */
+
+        setTimeout(() => {
+
+            revealItems[2]
+                .classList
+                .add("show");
+
+        }, 3900);
+
+
+        /* ==========================
+           ⑦ 最終祝福
+        ========================== */
+
+        setTimeout(() => {
+
+            openingSection
+                .classList
+                .add("hidden");
+
+            rewardSection
+                .classList
+                .remove("hidden");
+
+        }, 5000);
 
     }
 );
+
+function createSparks(){
+
+    const container =
+        document.getElementById(
+            "sparkContainer"
+        );
+
+    container.innerHTML = "";
+
+    for(
+        let i = 0;
+        i < 24;
+        i++
+    ){
+
+        const spark =
+            document.createElement(
+                "div"
+            );
+
+        spark.className =
+            "spark";
+
+        const angle =
+            Math.random() *
+            Math.PI *
+            2;
+
+        const distance =
+            120 +
+            Math.random() * 180;
+
+        const x =
+            Math.cos(angle) *
+            distance;
+
+        const y =
+            Math.sin(angle) *
+            distance;
+
+        spark.style.setProperty(
+            "--x",
+            `${x}px`
+        );
+
+        spark.style.setProperty(
+            "--y",
+            `${y}px`
+        );
+
+        container.appendChild(
+            spark
+        );
+
+        setTimeout(() => {
+
+            spark.classList.add(
+                "active"
+            );
+
+        }, 20);
+
+    }
+
+}
 
 </script>
 
