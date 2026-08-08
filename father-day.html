@@ -2167,6 +2167,20 @@ const openBundleBtn =
 
 
 /* =========================================================
+   Scroll To Top
+========================================================= */
+
+function scrollToTop(){
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================================
    Preview
 ========================================================= */
 
@@ -2183,6 +2197,8 @@ previewBtn.addEventListener(
         previewSection
             .classList
             .remove("hidden");
+
+        scrollToTop();
 
 
     }
@@ -2206,6 +2222,8 @@ openGiftBtn.addEventListener(
         openingSection
             .classList
             .remove("hidden");
+
+        scrollToTop();
 
 
         const gift =
@@ -2335,6 +2353,8 @@ openGiftBtn.addEventListener(
                     .classList
                     .remove("hidden");
 
+                scrollToTop();
+
 
             },
             3200
@@ -2362,6 +2382,8 @@ openBundleBtn.addEventListener(
         rewardSection
             .classList
             .remove("hidden");
+
+        scrollToTop();
 
 
     }
