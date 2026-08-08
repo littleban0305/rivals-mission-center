@@ -6,14 +6,14 @@
 <meta charset="UTF-8">
 
 <meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
 <title>父親節快樂 🎁</title>
 
 <link
-rel="stylesheet"
-href="css/style.css">
+    rel="stylesheet"
+    href="css/style.css">
 
 <style>
 
@@ -27,7 +27,7 @@ body{
 
 }
 
-.father-day{
+.father-page{
 
     min-height:80vh;
 
@@ -37,43 +37,43 @@ body{
 
     align-items:center;
 
-    padding:40px 20px;
+    padding:50px 20px;
 
 }
 
 .father-card{
 
-    width:700px;
+    width:720px;
 
     max-width:95%;
 
-    text-align:center;
-
     padding:50px 30px;
 
-    border-radius:25px;
+    text-align:center;
+
+    border-radius:28px;
 
     background:
     linear-gradient(
         145deg,
-        #241935,
-        #17121f
+        #26183a,
+        #17111f
     );
 
     border:1px solid
     rgba(255,255,255,.1);
 
     box-shadow:
-    0 20px 60px
-    rgba(0,0,0,.45);
+    0 20px 70px
+    rgba(0,0,0,.5);
 
 }
 
 .father-icon{
 
-    font-size:70px;
+    font-size:65px;
 
-    margin-bottom:15px;
+    margin-bottom:10px;
 
 }
 
@@ -87,19 +87,26 @@ body{
 
 .father-subtitle{
 
-    color:#cfcfcf;
+    color:#c8c8c8;
 
     font-size:18px;
+
+    line-height:1.8;
 
     margin-bottom:35px;
 
 }
 
+
+/* ==========================
+   Gift Box
+========================== */
+
 .gift-box{
 
-    width:220px;
+    width:230px;
 
-    height:220px;
+    height:230px;
 
     margin:30px auto;
 
@@ -109,47 +116,214 @@ body{
 
     align-items:center;
 
-    font-size:110px;
+    font-size:115px;
 
-    border-radius:25px;
+    border-radius:28px;
 
     background:
     linear-gradient(
         145deg,
-        #35204f,
+        #38204f,
         #21152f
     );
 
     border:2px solid
-    rgba(255,215,0,.35);
+    rgba(255,215,80,.35);
 
     box-shadow:
     0 0 35px
-    rgba(255,215,0,.12);
+    rgba(255,215,80,.12);
+
+    transition:
+    transform .3s,
+    box-shadow .3s;
 
 }
 
-.gift-title{
+.gift-box:hover{
 
-    font-size:24px;
+    transform:
+    translateY(-6px)
+    scale(1.03);
+
+    box-shadow:
+    0 0 50px
+    rgba(255,215,80,.25);
+
+}
+
+
+/* ==========================
+   Preview
+========================== */
+
+.preview-title{
+
+    font-size:28px;
 
     margin-top:25px;
 
 }
 
-.gift-desc{
+.preview-desc{
 
     color:#aaa;
 
-    margin:10px 0 25px;
+    line-height:1.8;
 
 }
 
+.reward-preview{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+
+    margin:30px 0;
+
+}
+
+.reward-card{
+
+    padding:20px 10px;
+
+    border-radius:16px;
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:1px solid
+    rgba(255,255,255,.08);
+
+}
+
+.reward-icon{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.reward-card h3{
+
+    margin:5px 0;
+
+}
+
+.reward-card p{
+
+    color:#aaa;
+
+    font-size:14px;
+
+}
+
+
+/* ==========================
+   Buttons
+========================== */
+
 .father-button{
 
-    padding:14px 35px;
+    padding:14px 38px;
 
     font-size:18px;
+
+}
+
+
+/* ==========================
+   Opening Animation
+========================== */
+
+.opening-box{
+
+    animation:
+    giftShake
+    .35s
+    infinite alternate;
+
+}
+
+@keyframes giftShake{
+
+    from{
+
+        transform:
+        rotate(-3deg)
+        scale(1);
+
+    }
+
+    to{
+
+        transform:
+        rotate(3deg)
+        scale(1.04);
+
+    }
+
+}
+
+
+/* ==========================
+   Reveal
+========================== */
+
+.reveal{
+
+    animation:
+    revealIn
+    .8s
+    ease;
+
+}
+
+@keyframes revealIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        scale(.6)
+        translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        scale(1)
+        translateY(0);
+
+    }
+
+}
+
+.reveal-title{
+
+    font-size:38px;
+
+    margin-bottom:20px;
+
+}
+
+.final-message{
+
+    font-size:20px;
+
+    line-height:2;
+
+    color:#ddd;
+
+    margin-top:25px;
 
 }
 
@@ -159,11 +333,41 @@ body{
 
 }
 
+
+/* ==========================
+   Mobile
+========================== */
+
+@media(max-width:600px){
+
+    .father-title{
+
+        font-size:32px;
+
+    }
+
+    .father-card{
+
+        padding:
+        40px 20px;
+
+    }
+
+    .reward-preview{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
 </style>
 
 </head>
 
+
 <body>
+
 
 <!-- ==========================
      Header
@@ -172,21 +376,24 @@ body{
 <div class="hero">
 
     <h1>
-        🎁 父親節特別活動
+        🎁 父親節特別禮物
     </h1>
 
 </div>
 
 
-<!-- ==========================
-     Main
-========================== -->
-
 <main>
 
-<div class="father-day">
+<div class="father-page">
 
 <div class="father-card">
+
+
+<!-- ==========================
+     Welcome
+========================== -->
+
+<div id="welcomeSection">
 
     <div class="father-icon">
 
@@ -208,155 +415,319 @@ body{
 
         今天，是你的節日。
 
+        <br><br>
+
+        有一份特別為你準備的禮物。
+
     </p>
 
 
-    <!-- ==========================
-         Gift
-    ========================== -->
+    <div class="gift-box">
 
-    <div
-        id="giftSection">
-
-        <div class="gift-box">
-
-            🎁
-
-        </div>
-
-        <h2 class="gift-title">
-
-            父親節限定禮物
-
-        </h2>
-
-        <p class="gift-desc">
-
-            有一份特別為你準備的禮物。
-
-            <br>
-
-            準備好就打開它吧。
-
-        </p>
-
-        <button
-            id="previewBtn"
-            class="btn father-button">
-
-            查看禮物 🎁
-
-        </button>
+        🎁
 
     </div>
 
 
-    <!-- ==========================
-         Preview
-    ========================== -->
+    <h2>
 
-    <div
-        id="previewSection"
-        class="hidden">
+        父親節限定禮物
 
-        <div class="gift-box">
+    </h2>
 
-            🎁
+    <p class="father-subtitle">
 
-        </div>
+        準備好，就來看看裡面有什麼吧。
 
-        <h2>
+    </p>
 
-            父親節限定禮物箱
 
-        </h2>
+    <button
+        id="previewBtn"
+        class="btn father-button">
 
-        <p>
+        查看禮物 🎁
 
-            這份禮物只屬於今天。
+    </button>
 
-        </p>
+</div>
 
-        <br>
 
-        <p>
+<!-- ==========================
+     Preview
+========================== -->
 
-            ✨ 可能獲得
+<div
+    id="previewSection"
+    class="hidden">
 
-        </p>
+    <div class="gift-box">
 
-        <p>
-
-            💰 888 Gold
-
-        </p>
-
-        <p>
-
-            🎁 特別禮物
-
-        </p>
-
-        <p>
-
-            💌 神秘驚喜
-
-        </p>
-
-        <br>
-
-        <button
-            id="openGiftBtn"
-            class="btn father-button">
-
-            開啟禮物 ✨
-
-        </button>
+        🎁
 
     </div>
 
 
-    <!-- ==========================
-         Reward
-    ========================== -->
+    <h1 class="preview-title">
 
-    <div
-        id="rewardSection"
-        class="hidden">
+        父親節限定禮物
 
-        <div class="gift-box">
+    </h1>
 
-            ✨🎁✨
 
-        </div>
+    <p class="preview-desc">
 
-        <h1>
-
-            🎉 恭喜！
-
-        </h1>
-
-        <h2>
-
-            你獲得了父親節限定禮物！
-
-        </h2>
-
-        <p>
-
-            💰 888 Gold
-
-        </p>
+        這次沒有什麼任務。
 
         <br>
 
-        <p>
+        只有一份我想親手送給你的禮物。
 
-            謝謝你一直以來的陪伴。
+    </p>
 
-        </p>
+
+    <div class="reward-preview">
+
+
+        <!-- 卡片 -->
+
+        <div class="reward-card">
+
+            <div class="reward-icon">
+
+                🃏
+
+            </div>
+
+            <h3>
+
+                父親節卡片
+
+            </h3>
+
+            <p>
+
+                一份專門寫給你的卡片
+
+            </p>
+
+        </div>
+
+
+        <!-- 現金 -->
+
+        <div class="reward-card">
+
+            <div class="reward-icon">
+
+                💵
+
+            </div>
+
+            <h3>
+
+                神秘禮物
+
+            </h3>
+
+            <p>
+
+                禮物盒裡的驚喜
+
+            </p>
+
+        </div>
+
+
+        <!-- CS -->
+
+        <div class="reward-card">
+
+            <div class="reward-icon">
+
+                🔫
+
+            </div>
+
+            <h3>
+
+                CS2 禮物
+
+            </h3>
+
+            <p>
+
+                一份你可以收藏的造型
+
+            </p>
+
+        </div>
+
 
     </div>
+
+
+    <p class="preview-desc">
+
+        三份禮物，都已經準備好了。
+
+    </p>
+
+
+    <br>
+
+
+    <button
+        id="openGiftBtn"
+        class="btn father-button">
+
+        🎁 開始拆禮物
+
+    </button>
+
+</div>
+
+
+<!-- ==========================
+     Opening
+========================== -->
+
+<div
+    id="openingSection"
+    class="hidden">
+
+    <div
+        id="openingGift"
+        class="gift-box opening-box">
+
+        🎁
+
+    </div>
+
+    <h2>
+
+        正在打開禮物...
+
+    </h2>
+
+    <p class="father-subtitle">
+
+        等一下，驚喜馬上就來了 ✨
+
+    </p>
+
+</div>
+
+
+<!-- ==========================
+     Final Reward
+========================== -->
+
+<div
+    id="rewardSection"
+    class="hidden reveal">
+
+    <div class="father-icon">
+
+        🎉
+
+    </div>
+
+
+    <h1 class="reveal-title">
+
+        父親節快樂！
+
+    </h1>
+
+
+    <div class="reward-preview">
+
+
+        <div class="reward-card">
+
+            <div class="reward-icon">
+
+                🃏
+
+            </div>
+
+            <h3>
+
+                父親節卡片
+
+            </h3>
+
+            <p>
+
+                這份卡片，是我想親手給你的。
+
+            </p>
+
+        </div>
+
+
+        <div class="reward-card">
+
+            <div class="reward-icon">
+
+                💵
+
+            </div>
+
+            <h3>
+
+                現金禮物
+
+            </h3>
+
+            <p>
+
+                這份驚喜，等一下親手交給你。
+
+            </p>
+
+        </div>
+
+
+        <div class="reward-card">
+
+            <div class="reward-icon">
+
+                🔫
+
+            </div>
+
+            <h3>
+
+                CS2 造型
+
+            </h3>
+
+            <p>
+
+                你的父親節限定收藏。
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="final-message">
+
+        謝謝你一直以來的陪伴。
+
+        <br>
+
+        爸爸，父親節快樂 ❤️
+
+    </div>
+
+</div>
+
 
 </div>
 
@@ -366,6 +737,30 @@ body{
 
 
 <script>
+
+/* ==========================
+   Elements
+========================== */
+
+const welcomeSection =
+    document.getElementById(
+        "welcomeSection"
+    );
+
+const previewSection =
+    document.getElementById(
+        "previewSection"
+    );
+
+const openingSection =
+    document.getElementById(
+        "openingSection"
+    );
+
+const rewardSection =
+    document.getElementById(
+        "rewardSection"
+    );
 
 const previewBtn =
     document.getElementById(
@@ -377,44 +772,29 @@ const openGiftBtn =
         "openGiftBtn"
     );
 
-const giftSection =
-    document.getElementById(
-        "giftSection"
-    );
-
-const previewSection =
-    document.getElementById(
-        "previewSection"
-    );
-
-const rewardSection =
-    document.getElementById(
-        "rewardSection"
-    );
-
 
 /* ==========================
-   查看禮物
+   Preview
 ========================== */
 
 previewBtn.addEventListener(
     "click",
     () => {
 
-        giftSection
-        .classList
-        .add("hidden");
+        welcomeSection
+            .classList
+            .add("hidden");
 
         previewSection
-        .classList
-        .remove("hidden");
+            .classList
+            .remove("hidden");
 
     }
 );
 
 
 /* ==========================
-   開啟禮物
+   Open Gift
 ========================== */
 
 openGiftBtn.addEventListener(
@@ -422,17 +802,39 @@ openGiftBtn.addEventListener(
     () => {
 
         previewSection
-        .classList
-        .add("hidden");
+            .classList
+            .add("hidden");
 
-        rewardSection
-        .classList
-        .remove("hidden");
+        openingSection
+            .classList
+            .remove("hidden");
+
+
+        /*
+            目前先播放
+            禮物盒動畫
+        */
+
+        setTimeout(
+            () => {
+
+                openingSection
+                    .classList
+                    .add("hidden");
+
+                rewardSection
+                    .classList
+                    .remove("hidden");
+
+            },
+            3000
+        );
 
     }
 );
 
 </script>
+
 
 </body>
 
